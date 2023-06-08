@@ -1,0 +1,10 @@
+6th June 2023
+prop-types    --------------------- Emeka
+npm i axios   --------------------- Emeka
+npm install @reduxjs/toolkit  --------------------- Emeka
+npm install react-redux  --------------------- Emeka
+npm install --save-dev react-test-renderer --------------------- Emeka
+Babelrc Linters     --------------------- Emeka
+Eslint Linters       --------------------- Emeka
+Stylelintrc Linters    --------------------- Emeka
+6th June 2023
