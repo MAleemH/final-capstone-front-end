@@ -48,9 +48,9 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Final Capstone Front End <a name="hello-rails-back-end"></a>
+## Final Capstone Back End <a name="final-capstone-back-end"></a>
 
-- [ RAILS BACK END link](https://github.com/MAleemH/final-capstone-back-end) 
+- [ FINAL CAPSTONE BACK END link](https://github.com/MAleemH/final-capstone-back-end) 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -118,6 +118,31 @@ To run the project, execute the following command:
 - GitHub: [EmekaEmmanuel](https://github.com/EmekaEmmanuel)
 - Twitter: [@emekaekeoha](https://twitter.com/emekaekeoha)
 - LinkedIn: [emeka-ugboaja](https://www.linkedin.com/in/emeka-ugboaja-167820226) 
+
+👤 **Muhammad Aleem**
+
+- GitHub: [@MAleemH](https://github.com/MAleemH)
+- Twitter: [@MAleemHashmi1](https://twitter.com/MAleemHashmi1)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/muhammad-aleem-hashmi/) 
+
+👤 **Fitz Gerald**
+
+- GitHub: [@githubhandle](https://github.com/fitz95/)
+- Twitter: [@twitterhandke](https://twitter.com/nsonggerald/)
+- linkedIn: [@linkedinhandle](https://www.linkedin.com/in/nsong-asoh/)
+
+👤 **Choice Osobor**
+
+- GitHub: [@techemprez](https://github.com/techemprez)
+- Twitter: [@techemprez](https://twitter.com/techemprez)
+- LinkedIn: [Choice Osobor](https://www.linkedin.com/in/choice-osobor/)
+
+
+👤 **Zewdu Erkyhun**
+
+- GitHub: [@zewdu444](https://github.com/zewdu444)
+- Twitter: [@zewdu444](https://twitter.com/zewdu444)
+- LinkedIn: [zewdu-anley](https://www.linkedin.com/in/zewdu-anley/)
 
 ## 🔭 Future Features <a name="future-features"></a> 
 - **[Add more components and features...]** 

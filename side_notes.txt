@@ -3,6 +3,7 @@ prop-types    --------------------- Emeka
 npm i axios   --------------------- Emeka
 npm install @reduxjs/toolkit  --------------------- Emeka
 npm install react-redux  --------------------- Emeka
+npm i react-router-dom --------------------- Emeka
 npm install --save-dev react-test-renderer --------------------- Emeka
 Babelrc Linters     --------------------- Emeka
 Eslint Linters       --------------------- Emeka
