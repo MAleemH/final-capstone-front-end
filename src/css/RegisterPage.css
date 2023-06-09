@@ -173,3 +173,8 @@
   display: flex;
   gap: 15px;
 }
+
+.password_display {
+  border: none;
+  background-color: transparent;
+}

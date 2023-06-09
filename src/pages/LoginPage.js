@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/LoginPage.css';
 import backImg from '../img/back.png';
@@ -7,6 +7,8 @@ import fadingBreak from '../img/fading_break.png';
 import logoImg from '../img/logo.png';
 
 function LoginPage() {
+  const [passwordType, setPasswordType] = useState('password');
+
   return (
     <div className="login_body">
 
@@ -43,10 +45,23 @@ function LoginPage() {
           <fieldset className="fieldset_border_none">
             <input className="input_name" type="text" placeholder="Username" required />
             <div className="password_box">
-              <input className="input_password" type="password" placeholder="Password" required />
-              <figure className="eyebox">
-                <img src={eyeImg} alt="" />
-              </figure>
+              <input className="input_password" type={passwordType} placeholder="Password" required />
+              {passwordType === 'password'
+                ? (
+                  <figure className="eyebox">
+                    <button className="password_display" type="button" onClick={() => setPasswordType('text')}>
+                      <img src={eyeImg} alt="" />
+                    </button>
+                  </figure>
+                )
+                : (
+                  <figure className="eyebox">
+                    <button className="password_display" type="button" onClick={() => setPasswordType('password')}>
+                      <img src={eyeImg} alt="" />
+                    </button>
+                  </figure>
+                )}
+
             </div>
           </fieldset>
 

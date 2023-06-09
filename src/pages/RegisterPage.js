@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/RegisterPage.css';
 import backImg from '../img/back.png';
@@ -7,6 +7,9 @@ import fadingBreak from '../img/fading_break.png';
 import logoImg from '../img/logo.png';
 
 function RegisterPage() {
+  const [passwordType1, setPasswordType1] = useState('password');
+  const [passwordType2, setPasswordType2] = useState('password');
+
   return (
     <div className="register_body">
 
@@ -46,18 +49,43 @@ function RegisterPage() {
             <input className="input_name" type="email" placeholder="Email" required />
 
             <div className="password_box">
-              <input className="input_password" type="password" placeholder="Password" required />
-              <figure className="eyebox">
-                <img src={eyeImg} alt="" />
-              </figure>
+              <input className="input_password" type={passwordType1} placeholder="Password" required />
+              {passwordType1 === 'password'
+                ? (
+                  <figure className="eyebox">
+                    <button className="password_display" type="button" onClick={() => setPasswordType1('text')}>
+                      <img src={eyeImg} alt="" />
+                    </button>
+                  </figure>
+                )
+                : (
+                  <figure className="eyebox">
+                    <button className="password_display" type="button" onClick={() => setPasswordType1('password')}>
+                      <img src={eyeImg} alt="" />
+                    </button>
+                  </figure>
+                )}
             </div>
 
             <div className="password_box">
-              <input className="input_password" type="password" placeholder="Re-enter Password" required />
-              <figure className="eyebox">
-                <img src={eyeImg} alt="" />
-              </figure>
+              <input className="input_password" type={passwordType2} placeholder="Re-enter Password" required />
+              {passwordType2 === 'password'
+                ? (
+                  <figure className="eyebox">
+                    <button className="password_display" type="button" onClick={() => setPasswordType2('text')}>
+                      <img src={eyeImg} alt="" />
+                    </button>
+                  </figure>
+                )
+                : (
+                  <figure className="eyebox">
+                    <button className="password_display" type="button" onClick={() => setPasswordType2('password')}>
+                      <img src={eyeImg} alt="" />
+                    </button>
+                  </figure>
+                )}
             </div>
+
           </fieldset>
 
           <fieldset className="fieldset_border_none register_action">
