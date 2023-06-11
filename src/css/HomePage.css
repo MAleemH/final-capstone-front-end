@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.2px;
+}
+
+.list_style_none {
+  list-style: none;
+}
+
+.td_none {
+  text-decoration: none;
+}
+
+.home_page_main {
+  display: flex;
+  justify-content: center;
+  /* gap: 10px; */
+}
+
+.home_page_nav {
+  width: 25%;
+  margin: auto;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.home_page_content {
+  width: 75%;
+  margin: auto;
+}
+
+.home_page_content header {
+  text-align: center;
+}
+
+.home_grids {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.home_grids_box {
+  text-align: center;
+}
+
+.therapy_figure img {
+  width: 25%;
+}
