@@ -16,7 +16,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/newtherapist" element={<NewTherapistPage />} />
-          <Route path="*" element={<Navigation />} />
+          <Route path="/navigation" element={<Navigation />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
