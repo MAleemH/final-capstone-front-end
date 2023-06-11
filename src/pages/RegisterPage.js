@@ -37,7 +37,7 @@ function RegisterPage() {
           <p> &nbsp; Register with &nbsp; </p>
           <figure>
             {' '}
-            <img src={fadingBreak} alt="" />
+            <img className="rotate_breakline" src={fadingBreak} alt="" />
             {' '}
           </figure>
         </div>

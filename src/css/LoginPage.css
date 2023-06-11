@@ -178,3 +178,7 @@
   border: none;
   background-color: transparent;
 }
+
+.rotate_breakline {
+  transform: rotate(180deg);
+}

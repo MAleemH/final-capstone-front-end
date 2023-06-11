@@ -18,11 +18,11 @@
   border: none;
 }
 
-.register_body {
+.new_therapist_body {
   background-color: #d9e1f6;
 }
 
-.register_header {
+.new_therapist_header {
   width: 90%;
   margin: auto;
   padding: 10px 0;
@@ -33,11 +33,11 @@
   background: transparent;
 }
 
-.register_header img {
+.new_therapist_header img {
   height: 30px;
 }
 
-.register_main {
+.new_therapist_main {
   width: 40%;
   margin: auto;
 }
@@ -52,7 +52,7 @@
   width: 30px;
 }
 
-.register_main .logo_fig img {
+.new_therapist_main .logo_fig img {
   height: 100px;
   margin: auto;
 }
@@ -64,7 +64,7 @@
   text-align: center;
 }
 
-.register_form {
+.new_therapist_form {
   padding: 20px 0;
   align-items: center;
   display: flex;
@@ -73,14 +73,14 @@
   gap: 15px;
 }
 
-.register_form fieldset {
+.new_therapist_form fieldset {
   display: flex;
   flex-direction: column;
   gap: 15px;
   width: 100%;
 }
 
-.register_form .input_name {
+.new_therapist_form .input_name {
   width: 100%;
   color: #172b4d;
   font-size: 15px;
@@ -100,7 +100,7 @@
   padding-right: 5px;
 }
 
-.register_form .input_password {
+.new_therapist_form .input_password {
   width: 100%;
   color: #172b4d;
   font-size: 15px;
@@ -110,7 +110,7 @@
   border-radius: 10px;
 }
 
-.register_form input::placeholder {
+.new_therapist_form input::placeholder {
   color: #172b4d;
   font-size: 17px;
   font-weight: 400;
@@ -118,17 +118,17 @@
   transition: 3s;
 }
 
-.register_form input:hover::placeholder {
+.new_therapist_form input:hover::placeholder {
   transform: translate(10px, 0);
   color: #172b4d50;
 }
 
-.register_action {
+.new_therapist_action {
   width: 20%;
   margin: auto;
 }
 
-.register_action button {
+.new_therapist_action button {
   padding: 10px 8px;
   border-radius: 10px;
   background-color: #ff9186;
@@ -136,22 +136,22 @@
   color: #172b4d;
 }
 
-.register_main .register_main_div {
+.new_therapist_main .new_therapist_main_div {
   display: flex;
   justify-content: end;
   gap: 20px;
   align-items: center;
 }
 
-.register_footer ul a {
+.new_therapist_footer ul a {
   color: #172b4d;
 }
 
-.register_main .register_main_div a {
+.new_therapist_main .new_therapist_main_div a {
   color: #172b4d;
 }
 
-.register_main .register_main_div button {
+.new_therapist_main .new_therapist_main_div button {
   color: #172b4d;
   padding: 10px 8px;
   border-radius: 10px;
@@ -159,7 +159,7 @@
   border: 1px solid #d9e1f6;
 }
 
-.register_footer {
+.new_therapist_footer {
   width: 90%;
   margin: auto;
   position: sticky;
@@ -169,7 +169,7 @@
   padding: 10px 0;
 }
 
-.register_footer ul {
+.new_therapist_footer ul {
   display: flex;
   gap: 15px;
 }

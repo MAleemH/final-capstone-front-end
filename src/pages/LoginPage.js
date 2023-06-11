@@ -36,7 +36,7 @@ function LoginPage() {
           <p>&nbsp; Login with &nbsp; </p>
           <figure>
             {' '}
-            <img src={fadingBreak} alt="" />
+            <img className="rotate_breakline" src={fadingBreak} alt="" />
             {' '}
           </figure>
         </div>
