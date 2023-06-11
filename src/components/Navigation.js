@@ -20,7 +20,7 @@ function Navigation() {
         <nav className="list_style_none home_nav">
           <li>
             {' '}
-            <NavLink to="/" activeClassName="active" className="td_none">MODELS</NavLink>
+            <NavLink to="/navigation" activeClassName="active" className="td_none">MODELS</NavLink>
           </li>
           <li>
             {' '}

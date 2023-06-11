@@ -61,12 +61,12 @@
 }
 
 .home_nav li {
-  padding: 7.5px 0;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
 }
 
 .home_nav li a {
+  padding: 7.5px 0;
   color: #172b4d;
   font-weight: 500;
 }
