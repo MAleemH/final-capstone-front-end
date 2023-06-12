@@ -62,7 +62,7 @@
 .home_grids_box article {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 7.5px;
   text-align: center;
   padding: 10px;
   background-color: #d9e1f6;
