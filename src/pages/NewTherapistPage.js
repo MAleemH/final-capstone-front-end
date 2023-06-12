@@ -40,13 +40,19 @@ function NewTherapistPage() {
 
         <form action="" className="new_therapist_form">
           <fieldset className="fieldset_border_none">
-            <input className="input_name" type="text" placeholder="Name" required />
+            <input className="input_name" type="text" placeholder="Name" aria-label="Input Name" required />
 
-            <input className="input_name" type="text" placeholder="Address (State and City)" required />
+            <input className="input_name" type="text" placeholder="Address (State and City)" aria-label="Input Address" required />
 
-            <input className="input_name" type="phone" placeholder="Phone" required />
+            <input className="input_name" type="phone" placeholder="Phone" aria-label="Input Phone" required />
 
-            <input className="input_name" type="email" placeholder="Email" required />
+            <input className="input_name" type="email" placeholder="Email" aria-label="Input Email" required />
+
+            <select aria-label="Input Label" className="input_name" id="specializationId">
+              <option aria-label="Input Specialization" value="">Select Specialization</option>
+              <option value="option2" aria-label="Input Specialization">Option 1</option>
+              <option value="option3" aria-label="Input Specialization">Option 2</option>
+            </select>
 
           </fieldset>
 

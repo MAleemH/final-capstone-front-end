@@ -44,12 +44,12 @@ function RegisterPage() {
 
         <form action="" className="register_form">
           <fieldset className="fieldset_border_none">
-            <input className="input_name" type="text" placeholder="Username" required />
+            <input className="input_name" type="text" placeholder="Username" aria-label="Input Username" required />
 
-            <input className="input_name" type="email" placeholder="Email" required />
+            <input className="input_name" type="email" placeholder="Email" aria-label="Input Email" required />
 
             <div className="password_box">
-              <input className="input_password" type={passwordType1} placeholder="Password" required />
+              <input className="input_password" type={passwordType1} placeholder="Password" aria-label="Input Password" required />
               {passwordType1 === 'password'
                 ? (
                   <figure className="eyebox">
@@ -68,7 +68,7 @@ function RegisterPage() {
             </div>
 
             <div className="password_box">
-              <input className="input_password" type={passwordType2} placeholder="Re-enter Password" required />
+              <input className="input_password" type={passwordType2} placeholder="Re-enter Password" aria-label="Input Password" required />
               {passwordType2 === 'password'
                 ? (
                   <figure className="eyebox">

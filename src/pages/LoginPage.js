@@ -43,9 +43,9 @@ function LoginPage() {
 
         <form action="" className="login_form">
           <fieldset className="fieldset_border_none">
-            <input className="input_name" type="text" placeholder="Username" required />
+            <input className="input_name" type="text" placeholder="Username" aria-label="Input Username" required />
             <div className="password_box">
-              <input className="input_password" type={passwordType} placeholder="Password" required />
+              <input className="input_password" type={passwordType} placeholder="Password" aria-label="Input Password" required />
               {passwordType === 'password'
                 ? (
                   <figure className="eyebox">
