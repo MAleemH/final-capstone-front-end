@@ -6,6 +6,7 @@ import SplashPage from './pages/SplashPage';
 import NotFoundPage from './pages/NotFoundPage';
 import NewTherapistPage from './pages/NewTherapistPage';
 import HomePage from './pages/HomePage';
+import TherapistDetailsPage from './pages/TherapistDetailsPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/newtherapist" element={<NewTherapistPage />} />
           <Route path="/homepage" element={<HomePage />} />
+          <Route path="/therapistdetails" element={<TherapistDetailsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>

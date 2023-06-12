@@ -100,7 +100,7 @@
 }
 
 .active {
-  background-color: #452b52;
+  color: red;
 }
 
 .logout_btn {
