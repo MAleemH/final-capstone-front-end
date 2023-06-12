@@ -3,7 +3,5 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createAppointment } from '../../redux/appointment/appointment';
 
 const BookAppointment = () => {
-
-
-
-    
+    const dispatch = useDispatch();
+    const doctordata = useSelector((state) => state.doctorReducer);
