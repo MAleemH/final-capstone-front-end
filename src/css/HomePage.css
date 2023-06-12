@@ -16,37 +16,66 @@
 
 .home_page_main {
   display: flex;
-  justify-content: center;
-  /* gap: 10px; */
+  justify-content: space-between;
+  gap: 5px;
+  align-items: start;
 }
 
 .home_page_nav {
-  width: 25%;
+  width: 20%;
   margin: auto;
   height: 100vh;
   position: sticky;
   top: 0;
+  bottom: 0;
 }
 
 .home_page_content {
-  width: 75%;
+  padding: 15px 0;
+  width: 80%;
   margin: auto;
 }
 
 .home_page_content header {
+  padding: 10px 0 20px 0;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .home_grids {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  gap: 10px;
 }
 
-.home_grids_box {
+.home_grids_box article {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   text-align: center;
 }
 
+.therapy_figure {
+  width: 100%;
+  border-radius: 10px;
+}
+
 .therapy_figure img {
-  width: 25%;
+  width: 35%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.home_page_socials {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.home_page_socials img {
+  width: 20px;
+  object-fit: cover;
+  object-position: center;
 }

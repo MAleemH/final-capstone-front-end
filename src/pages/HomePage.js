@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import '../css/HomePage.css';
 import therapistImg from '../img/therapist.jpg';
+import facebookImg from '../img/facebook.png';
+import twitterImg from '../img/twitter.png';
+import linkedinImg from '../img/linkedin.png';
 
 function HomePage() {
   return (
@@ -13,7 +16,7 @@ function HomePage() {
 
       <section className="home_page_content">
         <header>
-          <h1>Starred Therapist</h1>
+          <h1>Starred Therapists</h1>
 
           <p>Please select a therapist</p>
         </header>
@@ -30,16 +33,29 @@ function HomePage() {
 
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, id.</p>
 
-                <figure>
-                  <img src="./img/facebook.png" alt="" />
-                  <img src="./img/twitter.png" alt="" />
-                  <img src="./img/linkedin.png" alt="" />
-                </figure>
+                <div className="home_page_socials">
+                  <figure className="home_page_social_icons">
+                    <Link to="/" className="td_none">
+                      <img src={facebookImg} alt="" />
+                    </Link>
+                  </figure>
+
+                  <figure className="home_page_social_icons">
+                    <Link to="/" className="td_none">
+                      <img src={twitterImg} alt="" />
+                    </Link>
+                  </figure>
+
+                  <figure className="home_page_social_icons">
+                    <Link to="/" className="td_none">
+                      <img src={linkedinImg} alt="" />
+                    </Link>
+                  </figure>
+                </div>
 
               </article>
             </Link>
           </div>
-
           <div className="home_grids_box">
             <Link className="td_none" to="/register">
               <article>
@@ -51,16 +67,29 @@ function HomePage() {
 
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, id.</p>
 
-                <figure>
-                  <img src="./img/facebook.png" alt="" />
-                  <img src="./img/twitter.png" alt="" />
-                  <img src="./img/linkedin.png" alt="" />
-                </figure>
+                <div className="home_page_socials">
+                  <figure className="home_page_social_icons">
+                    <Link to="/" className="td_none">
+                      <img src={facebookImg} alt="" />
+                    </Link>
+                  </figure>
+
+                  <figure className="home_page_social_icons">
+                    <Link to="/" className="td_none">
+                      <img src={twitterImg} alt="" />
+                    </Link>
+                  </figure>
+
+                  <figure className="home_page_social_icons">
+                    <Link to="/" className="td_none">
+                      <img src={linkedinImg} alt="" />
+                    </Link>
+                  </figure>
+                </div>
 
               </article>
             </Link>
           </div>
-
           <div className="home_grids_box">
             <Link className="td_none" to="/register">
               <article>
@@ -72,11 +101,25 @@ function HomePage() {
 
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, id.</p>
 
-                <figure>
-                  <img src="./img/facebook.png" alt="" />
-                  <img src="./img/twitter.png" alt="" />
-                  <img src="./img/linkedin.png" alt="" />
-                </figure>
+                <div className="home_page_socials">
+                  <figure className="home_page_social_icons">
+                    <Link to="/" className="td_none">
+                      <img src={facebookImg} alt="" />
+                    </Link>
+                  </figure>
+
+                  <figure className="home_page_social_icons">
+                    <Link to="/" className="td_none">
+                      <img src={twitterImg} alt="" />
+                    </Link>
+                  </figure>
+
+                  <figure className="home_page_social_icons">
+                    <Link to="/" className="td_none">
+                      <img src={linkedinImg} alt="" />
+                    </Link>
+                  </figure>
+                </div>
 
               </article>
             </Link>
@@ -85,6 +128,7 @@ function HomePage() {
         </div>
 
       </section>
+
     </main>
   );
 }

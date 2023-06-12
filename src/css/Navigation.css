@@ -49,6 +49,8 @@
 
 .home_logo img {
   height: 50px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .nav_social_icons figure {
@@ -57,7 +59,9 @@
 }
 
 .nav_social_icons img {
-  height: 25px;
+  height: 20px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .home_nav li {
