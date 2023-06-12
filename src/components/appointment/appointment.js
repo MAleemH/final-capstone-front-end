@@ -16,4 +16,12 @@ const BookAppointment = () => {
     const [message, setMessage] = useState();
     const [error, setError] = useState();
     const [success, setSuccess] = useState();
-    
+
+    const handleSubmit = (e) => {
+
+
+
+
+
+
+
