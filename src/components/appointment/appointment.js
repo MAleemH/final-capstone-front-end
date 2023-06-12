@@ -17,11 +17,19 @@ const BookAppointment = () => {
     const [error, setError] = useState();
     const [success, setSuccess] = useState();
 
-    const handleSubmit = (e) => {
-
-
-
-
-
-
-
+    const newAppointment = (e) => {
+        e.preventDefault();
+        if (date === '') return;
+        const newUser = {
+        disease,
+        city,
+        date,
+        time,
+        doctorID,
+        };
+        dispatch(createAppointment(userID, newUser));
+        setDisease('');
+        setCity('');
+        setDate('');
+        setTime('');
+      };
