@@ -20,19 +20,15 @@ function Navigation() {
         <nav className="list_style_none home_nav">
           <li>
             {' '}
-            <NavLink to="/navigation" activeClassName="active" className="td_none">MODELS</NavLink>
+            <NavLink to="/navigation" activeClassName="active" className="td_none">HOME</NavLink>
           </li>
           <li>
             {' '}
-            <NavLink to="/" activeClassName="active" className="td_none">LIFESTYLE</NavLink>
+            <NavLink to="/" activeClassName="active" className="td_none">APPOINTMENTS</NavLink>
           </li>
           <li>
             {' '}
-            <NavLink to="/" activeClassName="active" className="td_none">SHOP</NavLink>
-          </li>
-          <li>
-            {' '}
-            <NavLink to="/" activeClassName="active" className="td_none">TEST DRIVE</NavLink>
+            <NavLink to="/" activeClassName="active" className="td_none">NEW APPOINTMENT</NavLink>
           </li>
           <li>
             {' '}
@@ -40,43 +36,10 @@ function Navigation() {
           </li>
           <li>
             {' '}
-            <NavLink to="/" activeClassName="active" className="td_none">MODELS</NavLink>
+            <NavLink to="/" activeClassName="active" className="td_none">DELETE THERAPIST</NavLink>
           </li>
           <li>
-            {' '}
-            <NavLink to="/" activeClassName="active" className="td_none">LIFESTYLE</NavLink>
-          </li>
-          <li>
-            {' '}
-            <NavLink to="/" activeClassName="active" className="td_none">SHOP</NavLink>
-          </li>
-          <li>
-            {' '}
-            <NavLink to="/" activeClassName="active" className="td_none">TEST DRIVE</NavLink>
-          </li>
-          <li>
-            {' '}
-            <NavLink to="/" activeClassName="active" className="td_none">NEW THERAPIST</NavLink>
-          </li>
-          <li>
-            {' '}
-            <NavLink to="/" activeClassName="active" className="td_none">MODELS</NavLink>
-          </li>
-          <li>
-            {' '}
-            <NavLink to="/" activeClassName="active" className="td_none">LIFESTYLE</NavLink>
-          </li>
-          <li>
-            {' '}
-            <NavLink to="/" activeClassName="active" className="td_none">SHOP</NavLink>
-          </li>
-          <li>
-            {' '}
-            <NavLink to="/" activeClassName="active" className="td_none">TEST DRIVE</NavLink>
-          </li>
-          <li>
-            {' '}
-            <NavLink to="/" activeClassName="active" className="td_none">NEW THERAPIST</NavLink>
+            <button className="logout_btn" type="button">LOGOUT</button>
           </li>
         </nav>
 

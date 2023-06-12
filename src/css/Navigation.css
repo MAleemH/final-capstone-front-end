@@ -83,7 +83,7 @@
   display: flex;
   gap: 20px;
   justify-content: center;
-  padding: 10px 0 20px 0;
+  padding: 80px 0 20px 0;
   position: sticky;
   bottom: 0;
   left: 0;
@@ -93,4 +93,17 @@
 
 .active {
   background-color: #452b52;
+}
+
+.logout_btn {
+  border: none;
+  padding: 7.5px 0;
+  font-weight: 500;
+  font-size: 16px;
+  color: #172b4d;
+  background-color: #d9e1f6;
+}
+
+.logout_btn:hover {
+  background-color: white;
 }
