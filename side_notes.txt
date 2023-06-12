@@ -9,3 +9,20 @@ Babelrc Linters     --------------------- Emeka
 Eslint Linters       --------------------- Emeka
 Stylelintrc Linters    --------------------- Emeka
 6th June 2023
+
+
+
+
+
+Navigation same as microverse
+Hover efeect should start from the end
+Hover effect on individual card by size with animation
+Hover effect on individual link with animation
+Color of brand name should be same as brand color
+
+Specialization will be a drop down
+image will be a file
+
+Create a new appointment; form includes
+- Appointment date as time stamp,
+- therapists drop down and id

@@ -17,6 +17,7 @@
 .home_nav_section {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 20px;
   text-align: center;
   width: 100%;
@@ -40,6 +41,11 @@
   right: 0;
   overflow-y: scroll;
   height: 60vh;
+  text-align: left;
+}
+
+.home_nav::-webkit-scrollbar {
+  display: none;
 }
 
 .home_logo figure {
@@ -73,6 +79,8 @@
   padding: 7.5px 0;
   color: #172b4d;
   font-weight: 500;
+  width: 75%;
+  margin: auto;
 }
 
 .home_nav li:hover {
@@ -102,6 +110,10 @@
   font-size: 16px;
   color: #172b4d;
   background-color: #d9e1f6;
+  text-align: left;
+  width: 75%;
+  margin: auto;
+  cursor: pointer;
 }
 
 .logout_btn:hover {

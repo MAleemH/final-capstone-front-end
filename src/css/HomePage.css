@@ -46,13 +46,18 @@
 .home_grids {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 5px;
-  padding: 5px;
+  gap: 15px;
+  padding: 5px 15px;
 }
 
 .home_grids_box {
   width: 100%;
   margin: auto;
+  transition: 1s;
+}
+
+.home_grids_box:hover {
+  transform: scale(1.05);
 }
 
 .home_grids_box a {

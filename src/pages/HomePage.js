@@ -126,6 +126,7 @@ function HomePage() {
               </article>
             </Link>
           </div>
+
           <div className="home_grids_box">
             <Link className="td_none" to="/register">
               <article>
@@ -160,6 +161,7 @@ function HomePage() {
               </article>
             </Link>
           </div>
+
           <div className="home_grids_box">
             <Link className="td_none" to="/register">
               <article>
@@ -194,6 +196,7 @@ function HomePage() {
               </article>
             </Link>
           </div>
+
           <div className="home_grids_box">
             <Link className="td_none" to="/register">
               <article>
