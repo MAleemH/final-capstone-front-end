@@ -4,6 +4,7 @@ import '../css/NewTherapistPage.css';
 import backImg from '../img/back.png';
 import fadingBreak from '../img/fading_break.png';
 import logoImg from '../img/logo.png';
+import avatarImg from '../img/user.png';
 
 function NewTherapistPage() {
   return (
@@ -53,6 +54,12 @@ function NewTherapistPage() {
               <option value="option2" aria-label="Input Specialization">Option 1</option>
               <option value="option3" aria-label="Input Specialization">Option 2</option>
             </select>
+
+            <div className="input_name image_input_container">
+              <input type="file" aria-label="Add Image" />
+              <img src={avatarImg} alt="Choose File" />
+              <p>Add Image</p>
+            </div>
 
           </fieldset>
 
