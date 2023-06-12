@@ -17,7 +17,6 @@
 .home_page_main {
   display: flex;
   justify-content: space-between;
-  gap: 5px;
   align-items: start;
 }
 
@@ -47,23 +46,36 @@
 .home_grids {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 5px;
+  padding: 5px;
+}
+
+.home_grids_box {
+  width: 100%;
+  margin: auto;
+}
+
+.home_grids_box a {
+  color: #172b4d;
 }
 
 .home_grids_box article {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 7px;
   text-align: center;
+  padding: 10px;
+  background-color: #d9e1f6;
 }
 
 .therapy_figure {
   width: 100%;
+  margin: auto;
   border-radius: 10px;
 }
 
 .therapy_figure img {
-  width: 35%;
+  width: 125px;
   object-fit: cover;
   object-position: center;
 }
