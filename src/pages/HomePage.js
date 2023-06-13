@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
+import specializationArr from '../components/specialization';
 import '../css/HomePage.css';
 import therapistImg from '../img/therapist.jpg';
 import facebookImg from '../img/facebook.png';
@@ -23,9 +24,10 @@ function HomePage() {
           <div className="search_box">
             <fieldset className="fieldset_border_none">
               <select aria-label="Input Label" className="input_name" id="specializationId">
-                <option aria-label="Input Specialization" value="">Select Specialization</option>
-                <option value="option2" aria-label="Input Specialization">Option 1</option>
-                <option value="option3" aria-label="Input Specialization">Option 2</option>
+
+                {specializationArr.map((specialty) => (
+                  <option key={specialty} value={specialty.value} aria-label="Input Specialization">{specialty.name}</option>
+                ))}
               </select>
             </fieldset>
           </div>

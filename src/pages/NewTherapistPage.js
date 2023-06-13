@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/NewTherapistPage.css';
+import specializationArr from '../components/specialization';
 import backImg from '../img/back.png';
 import fadingBreak from '../img/fading_break.png';
 import logoImg from '../img/logo.png';
@@ -52,9 +53,9 @@ function NewTherapistPage() {
             <input className="input_name" type="datetime-local" placeholder="Time" aria-label="Input Date and Time" required />
 
             <select aria-label="Input Label" className="input_name" id="specializationId">
-              <option aria-label="Input Specialization" value="">Select Specialization</option>
-              <option value="option2" aria-label="Input Specialization">Option 1</option>
-              <option value="option3" aria-label="Input Specialization">Option 2</option>
+              {specializationArr.map((specialty) => (
+                <option key={specialty} value={specialty.value} aria-label="Input Specialization">{specialty.name}</option>
+              ))}
             </select>
 
             <div className="input_name image_input_container">

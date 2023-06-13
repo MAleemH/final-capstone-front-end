@@ -209,3 +209,11 @@
   cursor: pointer;
   color: #172b4d;
 }
+
+select {
+  background-color: #fffcf6;
+}
+
+option {
+  background-color: #fffcf6;
+}

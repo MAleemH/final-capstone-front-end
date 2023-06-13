@@ -123,3 +123,11 @@
   border: 1px solid #d9e1f6;
   border-radius: 10px;
 }
+
+select {
+  background-color: #fffcf6;
+}
+
+option {
+  background-color: #fffcf6;
+}
