@@ -33,3 +33,18 @@ const BookAppointment = () => {
         setDate('');
         setTime('');
       };
+      return (
+        <section>
+          <h2>Book Doctor Appiontment</h2>
+          { payload ? (
+            <ul>
+              <li>
+                <p>Doctor name: </p>
+                <p>{payload.doctor.name}</p>
+              </li>
+              <li>
+                <p>Doctor address: </p>
+                <p>{payload.doctor.city}</p>
+              </li>
+            </ul>
+          )
