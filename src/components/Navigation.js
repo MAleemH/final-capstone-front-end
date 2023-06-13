@@ -36,7 +36,7 @@ function Navigation() {
           </li>
           <li>
             {' '}
-            <NavLink to="/" className="td_none" activeClassName="active">DELETE THERAPIST</NavLink>
+            <NavLink to="/deletetherapist" className="td_none" activeClassName="active">DELETE THERAPIST</NavLink>
           </li>
           <li>
             <button className="logout_btn" type="button">LOGOUT</button>

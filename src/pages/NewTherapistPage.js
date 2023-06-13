@@ -49,6 +49,8 @@ function NewTherapistPage() {
 
             <input className="input_name" type="email" placeholder="Email" aria-label="Input Email" required />
 
+            <input className="input_name" type="datetime-local" placeholder="Time" aria-label="Input Date and Time" required />
+
             <select aria-label="Input Label" className="input_name" id="specializationId">
               <option aria-label="Input Specialization" value="">Select Specialization</option>
               <option value="option2" aria-label="Input Specialization">Option 1</option>

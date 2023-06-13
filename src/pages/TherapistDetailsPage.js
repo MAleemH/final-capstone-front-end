@@ -43,6 +43,14 @@ function TherapistDetailsPage() {
                 <p>EMAIL</p>
                 <p>johndoe@yahoo.com</p>
               </li>
+              <li>
+                <p>AVAILABILITY</p>
+                <p>TRUE</p>
+              </li>
+              <li>
+                <p>PHONE</p>
+                <p>07054245454</p>
+              </li>
             </ul>
 
           </div>
