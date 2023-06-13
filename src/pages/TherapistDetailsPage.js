@@ -1,30 +1,31 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
 // import { Link } from 'react-router-dom';
-// import Navigation from '../components/Navigation';
-import '../css/TherapistDetailsPage.css';
+import '../css/TherapistDetails.css';
 import therapistImg from '../img/therapist.jpg';
-// import facebookImg from '../img/facebook.png';
-// import twitterImg from '../img/twitter.png';
-// import linkedinImg from '../img/linkedin.png';
 
 function TherapistDetailsPage() {
   return (
     <main className="therapy_details_main">
+
       <section className="therapy_details_nav">
         <Navigation />
       </section>
+
       <section className="therapy_details_content">
         <article>
-          <figure>
+
+          <div className="therapy_details_figure_box">
             <img src={therapistImg} alt="" />
-          </figure>
+          </div>
 
-          <div>
-            <h1>MARCUS DAVID</h1>
-            <p>Lorem ipsum dolor sit.</p>
+          <div className="therapist_info_box">
+            <div className="therapist_info_contact_name">
+              <h1>MARCUS DAVID</h1>
+              <p>Lorem ipsum dolor sit.</p>
+            </div>
 
-            <ul>
+            <ul className="list_style_none">
 
               <li>
                 <p>RATING</p>
@@ -45,8 +46,10 @@ function TherapistDetailsPage() {
             </ul>
 
           </div>
+
         </article>
       </section>
+
     </main>
   );
 }

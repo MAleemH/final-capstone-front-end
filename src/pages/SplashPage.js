@@ -15,7 +15,7 @@ function SplashPage() {
   };
 
   return (
-    <div>
+    <div className="land_body">
 
       <main className="land_main" style={SplashImageStyle} />
 

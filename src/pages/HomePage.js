@@ -23,7 +23,7 @@ function HomePage() {
 
         <div className="home_grids">
           <div className="home_grids_box">
-            <Link className="td_none" to="/register">
+            <Link className="td_none" to="/therapistdetails">
               <article>
                 <figure className="therapy_figure">
                   <img src={therapistImg} alt="" />
@@ -58,7 +58,7 @@ function HomePage() {
           </div>
 
           <div className="home_grids_box">
-            <Link className="td_none" to="/register">
+            <Link className="td_none" to="/therapistdetails">
               <article>
                 <figure className="therapy_figure">
                   <img src={therapistImg} alt="" />
@@ -93,7 +93,7 @@ function HomePage() {
           </div>
 
           <div className="home_grids_box">
-            <Link className="td_none" to="/register">
+            <Link className="td_none" to="/therapistdetails">
               <article>
                 <figure className="therapy_figure">
                   <img src={therapistImg} alt="" />
@@ -128,7 +128,7 @@ function HomePage() {
           </div>
 
           <div className="home_grids_box">
-            <Link className="td_none" to="/register">
+            <Link className="td_none" to="/therapistdetails">
               <article>
                 <figure className="therapy_figure">
                   <img src={therapistImg} alt="" />
@@ -163,7 +163,7 @@ function HomePage() {
           </div>
 
           <div className="home_grids_box">
-            <Link className="td_none" to="/register">
+            <Link className="td_none" to="/therapistdetails">
               <article>
                 <figure className="therapy_figure">
                   <img src={therapistImg} alt="" />
@@ -198,7 +198,7 @@ function HomePage() {
           </div>
 
           <div className="home_grids_box">
-            <Link className="td_none" to="/register">
+            <Link className="td_none" to="/therapistdetails">
               <article>
                 <figure className="therapy_figure">
                   <img src={therapistImg} alt="" />
