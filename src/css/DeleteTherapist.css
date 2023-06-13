@@ -14,14 +14,14 @@
   text-decoration: none;
 }
 
-.home_page_main {
+.delete_page_main {
   display: flex;
   justify-content: space-between;
   align-items: start;
   background-color: #fffcf6;
 }
 
-.home_page_nav {
+.delete_page_nav {
   width: 20%;
   margin: auto;
   height: 100vh;
@@ -30,13 +30,13 @@
   bottom: 0;
 }
 
-.home_page_content {
+.delete_page_content {
   padding: 15px 0;
   width: 80%;
   margin: auto;
 }
 
-.home_page_content header {
+.delete_page_content header {
   padding: 10px 0 20px 0;
   text-align: center;
   display: flex;
@@ -44,28 +44,28 @@
   gap: 20px;
 }
 
-.home_grids {
+.delete_grids {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
   padding: 5px 15px;
 }
 
-.home_grids_box {
+.delete_grids_box {
   width: 100%;
   margin: auto;
   transition: 1s;
 }
 
-.home_grids_box:hover {
+.delete_grids_box:hover {
   transform: scale(1.05);
 }
 
-.home_grids_box a {
+.delete_grids_box a {
   color: #172b4d;
 }
 
-.home_grids_box article {
+.delete_grids_box article {
   display: flex;
   flex-direction: column;
   gap: 7.5px;
@@ -86,18 +86,18 @@
   object-position: center;
 }
 
-.home_page_socials {
+.delete_page_socials {
   display: flex;
   justify-content: center;
   gap: 15px;
 }
 
-.home_page_socials img {
+.delete_page_socials img {
   width: 20px;
   object-fit: cover;
   object-position: center;
 }
 
-.home_page_socials button {
+.delete_page_socials button {
   border: none;
 }

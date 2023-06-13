@@ -7,9 +7,9 @@ import logoImg from '../img/logo.png';
 
 function ForgotPasswordPage() {
   return (
-    <div className="login_body">
+    <div className="forgot_page_body">
 
-      <header className="login_header">
+      <header className="forgot_page_header">
         <nav>
           <Link to="/">
             <img src={backImg} alt="" />
@@ -17,7 +17,7 @@ function ForgotPasswordPage() {
         </nav>
       </header>
 
-      <main className="login_main">
+      <main className="forgot_page_main">
         <figure className="logo_fig">
           <Link to="/">
             <img src={logoImg} alt="" />
@@ -38,17 +38,17 @@ function ForgotPasswordPage() {
           </figure>
         </div>
 
-        <form action="" className="login_form">
+        <form action="" className="forgot_page_form">
           <fieldset className="fieldset_border_none">
             <input className="input_name" type="email" placeholder="Email" aria-label="Input Email" required />
           </fieldset>
 
-          <fieldset className="fieldset_border_none login_action">
+          <fieldset className="fieldset_border_none forgot_page_action">
             <button type="button">Submit</button>
           </fieldset>
         </form>
 
-        <div className="login_main_div">
+        <div className="forgot_page_main_div">
           <p>
             {' '}
             <Link className="td_none" to="/register"> need an account? </Link>
@@ -56,13 +56,13 @@ function ForgotPasswordPage() {
           </p>
 
           <button type="button">
-            <Link className="td_none" to="/login"> Login </Link>
+            <Link className="td_none" to="/forgot_page"> LOGIN </Link>
           </button>
         </div>
 
       </main>
 
-      <footer className="login_footer">
+      <footer className="forgot_page_footer">
         <ul className="list_style_none">
           <li>
             {' '}

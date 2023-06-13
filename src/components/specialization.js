@@ -6,5 +6,7 @@ const specializtionArr = [
   { name: 'Sexual', value: 'Sexual' },
   { name: 'Academic', value: 'Academic' },
   { name: 'Career', value: 'Career' },
+  { name: 'Marital', value: 'Marital' },
+  { name: 'Dating', value: 'Dating' },
 ];
 export default specializtionArr;

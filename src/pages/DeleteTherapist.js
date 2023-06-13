@@ -7,12 +7,12 @@ import trashImg from '../img/trash.png';
 
 function DeleteTherapist() {
   return (
-    <main className="home_page_main">
-      <section className="home_page_nav">
+    <main className="delete_page_main">
+      <section className="delete_page_nav">
         <Navigation />
       </section>
 
-      <section className="home_page_content">
+      <section className="delete_page_content">
         <header>
           <h1>Starred Therapists</h1>
 
@@ -25,9 +25,9 @@ function DeleteTherapist() {
           </div>
         </header>
 
-        <div className="home_grids">
+        <div className="delete_grids">
 
-          <div className="home_grids_box">
+          <div className="delete_grids_box">
             <Link className="td_none" to="/therapistdetails">
               <article>
                 <figure className="therapy_figure">
@@ -38,8 +38,8 @@ function DeleteTherapist() {
 
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, id.</p>
 
-                <div className="home_page_socials">
-                  <figure className="home_page_social_icons">
+                <div className="delete_page_socials">
+                  <figure className="delete_page_social_icons">
                     <button type="button">
                       <img src={trashImg} alt="" />
                     </button>
@@ -50,7 +50,7 @@ function DeleteTherapist() {
             </Link>
           </div>
 
-          <div className="home_grids_box">
+          <div className="delete_grids_box">
             <Link className="td_none" to="/therapistdetails">
               <article>
                 <figure className="therapy_figure">
@@ -61,8 +61,8 @@ function DeleteTherapist() {
 
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, id.</p>
 
-                <div className="home_page_socials">
-                  <figure className="home_page_social_icons">
+                <div className="delete_page_socials">
+                  <figure className="delete_page_social_icons">
                     <button type="button">
                       <img src={trashImg} alt="" />
                     </button>
@@ -73,7 +73,7 @@ function DeleteTherapist() {
             </Link>
           </div>
 
-          <div className="home_grids_box">
+          <div className="delete_grids_box">
             <Link className="td_none" to="/therapistdetails">
               <article>
                 <figure className="therapy_figure">
@@ -84,8 +84,8 @@ function DeleteTherapist() {
 
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, id.</p>
 
-                <div className="home_page_socials">
-                  <figure className="home_page_social_icons">
+                <div className="delete_page_socials">
+                  <figure className="delete_page_social_icons">
                     <button type="button">
                       <img src={trashImg} alt="" />
                     </button>
@@ -96,7 +96,7 @@ function DeleteTherapist() {
             </Link>
           </div>
 
-          <div className="home_grids_box">
+          <div className="delete_grids_box">
             <Link className="td_none" to="/therapistdetails">
               <article>
                 <figure className="therapy_figure">
@@ -107,8 +107,8 @@ function DeleteTherapist() {
 
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, id.</p>
 
-                <div className="home_page_socials">
-                  <figure className="home_page_social_icons">
+                <div className="delete_page_socials">
+                  <figure className="delete_page_social_icons">
                     <button type="button">
                       <img src={trashImg} alt="" />
                     </button>
@@ -119,7 +119,7 @@ function DeleteTherapist() {
             </Link>
           </div>
 
-          <div className="home_grids_box">
+          <div className="delete_grids_box">
             <Link className="td_none" to="/therapistdetails">
               <article>
                 <figure className="therapy_figure">
@@ -130,8 +130,8 @@ function DeleteTherapist() {
 
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, id.</p>
 
-                <div className="home_page_socials">
-                  <figure className="home_page_social_icons">
+                <div className="delete_page_socials">
+                  <figure className="delete_page_social_icons">
                     <button type="button">
                       <img src={trashImg} alt="" />
                     </button>
@@ -142,7 +142,7 @@ function DeleteTherapist() {
             </Link>
           </div>
 
-          <div className="home_grids_box">
+          <div className="delete_grids_box">
             <Link className="td_none" to="/therapistdetails">
               <article>
                 <figure className="therapy_figure">
@@ -153,8 +153,8 @@ function DeleteTherapist() {
 
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, id.</p>
 
-                <div className="home_page_socials">
-                  <figure className="home_page_social_icons">
+                <div className="delete_page_socials">
+                  <figure className="delete_page_social_icons">
                     <button type="button">
                       <img src={trashImg} alt="" />
                     </button>

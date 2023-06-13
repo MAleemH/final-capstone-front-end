@@ -35,19 +35,3 @@ const timestamp = Date.parse(selectedValue);
 console.log(timestamp);
 
 delete therapist button and book appointment button in therapist details page
-
-
-
-
-@media only screen and (max-width: 1024px) {
-  .login_main {
-    width: 40%;
-    margin: auto;
-  }
-}
-
-@media only screen and (max-width: 820px) {}
-
-@media only screen and (max-width: 425px) {}
-
-@media only screen and (max-width: 375px) {}
