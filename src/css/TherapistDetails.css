@@ -82,3 +82,20 @@
 .therapist_info_box ul li:nth-child(even) {
   background-color: #f7f0e6;
 }
+
+.therapist_info_action {
+  padding: 20px 0;
+  display: flex;
+  justify-content: end;
+  gap: 15px;
+}
+
+.therapist_info_action button {
+  border: none;
+}
+
+.therapist_info_action img {
+  width: 20px;
+  object-fit: cover;
+  object-position: center;
+}
