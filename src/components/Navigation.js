@@ -20,7 +20,7 @@ function Navigation() {
         <nav className="list_style_none home_nav">
           <li>
             {' '}
-            <NavLink to="/navigation" activeClassName="active" className="td_none">HOME</NavLink>
+            <NavLink to="/homepage" activeClassName="active" className="td_none">HOME</NavLink>
           </li>
           <li>
             {' '}
@@ -32,11 +32,11 @@ function Navigation() {
           </li>
           <li>
             {' '}
-            <NavLink to="/" activeClassName="active" className="td_none">NEW THERAPIST</NavLink>
+            <NavLink to="/newtherapist" activeClassName="active" className="td_none">NEW THERAPIST</NavLink>
           </li>
           <li>
             {' '}
-            <NavLink to="/" activeClassName="active" className="td_none">DELETE THERAPIST</NavLink>
+            <NavLink to="/deletetherapist" className="td_none" activeClassName="active">DELETE THERAPIST</NavLink>
           </li>
           <li>
             <button className="logout_btn" type="button">LOGOUT</button>

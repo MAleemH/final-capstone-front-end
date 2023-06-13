@@ -98,28 +98,6 @@
   object-position: center;
 }
 
-.search_box {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 15px;
-}
-
-.search_box fieldset {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
-}
-
-.search_box .input_name {
-  width: 50%;
-  margin: auto;
-  color: #172b4d;
-  font-size: 15px;
-  padding: 15px;
-  outline: none;
-  border: 1px solid #d9e1f6;
-  border-radius: 10px;
+.home_page_socials button {
+  border: none;
 }

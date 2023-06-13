@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
-import '../css/HomePage.css';
+import '../css/DeleteTherapist.css';
 import therapistImg from '../img/therapist.jpg';
-import facebookImg from '../img/facebook.png';
-import twitterImg from '../img/twitter.png';
-import linkedinImg from '../img/linkedin.png';
+import trashImg from '../img/trash.png';
 
-function HomePage() {
+function DeleteTherapist() {
   return (
     <main className="home_page_main">
       <section className="home_page_nav">
@@ -22,16 +20,13 @@ function HomePage() {
 
           <div className="search_box">
             <fieldset className="fieldset_border_none">
-              <select aria-label="Input Label" className="input_name" id="specializationId">
-                <option aria-label="Input Specialization" value="">Select Specialization</option>
-                <option value="option2" aria-label="Input Specialization">Option 1</option>
-                <option value="option3" aria-label="Input Specialization">Option 2</option>
-              </select>
+              <input className="input_name" aria-label="Input Name" type="text" placeholder="Search by name" />
             </fieldset>
           </div>
         </header>
 
         <div className="home_grids">
+
           <div className="home_grids_box">
             <Link className="td_none" to="/therapistdetails">
               <article>
@@ -45,21 +40,9 @@ function HomePage() {
 
                 <div className="home_page_socials">
                   <figure className="home_page_social_icons">
-                    <Link to="/" className="td_none">
-                      <img src={facebookImg} alt="" />
-                    </Link>
-                  </figure>
-
-                  <figure className="home_page_social_icons">
-                    <Link to="/" className="td_none">
-                      <img src={twitterImg} alt="" />
-                    </Link>
-                  </figure>
-
-                  <figure className="home_page_social_icons">
-                    <Link to="/" className="td_none">
-                      <img src={linkedinImg} alt="" />
-                    </Link>
+                    <button type="button">
+                      <img src={trashImg} alt="" />
+                    </button>
                   </figure>
                 </div>
 
@@ -80,21 +63,9 @@ function HomePage() {
 
                 <div className="home_page_socials">
                   <figure className="home_page_social_icons">
-                    <Link to="/" className="td_none">
-                      <img src={facebookImg} alt="" />
-                    </Link>
-                  </figure>
-
-                  <figure className="home_page_social_icons">
-                    <Link to="/" className="td_none">
-                      <img src={twitterImg} alt="" />
-                    </Link>
-                  </figure>
-
-                  <figure className="home_page_social_icons">
-                    <Link to="/" className="td_none">
-                      <img src={linkedinImg} alt="" />
-                    </Link>
+                    <button type="button">
+                      <img src={trashImg} alt="" />
+                    </button>
                   </figure>
                 </div>
 
@@ -115,21 +86,9 @@ function HomePage() {
 
                 <div className="home_page_socials">
                   <figure className="home_page_social_icons">
-                    <Link to="/" className="td_none">
-                      <img src={facebookImg} alt="" />
-                    </Link>
-                  </figure>
-
-                  <figure className="home_page_social_icons">
-                    <Link to="/" className="td_none">
-                      <img src={twitterImg} alt="" />
-                    </Link>
-                  </figure>
-
-                  <figure className="home_page_social_icons">
-                    <Link to="/" className="td_none">
-                      <img src={linkedinImg} alt="" />
-                    </Link>
+                    <button type="button">
+                      <img src={trashImg} alt="" />
+                    </button>
                   </figure>
                 </div>
 
@@ -150,21 +109,9 @@ function HomePage() {
 
                 <div className="home_page_socials">
                   <figure className="home_page_social_icons">
-                    <Link to="/" className="td_none">
-                      <img src={facebookImg} alt="" />
-                    </Link>
-                  </figure>
-
-                  <figure className="home_page_social_icons">
-                    <Link to="/" className="td_none">
-                      <img src={twitterImg} alt="" />
-                    </Link>
-                  </figure>
-
-                  <figure className="home_page_social_icons">
-                    <Link to="/" className="td_none">
-                      <img src={linkedinImg} alt="" />
-                    </Link>
+                    <button type="button">
+                      <img src={trashImg} alt="" />
+                    </button>
                   </figure>
                 </div>
 
@@ -185,21 +132,9 @@ function HomePage() {
 
                 <div className="home_page_socials">
                   <figure className="home_page_social_icons">
-                    <Link to="/" className="td_none">
-                      <img src={facebookImg} alt="" />
-                    </Link>
-                  </figure>
-
-                  <figure className="home_page_social_icons">
-                    <Link to="/" className="td_none">
-                      <img src={twitterImg} alt="" />
-                    </Link>
-                  </figure>
-
-                  <figure className="home_page_social_icons">
-                    <Link to="/" className="td_none">
-                      <img src={linkedinImg} alt="" />
-                    </Link>
+                    <button type="button">
+                      <img src={trashImg} alt="" />
+                    </button>
                   </figure>
                 </div>
 
@@ -220,21 +155,9 @@ function HomePage() {
 
                 <div className="home_page_socials">
                   <figure className="home_page_social_icons">
-                    <Link to="/" className="td_none">
-                      <img src={facebookImg} alt="" />
-                    </Link>
-                  </figure>
-
-                  <figure className="home_page_social_icons">
-                    <Link to="/" className="td_none">
-                      <img src={twitterImg} alt="" />
-                    </Link>
-                  </figure>
-
-                  <figure className="home_page_social_icons">
-                    <Link to="/" className="td_none">
-                      <img src={linkedinImg} alt="" />
-                    </Link>
+                    <button type="button">
+                      <img src={trashImg} alt="" />
+                    </button>
                   </figure>
                 </div>
 
@@ -250,4 +173,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default DeleteTherapist;

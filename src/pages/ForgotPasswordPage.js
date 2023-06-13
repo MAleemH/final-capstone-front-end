@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import '../css/LoginPage.css';
+import '../css/ForgotPasswordPage.css';
 import backImg from '../img/back.png';
-import eyeImg from '../img/eye.png';
 import fadingBreak from '../img/fading_break.png';
 import logoImg from '../img/logo.png';
 
-function LoginPage() {
-  const [passwordType, setPasswordType] = useState('password');
-
+function ForgotPasswordPage() {
   return (
     <div className="login_body">
 
@@ -33,7 +30,7 @@ function LoginPage() {
             <img src={fadingBreak} alt="" />
             {' '}
           </figure>
-          <p>&nbsp; Login with &nbsp; </p>
+          <p>&nbsp; Forgot Password &nbsp; </p>
           <figure>
             {' '}
             <img className="rotate_breakline" src={fadingBreak} alt="" />
@@ -44,25 +41,6 @@ function LoginPage() {
         <form action="" className="login_form">
           <fieldset className="fieldset_border_none">
             <input className="input_name" type="email" placeholder="Email" aria-label="Input Email" required />
-            <div className="password_box">
-              <input className="input_password" type={passwordType} placeholder="Password" aria-label="Input Password" required />
-              {passwordType === 'password'
-                ? (
-                  <figure className="eyebox">
-                    <button className="password_display" type="button" onClick={() => setPasswordType('text')}>
-                      <img src={eyeImg} alt="" />
-                    </button>
-                  </figure>
-                )
-                : (
-                  <figure className="eyebox">
-                    <button className="password_display" type="button" onClick={() => setPasswordType('password')}>
-                      <img src={eyeImg} alt="" />
-                    </button>
-                  </figure>
-                )}
-
-            </div>
           </fieldset>
 
           <fieldset className="fieldset_border_none login_action">
@@ -78,7 +56,7 @@ function LoginPage() {
           </p>
 
           <button type="button">
-            <Link className="td_none" to="/forgot"> Forgot password </Link>
+            <Link className="td_none" to="/login"> Login </Link>
           </button>
         </div>
 
@@ -103,4 +81,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default ForgotPasswordPage;

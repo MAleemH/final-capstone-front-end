@@ -26,3 +26,13 @@ image will be a file
 Create a new appointment; form includes
 - Appointment date as time stamp,
 - therapists drop down and id
+
+
+
+
+
+const timestamp = Date.parse(selectedValue);
+console.log(timestamp);
+
+delete therapist button and book appointment button in therapist details page
+

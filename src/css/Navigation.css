@@ -23,7 +23,7 @@
   width: 100%;
   margin: auto;
   height: 100vh;
-  background-color: #d9e1f6;
+  background-color: #f5f7f5;
 }
 
 .home_logo {
@@ -100,7 +100,7 @@
 }
 
 .active {
-  background-color: #452b52;
+  background-color: #f7f0e6;
 }
 
 .logout_btn {
@@ -109,7 +109,7 @@
   font-weight: 500;
   font-size: 16px;
   color: #172b4d;
-  background-color: #d9e1f6;
+  background-color: #f5f7f5;
   text-align: left;
   width: 75%;
   margin: auto;
