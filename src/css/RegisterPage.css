@@ -183,7 +183,6 @@
   transform: rotate(180deg);
 }
 
-
 @media only screen and (max-width: 1024px) {
   .register_main {
     width: 60%;
