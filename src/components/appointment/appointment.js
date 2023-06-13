@@ -48,3 +48,17 @@ const BookAppointment = () => {
               </li>
             </ul>
           )
+          : <h4>Kindly Go back to doctors list to select your favourite doctor</h4>}
+          <form onSubmit={newAppointment}>
+            <div>
+              <h3>Fill In The Form To Book Appiontment</h3>
+              <input
+                type="text"
+                placeholder="Enter Your Disease"
+                value={disease}
+              />
+              <input
+                type="text"
+                placeholder="Enter Your Address"
+                value={city}
+              />
