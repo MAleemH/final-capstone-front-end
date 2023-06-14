@@ -142,67 +142,64 @@ option {
 }
 
 @media only screen and (max-width: 1024px) {
-  
-.home_page_content header {
-  padding: 10px 0 20px 0;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  .home_page_content header {
+    padding: 10px 0 20px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .home_page_content header h1 {
+    font-size: 18px;
+  }
+
+  .home_page_content header p {
+    font-size: 15px;
+  }
+
+  .search_box {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .search_box fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .search_box .input_name {
+    width: 50%;
+    margin: auto;
+    color: #172b4d;
+    padding: 15px;
+    outline: none;
+    border: 1px solid #d9e1f6;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+
+  .home_grids_box a h4 {
+    font-size: 14px;
+  }
+
+  .home_grids_box a p {
+    font-size: 13px;
+  }
 }
 
-.home_page_content header h1 {
-  font-size: 18px;
-}
+/* @media only screen and (max-width: 820px) {
+} */
 
-.home_page_content header p {
-  font-size: 15px;
-}
+/* @media only screen and (max-width: 768px) {
+} */
 
-.search_box {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 15px;
-}
+/* @media only screen and (max-width: 425px) {
+} */
 
-.search_box fieldset {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
-}
-
-.search_box .input_name {
-  width: 50%;
-  margin: auto;
-  color: #172b4d;
-  font-size: 15px;
-  padding: 15px;
-  outline: none;
-  border: 1px solid #d9e1f6;
-  border-radius: 10px;
-  font-size: 14px;
-}
-
-.home_grids_box a h4 {
-  font-size: 14px;
-}
-
-.home_grids_box a p {
-  font-size: 13px;
-}
-
-}
-
-@media only screen and (max-width: 820px) {
-}
-
-@media only screen and (max-width: 768px) {
-}
-
-@media only screen and (max-width: 425px) {
-}
-
-@media only screen and (max-width: 375px) {}
+/* @media only screen and (max-width: 375px) {} */
