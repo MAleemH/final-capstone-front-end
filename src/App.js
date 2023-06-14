@@ -9,7 +9,6 @@ import HomePage from './pages/HomePage';
 import TherapistDetailsPage from './pages/TherapistDetailsPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import DeleteTherapist from './pages/DeleteTherapist';
-import Navigatio from './components/Navigatio';
 
 function App() {
   return (
@@ -24,7 +23,6 @@ function App() {
           <Route path="/homepage" element={<HomePage />} />
           <Route path="/deletetherapist" element={<DeleteTherapist />} />
           <Route path="/therapistdetails" element={<TherapistDetailsPage />} />
-          <Route path="/navigatio" element={<Navigatio />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
