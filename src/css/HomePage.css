@@ -193,6 +193,31 @@ option {
   }
 }
 
+@media only screen and (max-width: 820px) {
+
+  .home_page_nav {
+    width: 25%;
+    margin: auto;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    bottom: 0;
+  }
+  
+  .home_page_content {
+    padding: 15px 0;
+    width: 75%;
+    margin: auto;
+  }
+
+  .home_grids {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 15px 15px;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .home_page_nav {
     width: 30%;

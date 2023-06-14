@@ -16,7 +16,7 @@ function DeleteTherapist() {
         <header>
           <h1>Starred Therapists</h1>
 
-          <p>Please select a therapist</p>
+          <p className="hide1">Please select a therapist</p>
 
           <div className="search_box">
             <fieldset className="fieldset_border_none">
