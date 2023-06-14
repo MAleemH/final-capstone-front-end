@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useState } from 'react';
 import '../css/Navigation.css';
 import { Link, NavLink } from 'react-router-dom';
 import '../css/LoginPage.css';
@@ -13,44 +13,28 @@ import cancelImg from '../img/cancel.png';
 
 function Navigation() {
   const [isToggled, setIsToggled] = useState(true);
-  const [mobileView, setMobileView] = useState(false);
+  // const [mobileView, setMobileView] = useState(false);
 
-  useLayoutEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 768px)');
-    const handleMediaQueryChange = (event) => {
-      setMobileView(event.matches);
-    };
+  // useLayoutEffect(() => {
+  //   const mediaQuery = window.matchMedia('(max-width: 768px)');
+  //   const handleMediaQueryChange = (event) => {
+  //     setMobileView(event.matches);
+  //   };
 
-    handleMediaQueryChange(mediaQuery); // Initial check
+  //   handleMediaQueryChange(mediaQuery); // Initial check
 
-    const mediaQueryListener = (event) => handleMediaQueryChange(event);
-    mediaQuery.addEventListener('change', mediaQueryListener);
+  //   const mediaQueryListener = (event) => handleMediaQueryChange(event);
+  //   mediaQuery.addEventListener('change', mediaQueryListener);
 
-    return () => {
-      mediaQuery.removeEventListener('change', mediaQueryListener);
-    };
-  }, []);
+  //   return () => {
+  //     mediaQuery.removeEventListener('change', mediaQueryListener);
+  //   };
+  // }, []);
 
   return (
     <main>
       <section className="home_nav_section">
-        {mobileView && (
-        <>
-          <header className="home_logo">
-            <button onClick={() => setIsToggled(!isToggled)} type="button" aria-label="button">
-              <img src={menuImg} alt="" />
-            </button>
-          </header>
 
-          <header className="home_logo">
-            <button onClick={() => setIsToggled(!isToggled)} type="button" aria-label="button">
-              <img src={cancelImg} alt="" />
-            </button>
-          </header>
-        </>
-        )}
-
-        {!mobileView && (
         <header className="home_logo">
           <figure>
             <Link to="/homepage" className="td_none">
@@ -58,7 +42,6 @@ function Navigation() {
             </Link>
           </figure>
         </header>
-        )}
 
         <nav className="list_style_none home_nav">
           <li>
@@ -119,6 +102,53 @@ function Navigation() {
           </figure>
 
         </footer>
+
+      </section>
+
+      <section className={isToggled ? 'home_nav_section_mobile' : 'active_blur home_nav_section_mobile'}>
+        {isToggled && (
+        <header className="home_logo margin_left1">
+          <button onClick={() => setIsToggled(!isToggled)} type="button" aria-label="button">
+            <img src={menuImg} alt="" />
+          </button>
+        </header>
+        )}
+
+        {!isToggled && (
+        <header className="home_logo close_btn margin_left2">
+          <button onClick={() => setIsToggled(!isToggled)} type="button" aria-label="button">
+            <img src={cancelImg} alt="" />
+          </button>
+        </header>
+        )}
+
+        {!isToggled && (
+          <nav className="list_style_none home_nav">
+            <li>
+              {' '}
+              <NavLink to="/homepage" activeClassName="active" className="td_none">HOME</NavLink>
+            </li>
+            <li>
+              {' '}
+              <NavLink to="/" activeClassName="active" className="td_none">APPOINTMENTS</NavLink>
+            </li>
+            <li>
+              {' '}
+              <NavLink to="/" activeClassName="active" className="td_none">NEW APPOINTMENT</NavLink>
+            </li>
+            <li>
+              {' '}
+              <NavLink to="/newtherapist" activeClassName="active" className="td_none">NEW THERAPIST</NavLink>
+            </li>
+            <li>
+              {' '}
+              <NavLink to="/deletetherapist" className="td_none" activeClassName="active">DELETE THERAPIST</NavLink>
+            </li>
+            <li>
+              <button className="logout_btn" type="button">LOGOUT</button>
+            </li>
+          </nav>
+        )}
 
       </section>
 
