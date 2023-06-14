@@ -190,8 +190,6 @@
   }
 }
 
-/* @media only screen and (max-width: 820px) {} */
-
 @media only screen and (max-width: 425px) {
   .fadebreak_box {
     display: flex;
@@ -252,5 +250,3 @@
     font-size: 14px;
   }
 }
-
-/* @media only screen and (max-width: 375px) {} */

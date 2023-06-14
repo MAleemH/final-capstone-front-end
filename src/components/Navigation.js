@@ -13,23 +13,6 @@ import cancelImg from '../img/cancel.png';
 
 function Navigation() {
   const [isToggled, setIsToggled] = useState(true);
-  // const [mobileView, setMobileView] = useState(false);
-
-  // useLayoutEffect(() => {
-  //   const mediaQuery = window.matchMedia('(max-width: 768px)');
-  //   const handleMediaQueryChange = (event) => {
-  //     setMobileView(event.matches);
-  //   };
-
-  //   handleMediaQueryChange(mediaQuery); // Initial check
-
-  //   const mediaQueryListener = (event) => handleMediaQueryChange(event);
-  //   mediaQuery.addEventListener('change', mediaQueryListener);
-
-  //   return () => {
-  //     mediaQuery.removeEventListener('change', mediaQueryListener);
-  //   };
-  // }, []);
 
   return (
     <main>

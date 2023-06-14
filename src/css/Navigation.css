@@ -17,15 +17,11 @@
 .home_nav_section {
   display: flex;
   flex-direction: column;
-
-  /* justify-content: start; */
   gap: 20px;
   text-align: center;
   width: 100%;
   margin: auto;
   height: 100vh;
-
-  /* background-color: #f5f7f5; */
 }
 
 .home_nav_section_mobile {
@@ -115,10 +111,6 @@
   right: 0;
   background: transparent;
 }
-
-/* .home_nav_section_mobile_sticky {
-
-} */
 
 .active {
   background-color: #f7f0e6;
