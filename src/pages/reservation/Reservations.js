@@ -17,5 +17,17 @@ function Reservations() {
             'Content-Type': 'application/json',
             },
         });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch reservation list');
+        }
+
+        const data = await response.json();
+        setReserveList(data);
+        setLoading(false);
+        } catch (error) {
+        console.error(error);
+        }
+    };
         
 export default Reservations;
