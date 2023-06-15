@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
@@ -10,7 +11,7 @@ import TherapistDetailsPage from './pages/TherapistDetailsPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import DeleteTherapist from './pages/DeleteTherapist';
 import BookAppointment from './pages/appointment/appointment';
-// import Reservations from '../components/reservation/Reservations';
+import Reservations from './pages/reservation/Reservations';
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
           <Route path="/therapistdetails" element={<TherapistDetailsPage />} />
           <Route path="*" element={<NotFoundPage />} />
           <Route path="/book-appointment" element={<BookAppointment />} />
-          {/* <Route path="/reservations" element={<Reservations />} /> */}
+          <Route path="/reservation" element={<Reservations />} />
         </Routes>
       </div>
     </BrowserRouter>
