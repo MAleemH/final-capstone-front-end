@@ -1,4 +1,4 @@
-const specializtionArr = [
+const specializationArr = [
   { name: 'Select Specialization', value: '' },
   { name: 'Cardiovascular', value: 'Cardiovascular' },
   { name: 'Emotional', value: 'Emotional' },
@@ -9,4 +9,4 @@ const specializtionArr = [
   { name: 'Marital', value: 'Marital' },
   { name: 'Dating', value: 'Dating' },
 ];
-export default specializtionArr;
+export default specializationArr;

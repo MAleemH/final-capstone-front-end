@@ -1,13 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/NewTherapistPage.css';
+import { useDispatch } from 'react-redux';
 import specializationArr from '../components/specialization';
 import backImg from '../img/back.png';
 import fadingBreak from '../img/fading_break.png';
 import logoImg from '../img/logo.png';
 import avatarImg from '../img/user.png';
+import { postTherapist, uploadTherapist } from '../redux/Therapy/therapySlice';
 
 function NewTherapistPage() {
+  const dispatch = useDispatch();
+  const [uploadFile, setUploadFile] = useState('');
+  const [inputName] = useState('');
+  const [inputAddress] = useState('');
+  // const [cloudinaryImage, setCloudinaryImage] = useState('');
+  // const cloudinaryAPI = 'https://api.cloudinary.com/v1_1/drhbncewu/image/upload';
+  // const postDataAPI = 'http://your-database-api.com/upload';
+
+  const handleUpload = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('file', uploadFile);
+    formData.append('upload_preset', 'f00ugkxm');
+    const secureUrl = await dispatch(uploadTherapist(formData));
+    return secureUrl;
+  };
+
+  const handleSubmit = async () => {
+    const cloudinaryImageUrl = await handleUpload();
+    const dataToSend = {
+      secureUrl: cloudinaryImageUrl,
+      name: inputName,
+      address: inputAddress,
+      // Add other form data fields as needed
+    };
+    // Send the data to your database
+    const response = await dispatch(postTherapist(dataToSend));
+    console.log(response);
+  };
+
   return (
     <div className="new_therapist_body">
 
@@ -59,7 +91,7 @@ function NewTherapistPage() {
             </select>
 
             <div className="input_name image_input_container">
-              <input type="file" aria-label="Add Image" />
+              <input type="file" aria-label="Add Image" onChange={(event) => { setUploadFile(event.target.files[0]); }} />
               <img src={avatarImg} alt="Choose File" />
               <p>Add Image</p>
             </div>
@@ -67,7 +99,7 @@ function NewTherapistPage() {
           </fieldset>
 
           <fieldset className="fieldset_border_none new_therapist_action">
-            <button type="button">Submit</button>
+            <button type="button" onClick={handleSubmit}>Submit</button>
           </fieldset>
         </form>
 

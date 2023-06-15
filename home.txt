@@ -1,8 +1,5 @@
-import React, { useEffect } from 'react';
-// import { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchTherapists } from '../redux/Therapy/therapySlice';
 import Navigation from '../components/Navigation';
 import specializationArr from '../components/specialization';
 import '../css/HomePage.css';
@@ -10,22 +7,24 @@ import therapistImg from '../img/therapist.jpg';
 import facebookImg from '../img/facebook.png';
 import twitterImg from '../img/twitter.png';
 import linkedinImg from '../img/linkedin.png';
+// import { fetchTherapists } from '../redux/Therapy/therapySlice';
+// import { useDispatch, useSelector } from 'react-redux';
 
 function HomePage() {
-  const myTherapists = useSelector((state) => state.therapy.therapists);
-  const dispatch = useDispatch();
+  // const myTherapists = useSelector((state) => state.therapy.therapists);
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    let active = true;
-    (async () => {
-      if (active && myTherapists?.length === 0) {
-        dispatch(fetchTherapists());
-      }
-    })();
-    return () => {
-      active = false;
-    };
-  }, [dispatch, myTherapists]);
+  // useEffect(() => {
+  //   let active = true;
+  //   (async () => {
+  //     if (active && myTherapists.length === 0) {
+  //       dispatch(fetchTherapists());
+  //     }
+  //   })();
+  //   return () => {
+  //     active = false;
+  //   };
+  // }, [dispatch, myTherapists]);
 
   return (
     <main className="home_page_main">
@@ -41,7 +40,6 @@ function HomePage() {
 
           <div className="search_box">
             <fieldset className="fieldset_border_none">
-              {/* onChange={(e) => setInputSpecialty(e.target.value)} */}
               <select aria-label="Input Label" className="input_name" id="specializationId">
 
                 {specializationArr.map((specialty) => (

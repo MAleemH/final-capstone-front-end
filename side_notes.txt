@@ -5,6 +5,8 @@ npm install @reduxjs/toolkit  --------------------- Emeka
 npm install react-redux  --------------------- Emeka
 npm i react-router-dom --------------------- Emeka
 npm install --save-dev react-test-renderer --------------------- Emeka
+npm install react-bootstrap bootstrap --------------------- Emeka
+npm install cloudinary --------------------- Emeka
 Babelrc Linters     --------------------- Emeka
 Eslint Linters       --------------------- Emeka
 Stylelintrc Linters    --------------------- Emeka
@@ -37,84 +39,139 @@ console.log(timestamp);
 delete therapist button and book appointment button in therapist details page
 
 
-<section className="home_nav_section">
-              <header className="home_logo">
-                <button onClick={() => setIsToggled(!isToggled)} type="button" aria-label="button">
-                  <img src={menuImg} alt="" />
-                </button>
-              </header>
+    // Axios.post( cloudinaryAPI, formData,  { params: { folder: 'your_folder_name' }} )
+    // .then((response) => {
+    //   console.log(response);
+    //   setCloudinaryImage(response.data.secure_url);
+    // })
+    // .catch((error) => {
+    //   console.log(error);
+    // });
 
-              <header className="home_logo">
-                <button onClick={() => setIsToggled(!isToggled)} type="button" aria-label="button">
-                  <img src={cancelImg} alt="" />
-                </button>
-              </header>
 
-          <header className="home_logo">
-            <figure>
-              <Link to="/homepage" className="td_none">
-                <img src={logoImg} alt="" />
-              </Link>
-            </figure>
-          </header>
 
-          <nav className="list_style_none home_nav">
-            <li>
-              {' '}
-              <NavLink to="/homepage" activeClassName="active" className="td_none">HOME</NavLink>
-            </li>
-            <li>
-              {' '}
-              <NavLink to="/" activeClassName="active" className="td_none">APPOINTMENTS</NavLink>
-            </li>
-            <li>
-              {' '}
-              <NavLink to="/" activeClassName="active" className="td_none">NEW APPOINTMENT</NavLink>
-            </li>
-            <li>
-              {' '}
-              <NavLink to="/newtherapist" activeClassName="active" className="td_none">NEW THERAPIST</NavLink>
-            </li>
-            <li>
-              {' '}
-              <NavLink to="/deletetherapist" className="td_none" activeClassName="active">DELETE THERAPIST</NavLink>
-            </li>
-            <li>
-              <button className="logout_btn" type="button">LOGOUT</button>
-            </li>
-          </nav>
 
-          <footer className="home_nav_footer">
+    Cloudinary.config do |config|
+  config.cloud_name = 'drhbncewu'
+  config.api_key = '262778235691582'
+  config.api_secret = 'vlLrLaqdd5ggUXJsnawfdOD6CvM'
+  config.secure = true  
+end
 
-            <figure className="nav_social_icons">
-              <Link to="/" className="td_none">
-                <img src={facebookImg} alt="" />
-              </Link>
-            </figure>
+Cloud folder name - therapy
 
-            <figure className="nav_social_icons">
-              <Link to="/" className="td_none">
-                <img src={twitterImg} alt="" />
-              </Link>
-            </figure>
 
-            <figure className="nav_social_icons">
-              <Link to="/" className="td_none">
-                <img src={linkedinImg} alt="" />
-              </Link>
-            </figure>
+  const handleUpload = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('file', uploadFile);
+    formData.append('upload_preset', 'f00ugkxm');
+    const secureUrl = await dispatch(uploadTherapist(formData));
+    return secureUrl;
+    // try {
+    //   const response = await axios.post(cloudinaryAPI, formData, { params: { folder: 'therapy' } });
+    //   setCloudinaryImage(response.data.secure_url);
+    //   return response.data.secure_url;
+    // } catch (error) {
+    //   console.log(error);
+    // }
+  };
 
-            <figure className="nav_social_icons">
-              <Link to="/" className="td_none">
-                <img src={instagramImg} alt="" />
-              </Link>
-            </figure>
 
-            <figure className="nav_social_icons">
-              <Link to="/" className="td_none">
-                <img src={snapchatImg} alt="" />
-              </Link>
-            </figure>
 
-          </footer>
-      </section>
+
+  const handleSubmit = async () => {
+    cloudinaryImageUrl = await handleUpload();
+    const dataToSend = {
+      secureUrl: cloudinaryImageUrl,
+      name: therapistName,
+      address: therapistAddress,
+      // Add other form data fields as needed
+    };
+    const response = await dispatch(postTherapist(dataToSend));
+    console.log(response);
+    // Send the data to your database
+    // await axios.post(postDataAPI, dataToSend);
+    // console.log(cloudinaryImage);
+  };
+
+
+
+
+
+
+
+
+The thunkAPI parameter passed to the async thunk functions provides several useful utilities for handling async operations. Here's an overview of some common methods and properties available on the thunkAPI object:
+
+getState: A function that returns the current state of the Redux store. You can use it to access any data from the store that might be required during the async operation.
+
+dispatch: A function that can be used to dispatch additional actions from within the async thunk. It allows you to trigger other Redux actions before, during, or after the async operation.
+
+extra: An object containing extra options provided when creating the async thunk. You can access custom properties or configuration passed to the thunk using thunkAPI.extra.
+
+fulfillWithValue: A function that can be used within the catch block of the async operation to return a fulfilled action with a specific payload. It is typically used when the async operation encounters an error.
+
+rejectWithValue: A function that can be used within the catch block of the async operation to return a rejected action with a specific payload. It is typically used to handle errors and provide error data to the reducers.
+
+By using these utilities, you can perform additional actions, access the current state, and handle errors within the async thunks to customize the behavior based on your application's needs.
+
+
+
+
+
+
+
+
+
+
+
+// Nav
+// import React, { useState } from 'react';
+// import '../css/Navigation.css';
+// import { Link, NavLink } from 'react-router-dom';
+// import '../css/LoginPage.css';
+// import facebookImg from '../img/facebook.png';
+// import twitterImg from '../img/twitter.png';
+// import linkedinImg from '../img/linkedin.png';
+// import instagramImg from '../img/instagram.png';
+// import snapchatImg from '../img/snapchat.png';
+// import logoImg from '../img/logo.png';
+// import menuImg from '../img/menu.png';
+// import cancelImg from '../img/cancel.png';
+
+// Home
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+// import Navigation from '../components/Navigation';
+// import specializationArr from '../components/specialization';
+// import '../css/HomePage.css';
+// import therapistImg from '../img/therapist.jpg';
+// import facebookImg from '../img/facebook.png';
+// import twitterImg from '../img/twitter.png';
+// import linkedinImg from '../img/linkedin.png';
+
+
+
+
+
+
+
+
+
+
+ // const [inputName, setInputName] = useState('');
+  // const [inputSpecialty, setInputSpecialty] = useState('');
+  // let filteredTherapists = []
+
+  
+  // const user = { role: 'Admin' }
+  // if (user.role === 'Admin') {
+  //   filteredTherapists = myTherapists.filter(
+  //     (therapist) => therapist.name.toLowerCase().includes(inputName.toLowerCase()),
+  //   );
+  // } else {
+  //   filteredTherapists = myTherapists.filter(
+  //     (therapist) => therapist.specialization.toLowerCase().includes(inputSpecialty.toLowerCase()),
+  //   );
+  // }

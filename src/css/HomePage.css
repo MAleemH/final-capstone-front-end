@@ -107,6 +107,10 @@
   object-position: center;
 }
 
+.delete_page_socials figure button {
+  border: none;
+}
+
 .search_box {
   align-items: center;
   display: flex;
