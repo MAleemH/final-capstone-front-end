@@ -22,7 +22,7 @@ const initialState = {
 export const fetchUser = createAsyncThunk('user/fetchUser', async () => {
   try {
     const { data } = await (axios.get(getUserURL));
-    setLocalUser(data);
+    await setLocalUser(data);
     return data;
   } catch (error) {
     console.log(error);
@@ -44,6 +44,7 @@ export const postUser = createAsyncThunk('user/postUser', async (therapistData, 
     };
     const response = await axios(config);
     console.log(response);
+    await setLocalUser(response);
     return response;
   } catch (error) {
     console.log(error);
@@ -65,7 +66,7 @@ export const deleteUser = createAsyncThunk('therapy/deleteUser', async (deleteID
     };
     const response = await axios(config);
     // console.log(response.data);
-    removeLocalUser();
+    await removeLocalUser();
     return response;
   } catch (error) {
     console.log(error);
