@@ -1,5 +1,4 @@
-import React from 'react';
-// import  { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import specializationArr from './specialization';
@@ -13,7 +12,7 @@ import trashImg from '../img/trash.png';
 function Therapists() {
   const [inputName, setInputName] = useState('');
   const [inputSpecialty, setInputSpecialty] = useState('');
-  const filteredTherapists = [];
+  let filteredTherapists = [];
   const myTherapists = useSelector((state) => state.therapy.therapists);
   const dispatch = useDispatch();
 
@@ -30,7 +29,7 @@ function Therapists() {
   }, [dispatch, myTherapists]);
 
   const user = { role: 'Admin' };
-  if (user.role = 'Admin') {
+  if (user.role === 'Admin') {
     filteredTherapists = myTherapists.filter(
       (therapist) => therapist.name.toLowerCase().includes(inputName.toLowerCase()),
     );

@@ -10,7 +10,7 @@ const getLocalUser = async () => JSON.parse(localStorage.getItem('therapy'));
 // When login set user
 const setLocalUser = async (user) => localStorage.setItem('therapy', JSON.stringify(user));
 
-w;
+// when
 const removeLocalUser = async () => localStorage.removeItem('therapy');
 
 const initialState = {
@@ -30,7 +30,7 @@ export const fetchUser = createAsyncThunk('user/fetchUser', async () => {
   }
 });
 
-export const postUser = createAsyncThunk('user/postUser', async (therapistData) => {
+export const postUser = createAsyncThunk('user/postUser', async (therapistData, { getState }) => {
   try {
     const { token } = getState().user;
     const config = {
@@ -51,7 +51,7 @@ export const postUser = createAsyncThunk('user/postUser', async (therapistData) 
   }
 });
 
-export const deleteUser = createAsyncThunk('therapy/deleteUser', async (deleteID) => {
+export const deleteUser = createAsyncThunk('therapy/deleteUser', async (deleteID, { getState }) => {
   try {
     const { token } = getState().user;
     const config = {
@@ -65,8 +65,8 @@ export const deleteUser = createAsyncThunk('therapy/deleteUser', async (deleteID
     };
     const response = await axios(config);
     // console.log(response.data);
-    return response;
     removeLocalUser();
+    return response;
   } catch (error) {
     console.log(error);
     return error;
