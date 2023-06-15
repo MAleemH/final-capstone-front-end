@@ -24,11 +24,11 @@ function Navigation() {
           </li>
           <li>
             {' '}
-            <NavLink to="/" activeClassName="active" className="td_none">APPOINTMENTS</NavLink>
+            <NavLink to="/book-appointment" activeClassName="active" className="td_none">NEW APPOINTMENTS</NavLink>
           </li>
           <li>
             {' '}
-            <NavLink to="/" activeClassName="active" className="td_none">NEW APPOINTMENT</NavLink>
+            <NavLink to="/reservations" activeClassName="active" className="td_none">APPOINTMENT</NavLink>
           </li>
           <li>
             {' '}

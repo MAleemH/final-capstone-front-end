@@ -9,6 +9,8 @@ import HomePage from './pages/HomePage';
 import TherapistDetailsPage from './pages/TherapistDetailsPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import DeleteTherapist from './pages/DeleteTherapist';
+import BookAppointment from './pages/appointment/appointment';
+// import Reservations from '../components/reservation/Reservations';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
           <Route path="/deletetherapist" element={<DeleteTherapist />} />
           <Route path="/therapistdetails" element={<TherapistDetailsPage />} />
           <Route path="*" element={<NotFoundPage />} />
+          <Route path="/book-appointment" element={<BookAppointment />} />
+          {/* <Route path="/reservations" element={<Reservations />} /> */}
         </Routes>
       </div>
     </BrowserRouter>
