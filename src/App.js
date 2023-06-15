@@ -9,6 +9,8 @@ import HomePage from './pages/HomePage';
 import TherapistDetailsPage from './pages/TherapistDetailsPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import DeleteTherapist from './pages/DeleteTherapist';
+import BookAppointment from './pages/BookAppointment';
+import Reservations from './pages/Reservations';
 // import Therapists from './components/Therapists';
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
           <Route path="/homepage" element={<HomePage />} />
           <Route path="/deletetherapist" element={<DeleteTherapist />} />
           <Route path="/therapistdetails" element={<TherapistDetailsPage />} />
+          <Route path="/book" element={<BookAppointment />} />
+          <Route path="/reserve" element={<Reservations />} />
           {/* <Route path="/therapy" element={<Therapists />} /> */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
