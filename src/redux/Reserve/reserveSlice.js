@@ -76,7 +76,7 @@ export const deleteReserve = createAsyncThunk('reserve/deleteReserve', async (de
 /* eslint-disable no-param-reassign */
 
 const reserveSlice = createSlice({
-  name: 'therapy',
+  name: 'reserve',
   initialState,
   extraReducers: (builder) => {
     builder.addCase(fetchReserve.pending, (state) => {

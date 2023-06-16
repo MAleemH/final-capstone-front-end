@@ -56,6 +56,32 @@ delete therapist button and book appointment button in therapist details page
 
 
 
+
+
+export const fetchUser = createAsyncThunk('user/fetchUser', async () => {
+  try {
+    const { data } = await (axios.get(getUserURL));
+    await removeLocalUser();
+    await setLocalUser(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
     Cloudinary.config do |config|
   config.cloud_name = 'drhbncewu'
   config.api_key = '262778235691582'
@@ -216,3 +242,27 @@ By using these utilities, you can perform additional actions, access the current
   //     (therapist) => therapist.specialization.toLowerCase().includes(inputSpecialty.toLowerCase()),
   //   );
   // }
+
+
+
+
+
+
+
+
+
+
+
+  .addCase(fetchUser.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    })
+      .addCase(fetchUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = '';
+        state.user = action.payload.user;
+      })
+      .addCase(fetchUser.rejected, (state) => {
+        state.loading = false;
+        state.error = '';
+      })

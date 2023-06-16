@@ -1,16 +1,15 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const getUserURL = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=24';
+const registerUserURL = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=24';
+const loginUserURL = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=24';
 const postUserURL = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=24';
 const deleteUserURL = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=24';
 
 const getLocalUser = async () => JSON.parse(localStorage.getItem('therapy'));
 
-// When login set user
 const setLocalUser = async (user) => localStorage.setItem('therapy', JSON.stringify(user));
 
-// when
 const removeLocalUser = async () => localStorage.removeItem('therapy');
 
 const initialState = {
@@ -19,32 +18,36 @@ const initialState = {
   error: '',
 };
 
-export const fetchUser = createAsyncThunk('user/fetchUser', async () => {
+export const registerUser = createAsyncThunk('user/registerUser', async (registerData) => {
   try {
-    const { data } = await (axios.get(getUserURL));
-    await setLocalUser(data);
-    return data;
+    const config = {
+      method: 'post',
+      url: registerUserURL,
+      data: registerData,
+    };
+    const response = await axios(config);
+    console.log(response);
+    return response;
   } catch (error) {
     console.log(error);
     return error;
   }
 });
 
-export const postUser = createAsyncThunk('user/postUser', async (therapistData, { getState }) => {
+export const loginUser = createAsyncThunk('user/loginUser', async (loginData, { getState }) => {
   try {
     const { token } = getState().user;
     const config = {
       method: 'post',
-      url: postUserURL,
+      url: loginUserURL,
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
-      data: therapistData,
+      data: loginData,
     };
     const response = await axios(config);
     console.log(response);
-    await setLocalUser(response);
     return response;
   } catch (error) {
     console.log(error);
@@ -74,22 +77,60 @@ export const deleteUser = createAsyncThunk('therapy/deleteUser', async (deleteID
   }
 });
 
+export const postUser = createAsyncThunk('user/postUser', async (therapistData, { getState }) => {
+  try {
+    const { token } = getState().user;
+    const config = {
+      method: 'post',
+      url: postUserURL,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      data: therapistData,
+    };
+    const response = await axios(config);
+    console.log(response);
+    await setLocalUser(response);
+    return response;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+});
 /* eslint-disable no-param-reassign */
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
   extraReducers: (builder) => {
-    builder.addCase(fetchUser.pending, (state) => {
+    builder.addCase(registerUser.pending, (state) => {
       state.loading = true;
       state.error = null;
     })
-      .addCase(fetchUser.fulfilled, (state, action) => {
+      .addCase(registerUser.fulfilled, (state, action) => {
+        state.loading = false;
+        removeLocalUser();
+        setLocalUser(action.payload.user);
+        state.user = (action.payload.user);
+        state.error = '';
+      })
+      .addCase(registerUser.rejected, (state) => {
         state.loading = false;
         state.error = '';
-        state.user = action.payload.user;
       })
-      .addCase(fetchUser.rejected, (state) => {
+      .addCase(loginUser.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(loginUser.fulfilled, (state, action) => {
+        state.loading = false;
+        removeLocalUser();
+        setLocalUser(action.payload.user);
+        state.user = (action.payload.user);
+        state.error = '';
+      })
+      .addCase(loginUser.rejected, (state) => {
         state.loading = false;
         state.error = '';
       })
