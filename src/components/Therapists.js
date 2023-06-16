@@ -9,6 +9,13 @@ import linkedinImg from '../img/linkedin.png';
 import trashImg from '../img/trash.png';
 
 function Therapists() {
+  // This component recieves prop from either home or delete and do their bidding
+
+  // const handleDeleteTherapist = (objId) => {
+  //   return objId
+  //   // dispatch(deleteTherapist(objId));
+  // };
+
   return (
 
     <div className="home_grids">

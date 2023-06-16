@@ -1,14 +1,4 @@
-<header>
-          <h1>Starred Therapists</h1>
 
-          <p className="hide1">Please select a therapist</p>
-
-          <div className="search_box">
-            <fieldset className="fieldset_border_none">
-              <input className="input_name" aria-label="Input Name" type="text" placeholder="Search by name" />
-            </fieldset>
-          </div>
-        </header>
 
         <div className="delete_grids">
 
