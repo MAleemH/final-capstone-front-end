@@ -18,11 +18,11 @@
     border: none;
   }
   
-  .new_therapist_body {
+  .new_appointment_body {
     background-color: #fffcf6;
   }
   
-  .new_therapist_header {
+  .new_appointment_header {
     width: 90%;
     margin: auto;
     padding: 10px 0;
@@ -33,11 +33,11 @@
     background: transparent;
   }
   
-  .new_therapist_header img {
+  .new_appointment_header img {
     height: 30px;
   }
   
-  .new_therapist_main {
+  .new_appointment_main {
     width: 40%;
     margin: auto;
   }
@@ -56,7 +56,7 @@
     width: 40px;
   }
   
-  .new_therapist_main .logo_fig img {
+  .new_appointment_main .logo_fig img {
     height: 100px;
     margin: auto;
   }
@@ -68,7 +68,7 @@
     text-align: center;
   }
   
-  .new_therapist_form {
+  .new_appointment_form {
     padding: 20px 0;
     align-items: center;
     display: flex;
@@ -77,14 +77,14 @@
     gap: 15px;
   }
   
-  .new_therapist_form fieldset {
+  .new_appointment_form fieldset {
     display: flex;
     flex-direction: column;
     gap: 15px;
     width: 100%;
   }
   
-  .new_therapist_form .input_name {
+  .new_appointment_form .input_name {
     width: 100%;
     color: #172b4d;
     font-size: 15px;
@@ -104,7 +104,7 @@
     padding-right: 5px;
   }
   
-  .new_therapist_form .input_password {
+  .new_appointment_form .input_password {
     width: 100%;
     color: #172b4d;
     font-size: 15px;
@@ -114,7 +114,7 @@
     border-radius: 10px;
   }
   
-  .new_therapist_form input::placeholder {
+  .new_appointment_form input::placeholder {
     color: #172b4d;
     font-size: 17px;
     font-weight: 400;
@@ -122,17 +122,17 @@
     transition: 3s;
   }
   
-  .new_therapist_form input:hover::placeholder {
+  .new_appointment_form input:hover::placeholder {
     transform: translate(10px, 0);
     color: #172b4d50;
   }
   
-  .new_therapist_action {
+  .new_appointment_action {
     width: 20%;
     margin: auto;
   }
   
-  .new_therapist_action button {
+  .new_appointment_action button {
     padding: 10px 8px;
     border-radius: 10px;
     background-color: #ff9186;
@@ -140,22 +140,22 @@
     color: #172b4d;
   }
   
-  .new_therapist_main .new_therapist_main_div {
+  .new_appointment_main .new_appointment_main_div {
     display: flex;
     justify-content: end;
     gap: 20px;
     align-items: center;
   }
   
-  .new_therapist_footer ul a {
+  .new_appointment_footer ul a {
     color: #172b4d;
   }
   
-  .new_therapist_main .new_therapist_main_div a {
+  .new_appointment_main .new_appointment_main_div a {
     color: #172b4d;
   }
   
-  .new_therapist_main .new_therapist_main_div button {
+  .new_appointment_main .new_appointment_main_div button {
     color: #172b4d;
     padding: 10px 8px;
     border-radius: 10px;
@@ -163,7 +163,7 @@
     border: 1px solid #d9e1f6;
   }
   
-  .new_therapist_footer {
+  .new_appointment_footer {
     width: 90%;
     margin: auto;
     position: sticky;
@@ -173,7 +173,7 @@
     padding: 10px 0;
   }
   
-  .new_therapist_footer ul {
+  .new_appointment_footer ul {
     display: flex;
     gap: 15px;
   }

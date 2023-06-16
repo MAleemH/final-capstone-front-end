@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { postReserve } from '../redux/Reserve/reserveSlice';
-import '../css/NewTherapistPage.css';
+import '../css/NewAppointment.css';
 import specializationArr from '../components/specialization';
 import backImg from '../img/back.png';
 import fadingBreak from '../img/fading_break.png';
@@ -25,9 +25,9 @@ function NewAppointment() {
   };
 
   return (
-    <div className="new_therapist_body">
+    <div className="new_appointment_body">
 
-      <header className="new_therapist_header">
+      <header className="new_appointment_header">
         <nav>
           <Link to="/">
             <img src={backImg} alt="" />
@@ -35,7 +35,7 @@ function NewAppointment() {
         </nav>
       </header>
 
-      <main className="new_therapist_main">
+      <main className="new_appointment_main">
         <figure className="logo_fig">
           <Link to="/">
             <img src={logoImg} alt="" />
@@ -56,7 +56,7 @@ function NewAppointment() {
           </figure>
         </div>
 
-        <form action="" className="new_therapist_form">
+        <form action="" className="new_appointment_form">
           <fieldset className="fieldset_border_none">
 
             <input className="input_name" type="text" placeholder="Address (State and City)" aria-label="Input Address" required />
@@ -77,17 +77,17 @@ function NewAppointment() {
 
           </fieldset>
 
-          <fieldset className="fieldset_border_none new_therapist_action">
+          <fieldset className="fieldset_border_none new_appointment_action">
             <button type="button" onClick={handleSubmit}> Book</button>
           </fieldset>
         </form>
 
       </main>
 
-      <footer className="new_therapist_footer">
+      <footer className="new_appointment_footer">
         <ul className="list_style_none">
-          <li><Link to="/new_therapist" className="td_none"> terms </Link></li>
-          <li><Link to="/new_therapist" className="td_none">  privacy </Link></li>
+          <li><Link to="/new_appointment" className="td_none"> terms </Link></li>
+          <li><Link to="/new_appointment" className="td_none">  privacy </Link></li>
         </ul>
       </footer>
 
