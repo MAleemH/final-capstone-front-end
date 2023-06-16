@@ -1,10 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
-// import { Link } from 'react-router-dom';
 import '../css/TherapistDetails.css';
 import therapistImg from '../img/therapist.jpg';
 import editImg from '../img/edit.png';
-import bookImg from '../img/book.png';
 import trashImg from '../img/trash.png';
 
 function TherapistDetailsPage() {
@@ -57,9 +56,9 @@ function TherapistDetailsPage() {
             </ul>
 
             <div className="therapist_info_action">
+              <button aria-label="Book" type="button"><Link className="td_none" to="/book">Reserve</Link></button>
               <button aria-label="Edit" type="button"><img src={editImg} alt="" /></button>
               <button aria-label="Trash" type="button"><img src={trashImg} alt="" /></button>
-              <button aria-label="Book" type="button"><img src={bookImg} alt="" /></button>
             </div>
 
           </div>

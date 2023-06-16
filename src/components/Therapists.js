@@ -42,29 +42,6 @@ function Therapists() {
   return (
     <div className="therapy_wrap">
       {/* <section className="home_page_content"> */}
-      <header>
-        <h1>Starred Therapists</h1>
-
-        <p className="hide1">Please select a therapist</p>
-
-        <div className="search_box">
-          <fieldset className="fieldset_border_none">
-            <select aria-label="Input Label" className="input_name" id="specializationId" onChange={(e) => setInputSpecialty(e.target.value)}>
-
-              {specializationArr.map((specialty) => (
-                <option key={specialty} value={specialty.value} aria-label="Input Specialization">{specialty.name}</option>
-              ))}
-            </select>
-          </fieldset>
-        </div>
-
-        <div className="search_box">
-          <fieldset className="fieldset_border_none">
-            {/* onChange={(e) => setInputName(e.target.value)} */}
-            <input className="input_name" aria-label="Input Name" type="text" placeholder="Search by name" onChange={(e) => setInputName(e.target.value)} />
-          </fieldset>
-        </div>
-      </header>
 
       <div className="home_grids">
 
@@ -110,6 +87,7 @@ function Therapists() {
             </article>
           </Link>
         </div>
+
         <div className="home_grids_box">
           <Link className="td_none" to="/therapistdetails">
             <article>
@@ -152,6 +130,7 @@ function Therapists() {
             </article>
           </Link>
         </div>
+
         <div className="home_grids_box">
           <Link className="td_none" to="/therapistdetails">
             <article>
@@ -194,6 +173,7 @@ function Therapists() {
             </article>
           </Link>
         </div>
+
         <div className="home_grids_box">
           <Link className="td_none" to="/therapistdetails">
             <article>
@@ -236,6 +216,7 @@ function Therapists() {
             </article>
           </Link>
         </div>
+
         <div className="home_grids_box">
           <Link className="td_none" to="/therapistdetails">
             <article>
@@ -278,6 +259,7 @@ function Therapists() {
             </article>
           </Link>
         </div>
+
         <div className="home_grids_box">
           <Link className="td_none" to="/therapistdetails">
             <article>

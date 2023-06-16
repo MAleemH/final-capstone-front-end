@@ -33,11 +33,11 @@ function Navigation() {
           </li>
           <li>
             {' '}
-            <NavLink to="/" activeClassName="active" className="td_none">APPOINTMENTS</NavLink>
+            <NavLink to="/appointments" activeClassName="active" className="td_none">APPOINTMENTS</NavLink>
           </li>
           <li>
             {' '}
-            <NavLink to="/" activeClassName="active" className="td_none">NEW APPOINTMENT</NavLink>
+            <NavLink to="/book" activeClassName="active" className="td_none">NEW APPOINTMENT</NavLink>
           </li>
           <li>
             {' '}
