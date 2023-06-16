@@ -51,8 +51,8 @@ function Therapists() {
               </figure>
             </div>
 
-            <div className="delete_page_socials">
-              <figure className="delete_page_social_icons">
+            <div className="home_page_socials">
+              <figure className="home_page_social_icons">
                 <button type="button">
                   <img src={trashImg} alt="" />
                 </button>
@@ -94,8 +94,8 @@ function Therapists() {
               </figure>
             </div>
 
-            <div className="delete_page_socials">
-              <figure className="delete_page_social_icons">
+            <div className="home_page_socials">
+              <figure className="home_page_social_icons">
                 <button type="button">
                   <img src={trashImg} alt="" />
                 </button>
@@ -137,8 +137,8 @@ function Therapists() {
               </figure>
             </div>
 
-            <div className="delete_page_socials">
-              <figure className="delete_page_social_icons">
+            <div className="home_page_socials">
+              <figure className="home_page_social_icons">
                 <button type="button">
                   <img src={trashImg} alt="" />
                 </button>
@@ -180,8 +180,8 @@ function Therapists() {
               </figure>
             </div>
 
-            <div className="delete_page_socials">
-              <figure className="delete_page_social_icons">
+            <div className="home_page_socials">
+              <figure className="home_page_social_icons">
                 <button type="button">
                   <img src={trashImg} alt="" />
                 </button>
@@ -223,8 +223,8 @@ function Therapists() {
               </figure>
             </div>
 
-            <div className="delete_page_socials">
-              <figure className="delete_page_social_icons">
+            <div className="home_page_socials">
+              <figure className="home_page_social_icons">
                 <button type="button">
                   <img src={trashImg} alt="" />
                 </button>
@@ -266,8 +266,8 @@ function Therapists() {
               </figure>
             </div>
 
-            <div className="delete_page_socials">
-              <figure className="delete_page_social_icons">
+            <div className="home_page_socials">
+              <figure className="home_page_social_icons">
                 <button type="button">
                   <img src={trashImg} alt="" />
                 </button>

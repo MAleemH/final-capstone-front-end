@@ -14,36 +14,6 @@
     text-decoration: none;
   }
   
-  /* .home_page_main {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    background-color: #fffcf6;
-  } */
-  
-  /* .home_page_nav {
-    width: 20%;
-    margin: auto;
-    height: 100vh;
-    position: sticky;
-    top: 0;
-    bottom: 0;
-  } */
-  
-  /* .home_page_content {
-    padding: 15px 0;
-    width: 80%;
-    margin: auto;
-  } */
-  
-  .therapy_wrap header {
-    padding: 10px 0 20px 0;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
   .home_grids {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -107,7 +77,7 @@
     object-position: center;
   }
   
-  .delete_page_socials figure button {
+  .home_page_socials figure button {
     border: none;
   }
   
@@ -207,12 +177,6 @@
       bottom: 0;
     }
   
-    /* .home_page_content {
-      padding: 15px 0;
-      width: 75%;
-      margin: auto;
-    } */
-  
     .home_grids {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -233,16 +197,6 @@
       bottom: 0;
       left: 0;
     }
-  
-    /* .home_page_content {
-      padding: 15px 0;
-      width: 90%;
-      margin: auto;
-      position: absolute;
-      z-index: 4;
-      left: 0;
-      right: 0;
-    } */
   
     .search_box .input_name {
       width: 60%;
@@ -298,12 +252,6 @@
       bottom: 0;
       left: 0;
     }
-  
-    /* .home_page_content {
-      padding: 15px 0;
-      width: 90%;
-      margin: auto;
-    } */
   
     .home_grids {
       display: grid;
