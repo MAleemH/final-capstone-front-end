@@ -85,7 +85,7 @@ function NewAppointment() {
         <form action="" className="new_appointment_form">
           <fieldset className="fieldset_border_none">
 
-            <input className="input_name" type="text" placeholder="Address (State and City)" aria-label="Input Address" value={address.name} onChange={(e) => setAddress(e.target.value)} required />
+            <input className="input_name" type="text" placeholder="Address (State and City)" aria-label="Input Address" value={address} onChange={(e) => setAddress(e.target.value)} required />
 
             <input className="input_name" type="datetime-local" placeholder="Time" aria-label="Input Date and Time" value={timestampp.name} onChange={(e) => setTimestampp(e.target.value)} required />
 
