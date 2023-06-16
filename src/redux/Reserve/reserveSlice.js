@@ -113,7 +113,7 @@ const reserveSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchSingleReserve.fulfilled, (state, action) => {
+      .addCase(fetchSingleReserve.fulfilled, (state) => {
         state.loading = false;
         state.error = '';
       })
