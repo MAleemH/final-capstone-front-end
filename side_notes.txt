@@ -175,3 +175,39 @@ By using these utilities, you can perform additional actions, access the current
   //     (therapist) => therapist.specialization.toLowerCase().includes(inputSpecialty.toLowerCase()),
   //   );
   // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // const myTherapists = useSelector((state) => state.therapy.therapists);
+  // const dispatch = useDispatch();
+
+  // const user = { role: 'Admin' };
+  // if (user.role === 'Admin') {
+  //   filteredTherapists = myTherapists.filter(
+  //     (therapist) => therapist.name.toLowerCase().includes(inputName.toLowerCase()),
+  //   );
+  // } else {
+  //   filteredTherapists = myTherapists.filter(
+  //     (therapist) => therapist.specialization.toLowerCase().includes(inputSpecialty.toLowerCase()),
+  //   );
+  // }
