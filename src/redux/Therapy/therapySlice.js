@@ -12,23 +12,34 @@ const initialState = {
   error: '',
 };
 
-export const fetchTherapists = createAsyncThunk('therapy/fetchTherapists', async () => {
+export const fetchTherapists = createAsyncThunk('user/fetchTherapists', async ({ getState }) => {
   try {
-    const { data } = await (axios.get(getTherapistURL));
-    return data;
+    const { token } = getState().user;
+    const config = {
+      method: 'get',
+      url: getTherapistURL,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    };
+    const response = await axios(config);
+    console.log(response);
+    return response;
   } catch (error) {
     console.log(error);
     return error;
   }
 });
 
-export const postTherapist = createAsyncThunk('therapy/postTherapist', async (therapistData) => {
+export const postTherapist = createAsyncThunk('therapy/postTherapist', async (therapistData, { getState }) => {
   try {
+    const { token } = getState().user;
     const config = {
       method: 'post',
       url: postTherapistURL,
       headers: {
-        Authorization: 'MY_AUTH_TOKEN',
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
       data: therapistData,
@@ -42,13 +53,14 @@ export const postTherapist = createAsyncThunk('therapy/postTherapist', async (th
   }
 });
 
-export const deleteTherapist = createAsyncThunk('therapy/deleteTherapist', async (deleteID) => {
+export const deleteTherapist = createAsyncThunk('therapy/deleteTherapist', async (deleteID, { getState }) => {
   try {
+    const { token } = getState().user;
     const config = {
       method: 'delete',
       url: deleteTherapistURL,
       headers: {
-        Authorization: 'MY_AUTH_TOKEN',
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
       data: deleteID,

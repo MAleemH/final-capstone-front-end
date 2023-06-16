@@ -11,10 +11,20 @@ const initialState = {
   error: '',
 };
 
-export const fetchReserve = createAsyncThunk('reserve/fetchReserve', async () => {
+export const fetchReserve = createAsyncThunk('reserve/fetchReserve', async ({ getState }) => {
   try {
-    const { data } = await (axios.get(getReserveURL));
-    return data;
+    const { token } = getState().user;
+    const config = {
+      method: 'get',
+      url: getReserveURL,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    };
+    const response = await axios(config);
+    console.log(response);
+    return response;
   } catch (error) {
     console.log(error);
     return error;
