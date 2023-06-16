@@ -1,9 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const getReserveURL = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=24';
-const postReserveURL = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=24';
-const deleteReserveURL = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=24';
+const reserveURL = 'http://localhost:3000/api/v1/users/';
 
 const initialState = {
   loading: false,
@@ -11,14 +9,34 @@ const initialState = {
   error: '',
 };
 
-export const fetchReserve = createAsyncThunk('reserve/fetchReserve', async ({ getState }) => {
+export const fetchReserves = createAsyncThunk('reserve/fetchReserve', async ({ getState }) => {
   try {
-    const { token } = getState().user;
+    const userState = await getState().user.user;
     const config = {
       method: 'get',
-      url: getReserveURL,
+      url: `${reserveURL}${userState.user.id}/appointments`,
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: userState.user.authentication_token,
+        'Content-Type': 'application/json',
+      },
+    };
+    const response = await axios(config);
+    console.log(response);
+    return response;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+});
+
+export const fetchSingleReserve = createAsyncThunk('reserve/fetchSingleReserve', async (reserveID, { getState }) => {
+  try {
+    const userState = await getState().user.user;
+    const config = {
+      method: 'get',
+      url: `${reserveURL}${userState.user.id}/reserves/${reserveID}`,
+      headers: {
+        Authorization: userState.user.authentication_token,
         'Content-Type': 'application/json',
       },
     };
@@ -33,12 +51,12 @@ export const fetchReserve = createAsyncThunk('reserve/fetchReserve', async ({ ge
 
 export const postReserve = createAsyncThunk('reserve/postReserve', async (reserveData, { getState }) => {
   try {
-    const { token } = getState().user;
+    const userState = await getState().user.user;
     const config = {
       method: 'post',
-      url: postReserveURL,
+      url: `${reserveURL}${userState.user.id}/reserves`,
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: userState.user.authentication_token,
         'Content-Type': 'application/json',
       },
       data: reserveData,
@@ -54,18 +72,17 @@ export const postReserve = createAsyncThunk('reserve/postReserve', async (reserv
 
 export const deleteReserve = createAsyncThunk('reserve/deleteReserve', async (deleteID, { getState }) => {
   try {
-    const { token } = getState().user;
+    const userState = await getState().user.user;
     const config = {
       method: 'delete',
-      url: deleteReserveURL,
+      url: `${reserveURL}${userState.user.id}/reserves/${deleteID}`,
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: userState.user.authentication_token,
         'Content-Type': 'application/json',
       },
-      data: deleteID,
     };
     const response = await axios(config);
-    // console.log(response.data);
+    console.log(response);
     return response;
   } catch (error) {
     console.log(error);
@@ -79,16 +96,28 @@ const reserveSlice = createSlice({
   name: 'reserve',
   initialState,
   extraReducers: (builder) => {
-    builder.addCase(fetchReserve.pending, (state) => {
+    builder.addCase(fetchReserves.pending, (state) => {
       state.loading = true;
       state.error = null;
     })
-      .addCase(fetchReserve.fulfilled, (state, action) => {
+      .addCase(fetchReserves.fulfilled, (state, action) => {
         state.loading = false;
         state.error = '';
         state.reserves = action.payload.reserves;
       })
-      .addCase(fetchReserve.rejected, (state) => {
+      .addCase(fetchReserves.rejected, (state) => {
+        state.loading = false;
+        state.error = '';
+      })
+      .addCase(fetchSingleReserve.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchSingleReserve.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = '';
+      })
+      .addCase(fetchSingleReserve.rejected, (state) => {
         state.loading = false;
         state.error = '';
       })

@@ -10,12 +10,32 @@ const initialState = {
   error: '',
 };
 
-export const fetchTherapists = createAsyncThunk('user/fetchTherapists', async ({ getState }) => {
+export const fetchTherapists = createAsyncThunk('therapy/fetchTherapists', async ({ getState }) => {
   try {
     const userState = await getState().user.user;
     const config = {
       method: 'get',
       url: `${therapistURL}${userState.user.id}/therapists`,
+      headers: {
+        Authorization: userState.user.authentication_token,
+        'Content-Type': 'application/json',
+      },
+    };
+    const response = await axios(config);
+    console.log(response);
+    return response;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+});
+
+export const fetchSingleTherapist = createAsyncThunk('therapy/fetchSingleTherapist', async (therapistID, { getState }) => {
+  try {
+    const userState = await getState().user.user;
+    const config = {
+      method: 'get',
+      url: `${therapistURL}${userState.user.id}/therapists/${therapistID}`,
       headers: {
         Authorization: userState.user.authentication_token,
         'Content-Type': 'application/json',
@@ -98,6 +118,18 @@ const therapySlice = createSlice({
         state.therapists = action.payload.therapists;
       })
       .addCase(fetchTherapists.rejected, (state) => {
+        state.loading = false;
+        state.error = '';
+      })
+      .addCase(fetchSingleTherapist.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchSingleTherapist.fulfilled, (state) => {
+        state.loading = false;
+        state.error = '';
+      })
+      .addCase(fetchSingleTherapist.rejected, (state) => {
         state.loading = false;
         state.error = '';
       })
