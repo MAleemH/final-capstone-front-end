@@ -15,6 +15,11 @@ function LoginPage() {
   const [inputPassword, setInputPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
+  const nullUserData = async () => {
+    setEmail('');
+    setInputPassword('');
+  };
+
   const handleLogin = async () => {
     const pass = inputPassword.replace(/\s/g, '').toLowerCase();
     console.log(email, pass);
@@ -23,6 +28,7 @@ function LoginPage() {
     };
     console.log(userData);
     // dispatch(loginUser(userData));
+    await nullUserData();
   };
 
   useEffect(() => {

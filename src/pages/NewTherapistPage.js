@@ -14,9 +14,6 @@ function NewTherapistPage() {
   const [uploadFile, setUploadFile] = useState('');
   const [inputName] = useState('');
   const [inputAddress] = useState('');
-  // const [cloudinaryImage, setCloudinaryImage] = useState('');
-  // const cloudinaryAPI = 'https://api.cloudinary.com/v1_1/drhbncewu/image/upload';
-  // const postDataAPI = 'http://your-database-api.com/upload';
 
   const handleUpload = async (e) => {
     e.preventDefault();
@@ -86,7 +83,7 @@ function NewTherapistPage() {
 
             <select aria-label="Input Label" className="input_name" id="specializationId">
               {specializationArr.map((specialty) => (
-                <option key={specialty} value={specialty.value} aria-label="Input Specialization">{specialty.name}</option>
+                <option key={specialty.id} value={specialty.value} aria-label="Input Specialization">{specialty.name}</option>
               ))}
             </select>
 

@@ -31,10 +31,15 @@ Create a new appointment; form includes
 
 
 
+  // const [cloudinaryImage, setCloudinaryImage] = useState('');
+  // const cloudinaryAPI = 'https://api.cloudinary.com/v1_1/drhbncewu/image/upload';
+  // const postDataAPI = 'http://your-database-api.com/upload';
 
 
-const timestamp = Date.parse(selectedValue);
-console.log(timestamp);
+
+
+const timestamp = '2023-06-16T14:52';
+const formattedTimestamp = timestamp.replace('T', ' ');
 
 delete therapist button and book appointment button in therapist details page
 
