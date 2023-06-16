@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchReserve } from '../redux/Reserve/reserveSlice';
 import Navigation from '../components/Navigation';
-import '../css/HomePage.css';
+import '../css/AppointmentPage.css';
 import therapistImg from '../img/therapist.jpg';
 
 function AppointmentPage() {
@@ -22,12 +22,12 @@ function AppointmentPage() {
   }, [dispatch, myReserves]);
 
   return (
-    <main className="home_page_main">
-      <section className="home_page_nav">
+    <main className="appointment_main">
+      <section className="appointment_nav">
         <Navigation />
       </section>
 
-      <section className="home_page_content">
+      <section className="appointment_content">
         <header>
           <h1>Appointments</h1>
 
@@ -47,7 +47,7 @@ function AppointmentPage() {
 
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, id.</p>
 
-              <div className="home_page_socials">
+              <div className="appointment_socials">
                 <p>Date</p>
               </div>
             </article>
@@ -63,7 +63,7 @@ function AppointmentPage() {
 
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, id.</p>
 
-              <div className="home_page_socials">
+              <div className="appointment_socials">
                 <p>Date</p>
               </div>
             </article>
@@ -79,7 +79,7 @@ function AppointmentPage() {
 
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, id.</p>
 
-              <div className="home_page_socials">
+              <div className="appointment_socials">
                 <p>Date</p>
               </div>
             </article>
