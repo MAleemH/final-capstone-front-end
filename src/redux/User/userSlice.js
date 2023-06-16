@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const registerUserURL = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=24';
-const loginUserURL = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=24';
+const registerUserURL = 'http://localhost:3000/api/v1/users';
+const loginUserURL = 'http://localhost:3000/api/v1/users/sign_in';
 const postUserURL = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=24';
 const deleteUserURL = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=24';
 
@@ -25,6 +25,7 @@ export const registerUser = createAsyncThunk('user/registerUser', async (registe
       url: registerUserURL,
       data: registerData,
     };
+    console.log(config);
     const response = await axios(config);
     console.log(response);
     return response;
@@ -34,14 +35,14 @@ export const registerUser = createAsyncThunk('user/registerUser', async (registe
   }
 });
 
-export const loginUser = createAsyncThunk('user/loginUser', async (loginData, { getState }) => {
+export const loginUser = createAsyncThunk('user/loginUser', async (loginData) => {
   try {
-    const { token } = getState().user;
+    // const token = getState().user.authentication_token;
     const config = {
       method: 'post',
       url: loginUserURL,
       headers: {
-        Authorization: `Bearer ${token}`,
+        // Authorization: `${token}`,
         'Content-Type': 'application/json',
       },
       data: loginData,
@@ -79,12 +80,12 @@ export const deleteUser = createAsyncThunk('therapy/deleteUser', async (deleteID
 
 export const postUser = createAsyncThunk('user/postUser', async (therapistData, { getState }) => {
   try {
-    const { token } = getState().user;
+    const token = getState().user.authentication_token;
     const config = {
       method: 'post',
       url: postUserURL,
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `${token}`,
         'Content-Type': 'application/json',
       },
       data: therapistData,
@@ -111,8 +112,8 @@ const userSlice = createSlice({
       .addCase(registerUser.fulfilled, (state, action) => {
         state.loading = false;
         removeLocalUser();
-        setLocalUser(action.payload.user);
-        state.user = (action.payload.user);
+        setLocalUser(action.payload.data);
+        state.user = (action.payload.data);
         state.error = '';
       })
       .addCase(registerUser.rejected, (state) => {
@@ -126,8 +127,8 @@ const userSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action) => {
         state.loading = false;
         removeLocalUser();
-        setLocalUser(action.payload.user);
-        state.user = (action.payload.user);
+        setLocalUser(action.payload.data);
+        state.user = (action.payload.data);
         state.error = '';
       })
       .addCase(loginUser.rejected, (state) => {

@@ -24,7 +24,8 @@ function NewTherapistPage() {
     const formData = new FormData();
     formData.append('file', uploadFile);
     formData.append('upload_preset', 'f00ugkxm');
-    const secureUrl = await dispatch(uploadTherapist(formData));
+    const secureUrl = (await dispatch(uploadTherapist(formData))).payload;
+    // console.log(secureUrl);
     return secureUrl;
   };
 
@@ -35,16 +36,23 @@ function NewTherapistPage() {
     setSpecialty('');
   };
 
-  const handleNewTherapist = async () => {
-    const cloudinaryImageUrl = await handleUpload();
+  const handleNewTherapist = async (e) => {
+    console.log(e);
+    const cloudinaryImageUrl = await handleUpload(e);
+    // console.log(cloudinaryImageUrl);
+    if (!cloudinaryImageUrl) {
+      return;
+    }
     const therapistData = {
-      secureUrl: cloudinaryImageUrl,
-      name: username,
-      address,
-      email,
-      specialty,
-      phone,
-      // Add other form data fields as needed
+      therapist: {
+        photo: cloudinaryImageUrl,
+        name: username,
+        address,
+        email,
+        specialization: specialty,
+        phone,
+        // Add other form data fields as needed
+      },
     };
     console.log(therapistData);
     // Send the data to the database
@@ -103,7 +111,7 @@ function NewTherapistPage() {
 
         <form action="" className="new_therapist_form">
           <fieldset className="fieldset_border_none">
-            <input className="input_name" type="text" placeholder="Name" aria-label="Input Name" required />
+            <input className="input_name" type="text" placeholder="Name" aria-label="Input Name" value={username} onChange={(e) => setUsername(e.target.value)} required />
 
             <input className="input_name" type="text" placeholder="Address (State and City)" aria-label="Input Address" value={address} onChange={(e) => setAddress(e.target.value)} required />
 
@@ -111,7 +119,7 @@ function NewTherapistPage() {
 
             <input className="input_name" type="email" placeholder="Email" aria-label="Input Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
 
-            <select aria-label="Input Label" className="input_name" value={specialty} onChange={(e) => setSpecialty(e.target.value)} id="specializationId">
+            <select aria-label="Input Label" className="input_name" onChange={(e) => setSpecialty(e.target.value)} id="specializationId">
               {specializationArr.map((specialty) => (
                 <option key={specialty.id} value={specialty.value} aria-label="Input Specialization">{specialty.name}</option>
               ))}
@@ -120,7 +128,7 @@ function NewTherapistPage() {
             <div className="input_name image_input_container">
               <input type="file" aria-label="Add Image" onChange={(event) => { setUploadFile(event.target.files[0]); }} required />
               <img src={avatarImg} alt="Choose File" />
-              <p>Add Image</p>
+              <p>{uploadFile ? 'Image Added' : 'Add Image'}</p>
             </div>
 
           </fieldset>

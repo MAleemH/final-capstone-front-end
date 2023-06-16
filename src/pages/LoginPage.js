@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
-// import { loginUser } from '../redux/User/userSlice';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../redux/User/userSlice';
 import '../css/LoginPage.css';
 import backImg from '../img/back.png';
 import eyeImg from '../img/eye.png';
@@ -9,7 +9,7 @@ import fadingBreak from '../img/fading_break.png';
 import logoImg from '../img/logo.png';
 
 function LoginPage() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [passwordType, setPasswordType] = useState('password');
   const [email, setEmail] = useState('');
   const [inputPassword, setInputPassword] = useState('');
@@ -21,13 +21,15 @@ function LoginPage() {
   };
 
   const handleLogin = async () => {
-    const pass = inputPassword.replace(/\s/g, '').toLowerCase();
-    console.log(email, pass);
+    // const pass = inputPassword.replace(/\s/g, '').toLowerCase();
+    console.log(email, inputPassword);
     const userData = {
-      email, password1: pass,
+      user: {
+        email, password: inputPassword,
+      },
     };
     console.log(userData);
-    // dispatch(loginUser(userData));
+    dispatch(loginUser(userData));
     await nullUserData();
   };
 
