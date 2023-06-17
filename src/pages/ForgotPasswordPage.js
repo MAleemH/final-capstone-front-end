@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { forgotPassword } from '../redux/User/userSlice';
@@ -44,7 +44,7 @@ function ForgotPasswordPage() {
 
     console.log(userData);
     await dispatch(forgotPassword(userData));
-    nullUserData();
+    await nullUserData();
   };
 
   useEffect(() => {

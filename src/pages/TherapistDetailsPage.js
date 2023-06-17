@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchReserves } from '../redux/Reserve/reserveSlice';
@@ -9,7 +9,6 @@ import editImg from '../img/edit.png';
 import trashImg from '../img/trash.png';
 
 function TherapistDetailsPage() {
-
   const dispatch = useDispatch();
   //  const myReserves = useSelector((state) => state.reserve.reserves);
   //  const { id } = useParams();
@@ -25,7 +24,7 @@ function TherapistDetailsPage() {
     return () => {
       active = false;
     };
-  }, [dispatch, myReserve]);
+  }, [dispatch]);
 
   return (
     <main className="therapy_details_main">

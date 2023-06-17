@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // import { useDispatch, useSelector } from 'react-redux';
 import '../css/Therapist.css';
+import { useDispatch } from 'react-redux';
 import therapistImg from '../img/therapist.jpg';
 import facebookImg from '../img/facebook.png';
 import twitterImg from '../img/twitter.png';
 import linkedinImg from '../img/linkedin.png';
 import trashImg from '../img/trash.png';
-import { useDispatch } from 'react-redux';
 import { deleteTherapist } from '../redux/Therapy/therapySlice';
 
 function Therapists() {
@@ -15,8 +15,8 @@ function Therapists() {
   // This component recieves prop from either home or delete and do their bidding
 
   const handleDeleteTherapist = (objId) => {
-    dispatch(deleteTherapist(objId))
-    return objId
+    dispatch(deleteTherapist(objId));
+    return objId;
     // dispatch(deleteTherapist(objId));
   };
 

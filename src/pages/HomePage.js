@@ -10,7 +10,7 @@ function HomePage() {
   const myTherapists = useSelector((state) => state.therapy.therapists);
   const dispatch = useDispatch();
   const [specialty, setSpecialty] = useState('');
-console.log(specialty);
+  console.log(specialty);
   useEffect(() => {
     let active = true;
     (async () => {

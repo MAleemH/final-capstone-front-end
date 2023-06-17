@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTherapists } from '../redux/Therapy/therapySlice';
 import Navigation from '../components/Navigation';
@@ -36,7 +36,7 @@ function DeleteTherapist() {
 
           <div className="search_box">
             <fieldset className="fieldset_border_none">
-              <input className="input_name" type="text" placeholder="Search by name" aria-label="Input Name" value={inputName} onChange={(e) => setInputname(e.target.value)} required /> 
+              <input className="input_name" type="text" placeholder="Search by name" aria-label="Input Name" value={inputName} onChange={(e) => setInputname(e.target.value)} required />
             </fieldset>
           </div>
         </header>
