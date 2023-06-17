@@ -94,3 +94,10 @@ function Navigation() {
         </button>
         </header>
         )}
+
+        {!isToggled && (
+        <nav className="list_style_none home_nav">
+            <li>
+            {' '}
+            <NavLink to="/homepage" activeClassName="active" className="td_none">HOME</NavLink>
+            </li>
