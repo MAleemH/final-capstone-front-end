@@ -57,3 +57,10 @@ function Navigation() {
             <img src={twitterImg} alt="" />
             </Link>
         </figure>
+
+        <figure className="nav_social_icons">
+            <Link to="/" className="td_none">
+            <img src={linkedinImg} alt="" />
+            </Link>
+        </figure>
+
