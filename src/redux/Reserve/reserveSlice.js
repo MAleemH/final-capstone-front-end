@@ -52,3 +52,78 @@ export const postReserve = createAsyncThunk('reserve/postReserve', async (reserv
       return error;
     }
   });
+
+  export const deleteReserve = createAsyncThunk('reserve/deleteReserve', async (deleteID, { getState }) => {
+    try {
+      const { token } = getState().user;
+      const config = {
+        method: 'delete',
+        url: deleteReserveURL,
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        data: deleteID,
+      };
+      const response = await axios(config);
+      // console.log(response.data);
+      return response;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  });
+  
+  /* eslint-disable no-param-reassign */
+  
+  const reserveSlice = createSlice({
+    name: 'therapy',
+    initialState,
+    extraReducers: (builder) => {
+      builder.addCase(fetchReserve.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+        .addCase(fetchReserve.fulfilled, (state, action) => {
+          state.loading = false;
+          state.error = '';
+          state.reserves = action.payload.reserves;
+        })
+        .addCase(fetchReserve.rejected, (state) => {
+          state.loading = false;
+          state.error = '';
+        })
+        .addCase(postReserve.pending, (state) => {
+          state.loading = true;
+          state.error = null;
+        })
+        .addCase(postReserve.fulfilled, (state, action) => {
+          state.loading = false;
+          state.reserves.push(action.payload);
+          state.error = null;
+        })
+        .addCase(postReserve.rejected, (state) => {
+          state.loading = false;
+          state.error = '';
+        })
+        .addCase(deleteReserve.pending, (state) => {
+          state.loading = true;
+          state.error = null;
+        })
+        .addCase(deleteReserve.fulfilled, (state, action) => {
+          state.loading = false;
+          state.reserves = state.reserves.filter(
+            (reserve) => reserve.id !== action.payload.id,
+          );
+          state.error = null;
+        })
+        .addCase(deleteReserve.rejected, (state) => {
+          state.loading = false;
+          state.error = '';
+        });
+    },
+  });
+  
+  /* eslint-disable no-param-reassign */
+  
+  export default reserveSlice.reducer;
