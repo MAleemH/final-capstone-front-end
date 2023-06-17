@@ -18,3 +18,29 @@ function Navigation() {
             </Link>
             </figure>
         </header>
+
+        <nav className="list_style_none home_nav">
+        <li>
+            {' '}
+            <NavLink to="/homepage" activeClassName="active" className="td_none">HOME</NavLink>
+        </li>
+        <li>
+            {' '}
+            <NavLink to="/appointments" activeClassName="active" className="td_none">APPOINTMENTS</NavLink>
+        </li>
+        <li>
+            {' '}
+            <NavLink to="/book" activeClassName="active" className="td_none">NEW APPOINTMENT</NavLink>
+        </li>
+        <li>
+            {' '}
+            <NavLink to="/newtherapist" activeClassName="active" className="td_none">NEW THERAPIST</NavLink>
+        </li>
+        <li>
+            {' '}
+            <NavLink to="/deletetherapist" className="td_none" activeClassName="active">DELETE THERAPIST</NavLink>
+        </li>
+        <li>
+            <button className="logout_btn" type="button">LOGOUT</button>
+        </li>
+        </nav>
