@@ -64,3 +64,9 @@ function Navigation() {
             </Link>
         </figure>
 
+        <figure className="nav_social_icons">
+            <Link to="/" className="td_none">
+            <img src={instagramImg} alt="" />
+            </Link>
+        </figure>
+
