@@ -37,7 +37,7 @@ function NewAppointment() {
     console.log(userData);
     // dispatch(postReserve(userData))
     await nullReserveData();
-    navigate('appointments');
+    navigate('/appointments');
   };
 
   useEffect(() => {

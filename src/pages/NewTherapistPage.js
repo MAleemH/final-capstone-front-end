@@ -64,7 +64,7 @@ function NewTherapistPage() {
     const response = await dispatch(postTherapist(therapistData));
     console.log(response);
     await nullThrapistData();
-    navigate('homepage');
+    navigate('/homepage');
   };
 
   useEffect(() => {

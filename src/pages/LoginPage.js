@@ -36,7 +36,7 @@ function LoginPage() {
     console.log(userData);
     dispatch(loginUser(userData));
     await nullUserData();
-    navigate('homepage');
+    navigate('/homepage');
   };
 
   useEffect(() => {

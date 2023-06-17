@@ -50,7 +50,7 @@ function ForgotPasswordPage() {
     console.log(userData);
     await dispatch(forgotPassword(userData));
     await nullUserData();
-    navigate('homepage');
+    navigate('/homepage');
   };
 
   useEffect(() => {
