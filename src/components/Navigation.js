@@ -44,3 +44,5 @@ function Navigation() {
             <button className="logout_btn" type="button">LOGOUT</button>
         </li>
         </nav>
+
+        <footer className="home_nav_footer">
