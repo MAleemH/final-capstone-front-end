@@ -33,6 +33,10 @@
   background: transparent;
 }
 
+.back_none {
+  border: none;
+}
+
 .login_header img {
   height: 30px;
 }

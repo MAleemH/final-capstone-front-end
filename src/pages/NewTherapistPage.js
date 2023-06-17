@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { postTherapist, uploadTherapist } from '../redux/Therapy/therapySlice';
 import '../css/NewTherapistPage.css';
@@ -18,6 +18,11 @@ function NewTherapistPage() {
   const [phone, setPhone] = useState(0);
   const [specialty, setSpecialty] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
 
   const handleUpload = async (e) => {
     e.preventDefault();
@@ -78,9 +83,9 @@ function NewTherapistPage() {
 
       <header className="new_therapist_header">
         <nav>
-          <Link to="/">
+        <button type="button" onClick={goBack}>
             <img src={backImg} alt="" />
-          </Link>
+          </button>
         </nav>
       </header>
 

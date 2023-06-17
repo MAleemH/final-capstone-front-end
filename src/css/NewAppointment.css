@@ -33,6 +33,10 @@
   background: transparent;
 }
 
+.back_none {
+  border: none;
+}
+
 .new_appointment_header img {
   height: 30px;
 }

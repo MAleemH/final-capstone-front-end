@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../redux/User/userSlice';
 import roleArr from '../components/roles';
@@ -19,6 +19,11 @@ function RegisterPage() {
   const [errorMessage, setErrorMessage] = useState('');
   const [passwordType1, setPasswordType1] = useState('password');
   const [passwordType2, setPasswordType2] = useState('password');
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
 
   const similarPassword = async (inputPas1, inputPas2) => {
     if (inputPas1 !== inputPas2) {
@@ -71,9 +76,9 @@ function RegisterPage() {
 
       <header className="register_header">
         <nav>
-          <Link to="/">
+          <button className="back_none" type="button" onClick={goBack}>
             <img src={backImg} alt="" />
-          </Link>
+          </button>
         </nav>
       </header>
 

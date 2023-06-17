@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../redux/User/userSlice';
 import '../css/LoginPage.css';
@@ -14,6 +14,11 @@ function LoginPage() {
   const [email, setEmail] = useState('');
   const [inputPassword, setInputPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
 
   const nullUserData = async () => {
     setEmail('');
@@ -50,9 +55,9 @@ function LoginPage() {
 
       <header className="login_header">
         <nav>
-          <Link to="/">
+        <button type="button" onClick={goBack}>
             <img src={backImg} alt="" />
-          </Link>
+          </button>
         </nav>
       </header>
 

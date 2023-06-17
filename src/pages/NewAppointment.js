@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 // import { useDispatch } from 'react-redux';
 // import { postReserve } from '../redux/Reserve/reserveSlice';
 import '../css/NewAppointment.css';
@@ -15,6 +15,11 @@ function NewAppointment() {
   const [specialty, setSpecialty] = useState('');
   const [therapist, setTherapist] = useState({});
   const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
 
   const nullReserveData = async () => {
     setAddress('');
@@ -51,9 +56,9 @@ function NewAppointment() {
 
       <header className="new_appointment_header">
         <nav>
-          <Link to="/">
+        <button type="button" onClick={goBack}>
             <img src={backImg} alt="" />
-          </Link>
+          </button>
         </nav>
       </header>
 
