@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 import '../css/Navigation.css';
 import { Link, NavLink } from 'react-router-dom';
 import '../css/LoginPage.css';
+import facebookImg from '../img/facebook.png';
+import twitterImg from '../img/twitter.png';
+import linkedinImg from '../img/linkedin.png';
+import instagramImg from '../img/instagram.png';
+import snapchatImg from '../img/snapchat.png';
+import logoImg from '../img/logo.png';
+import menuImg from '../img/menu.png';
+import cancelImg from '../img/cancel.png';
 
 function Navigation() {
   const [isToggled, setIsToggled] = useState(true);
