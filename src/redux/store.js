@@ -6,8 +6,7 @@ import reserveReducer from './Reserve/reserveSlice';
 const store = configureStore({
   reducer: {
     therapy: therapyReducer,
-    user: userReducer,
-    reserve: reserveReducer,
+    
   },
 });
 
