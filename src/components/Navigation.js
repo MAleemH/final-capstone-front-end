@@ -53,6 +53,7 @@ function Navigation() {
         </nav>
 
         <footer className="home_nav_footer">
+
           <figure className="nav_social_icons">
             <Link to="/" className="td_none">
               <img src={facebookImg} alt="" />
@@ -82,24 +83,26 @@ function Navigation() {
               <img src={snapchatImg} alt="" />
             </Link>
           </figure>
+
         </footer>
+
       </section>
 
       <section className={isToggled ? 'home_nav_section_mobile' : 'active_blur home_nav_section_mobile'}>
         {isToggled && (
-          <header className="home_logo margin_left1">
-            <button onClick={() => setIsToggled(!isToggled)} type="button" aria-label="button">
-              <img src={menuImg} alt="" />
-            </button>
-          </header>
+        <header className="home_logo margin_left1">
+          <button onClick={() => setIsToggled(!isToggled)} type="button" aria-label="button">
+            <img src={menuImg} alt="" />
+          </button>
+        </header>
         )}
 
         {!isToggled && (
-          <header className="home_logo close_btn margin_left2">
-            <button onClick={() => setIsToggled(!isToggled)} type="button" aria-label="button">
-              <img src={cancelImg} alt="" />
-            </button>
-          </header>
+        <header className="home_logo close_btn margin_left2">
+          <button onClick={() => setIsToggled(!isToggled)} type="button" aria-label="button">
+            <img src={cancelImg} alt="" />
+          </button>
+        </header>
         )}
 
         {!isToggled && (
@@ -108,22 +111,18 @@ function Navigation() {
               {' '}
               <NavLink to="/homepage" activeClassName="active" className="td_none">HOME</NavLink>
             </li>
-
             <li>
               {' '}
               <NavLink to="/" activeClassName="active" className="td_none">APPOINTMENTS</NavLink>
             </li>
-
             <li>
               {' '}
               <NavLink to="/" activeClassName="active" className="td_none">NEW APPOINTMENT</NavLink>
             </li>
-
             <li>
               {' '}
               <NavLink to="/newtherapist" activeClassName="active" className="td_none">NEW THERAPIST</NavLink>
             </li>
-
             <li>
               {' '}
               <NavLink to="/deletetherapist" className="td_none" activeClassName="active">DELETE THERAPIST</NavLink>
@@ -131,7 +130,6 @@ function Navigation() {
             <li>
               <button className="logout_btn" type="button">LOGOUT</button>
             </li>
-
           </nav>
         )}
 
