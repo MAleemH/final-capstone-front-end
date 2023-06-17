@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { fetchReserves } from '../redux/Reserve/reserveSlice';
 import Navigation from '../components/Navigation';
 import '../css/TherapistDetails.css';
 import therapistImg from '../img/therapist.jpg';
@@ -7,6 +9,24 @@ import editImg from '../img/edit.png';
 import trashImg from '../img/trash.png';
 
 function TherapistDetailsPage() {
+
+  const dispatch = useDispatch();
+  //  const myReserves = useSelector((state) => state.reserve.reserves);
+  //  const { id } = useParams();
+  //  const myReserve = (myReserves.filter((myReserve) => myReserve.id === id));
+
+  useEffect(() => {
+    let active = true;
+    (async () => {
+      if (active) {
+        dispatch(fetchReserves());
+      }
+    })();
+    return () => {
+      active = false;
+    };
+  }, [dispatch, myReserve]);
+
   return (
     <main className="therapy_details_main">
 

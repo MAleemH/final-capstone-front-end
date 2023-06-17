@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchReserve } from '../redux/Reserve/reserveSlice';
+import { fetchReserves } from '../redux/Reserve/reserveSlice';
 import Navigation from '../components/Navigation';
 import '../css/AppointmentPage.css';
 import therapistImg from '../img/therapist.jpg';
@@ -12,8 +12,8 @@ function AppointmentPage() {
   useEffect(() => {
     let active = true;
     (async () => {
-      if (active && myReserves?.length === 0) {
-        dispatch(fetchReserve());
+      if (active && myReserves.length === 0) {
+        dispatch(fetchReserves());
       }
     })();
     return () => {

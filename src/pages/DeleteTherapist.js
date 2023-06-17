@@ -8,6 +8,7 @@ import Therapists from '../components/Therapists';
 function DeleteTherapist() {
   const myTherapists = useSelector((state) => state.therapy.therapists);
   const dispatch = useDispatch();
+  const [inputName, setInputname] = useState('');
 
   useEffect(() => {
     let active = true;
@@ -35,7 +36,7 @@ function DeleteTherapist() {
 
           <div className="search_box">
             <fieldset className="fieldset_border_none">
-              <input className="input_name" aria-label="Input Name" type="text" placeholder="Search by name" />
+              <input className="input_name" type="text" placeholder="Search by name" aria-label="Input Name" value={inputName} onChange={(e) => setInputname(e.target.value)} required /> 
             </fieldset>
           </div>
         </header>
