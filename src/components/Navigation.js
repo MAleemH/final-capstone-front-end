@@ -111,3 +111,8 @@ function Navigation() {
             {' '}
             <NavLink to="/" activeClassName="active" className="td_none">NEW APPOINTMENT</NavLink>
             </li>
+
+            <li>
+            {' '}
+            <NavLink to="/newtherapist" activeClassName="active" className="td_none">NEW THERAPIST</NavLink>
+            </li>
