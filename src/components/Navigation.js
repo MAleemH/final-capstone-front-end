@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import '../css/Navigation.css';
 import { Link, NavLink } from 'react-router-dom';
-import '../css/LoginPage.css';
+import { useDispatch } from 'react-redux';
+import { logoutUser } from '../redux/User/userSlice';
+// import '../css/LoginPage.css';
 import facebookImg from '../img/facebook.png';
 import twitterImg from '../img/twitter.png';
 import linkedinImg from '../img/linkedin.png';
@@ -13,6 +15,11 @@ import cancelImg from '../img/cancel.png';
 
 function Navigation() {
   const [isToggled, setIsToggled] = useState(true);
+  const dispatch = useDispatch();
+
+  const handleLogout = async () => {
+    await dispatch(logoutUser);
+  };
 
   return (
     <main>
@@ -48,7 +55,7 @@ function Navigation() {
             <NavLink to="/deletetherapist" className="td_none" activeClassName="active">DELETE THERAPIST</NavLink>
           </li>
           <li>
-            <button className="logout_btn" type="button">LOGOUT</button>
+            <button className="logout_btn" type="button" onClick={handleLogout}>LOGOUT</button>
           </li>
         </nav>
 

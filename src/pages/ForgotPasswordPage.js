@@ -43,7 +43,7 @@ function ForgotPasswordPage() {
     };
 
     console.log(userData);
-    dispatch(forgotPassword(userData));
+    await dispatch(forgotPassword(userData));
     nullUserData();
   };
 
