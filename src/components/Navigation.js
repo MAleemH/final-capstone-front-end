@@ -101,3 +101,9 @@ function Navigation() {
             {' '}
             <NavLink to="/homepage" activeClassName="active" className="td_none">HOME</NavLink>
             </li>
+
+            <li>
+            {' '}
+            <NavLink to="/" activeClassName="active" className="td_none">APPOINTMENTS</NavLink>
+            </li>
+            <li>
