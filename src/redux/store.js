@@ -1,5 +1,3 @@
-Store.js
-
 import { configureStore } from '@reduxjs/toolkit';
 import therapyReducer from './Therapy/therapySlice';
 import userReducer from './User/userSlice';
