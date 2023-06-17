@@ -78,3 +78,19 @@ function Navigation() {
         </footer>
         </section>
 
+        <section className={isToggled ? 'home_nav_section_mobile' : 'active_blur home_nav_section_mobile'}>
+        {isToggled && (
+        <header className="home_logo margin_left1">
+        <button onClick={() => setIsToggled(!isToggled)} type="button" aria-label="button">
+            <img src={menuImg} alt="" />
+        </button>
+        </header>
+        )}
+
+        {!isToggled && (
+        <header className="home_logo close_btn margin_left2">
+        <button onClick={() => setIsToggled(!isToggled)} type="button" aria-label="button">
+            <img src={cancelImg} alt="" />
+        </button>
+        </header>
+        )}
