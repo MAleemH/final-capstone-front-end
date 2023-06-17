@@ -50,6 +50,7 @@ function ForgotPasswordPage() {
     console.log(userData);
     await dispatch(forgotPassword(userData));
     await nullUserData();
+    navigate('homepage');
   };
 
   useEffect(() => {
@@ -69,7 +70,7 @@ function ForgotPasswordPage() {
 
       <header className="forgot_page_header">
         <nav>
-        <button type="button" onClick={goBack}>
+          <button className="back_none" type="button" onClick={goBack}>
             <img src={backImg} alt="" />
           </button>
         </nav>
@@ -89,7 +90,7 @@ function ForgotPasswordPage() {
             {' '}
           </figure>
           <p>
-&nbsp;
+            &nbsp;
             {`${errorMessage || 'Forgot Password'}`}
           </p>
           <figure>
@@ -155,7 +156,7 @@ function ForgotPasswordPage() {
           </p>
 
           <button type="button">
-            <Link className="td_none" to="/forgot_page"> LOGIN </Link>
+            <Link className="td_none" to="/login"> LOGIN </Link>
           </button>
         </div>
 

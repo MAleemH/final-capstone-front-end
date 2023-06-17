@@ -108,8 +108,6 @@ const userSlice = createSlice({
       .addCase(registerUser.fulfilled, (state, action) => {
         state.loading = false;
         removeLocalUser();
-        setLocalUser(action.payload.data);
-        state.user = (action.payload.data);
         state.error = '';
       })
       .addCase(registerUser.rejected, (state) => {

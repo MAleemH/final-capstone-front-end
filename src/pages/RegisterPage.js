@@ -56,7 +56,8 @@ function RegisterPage() {
 
     console.log(userData);
     dispatch(registerUser(userData));
-    nullUserData();
+    await nullUserData();
+    navigate('login');
   };
 
   useEffect(() => {

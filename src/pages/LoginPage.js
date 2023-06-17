@@ -36,6 +36,7 @@ function LoginPage() {
     console.log(userData);
     dispatch(loginUser(userData));
     await nullUserData();
+    navigate('homepage');
   };
 
   useEffect(() => {
@@ -55,7 +56,7 @@ function LoginPage() {
 
       <header className="login_header">
         <nav>
-        <button type="button" onClick={goBack}>
+          <button className="back_none" type="button" onClick={goBack}>
             <img src={backImg} alt="" />
           </button>
         </nav>

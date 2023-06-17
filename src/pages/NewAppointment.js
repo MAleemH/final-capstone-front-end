@@ -37,6 +37,7 @@ function NewAppointment() {
     console.log(userData);
     // dispatch(postReserve(userData))
     await nullReserveData();
+    navigate('appointments');
   };
 
   useEffect(() => {
@@ -56,7 +57,7 @@ function NewAppointment() {
 
       <header className="new_appointment_header">
         <nav>
-        <button type="button" onClick={goBack}>
+          <button className="back_none" type="button" onClick={goBack}>
             <img src={backImg} alt="" />
           </button>
         </nav>

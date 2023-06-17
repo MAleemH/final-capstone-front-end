@@ -64,6 +64,7 @@ function NewTherapistPage() {
     const response = await dispatch(postTherapist(therapistData));
     console.log(response);
     await nullThrapistData();
+    navigate('homepage');
   };
 
   useEffect(() => {
@@ -83,7 +84,7 @@ function NewTherapistPage() {
 
       <header className="new_therapist_header">
         <nav>
-        <button type="button" onClick={goBack}>
+          <button className="back_none" type="button" onClick={goBack}>
             <img src={backImg} alt="" />
           </button>
         </nav>

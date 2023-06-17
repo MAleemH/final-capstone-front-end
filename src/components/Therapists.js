@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { PropTypes } from 'prop-types';
-// import { useDispatch, useSelector } from 'react-redux';
-import '../css/Therapist.css';
 import { useDispatch } from 'react-redux';
+// import { PropTypes } from 'prop-types';
+import '../css/Therapist.css';
 import therapistImg from '../img/therapist.jpg';
 import facebookImg from '../img/facebook.png';
 import twitterImg from '../img/twitter.png';
@@ -25,13 +24,11 @@ function Therapists() {
 
     <div className="home_grids">
 
-
       {/* {myTherapists.map((therapist) => (
         <div key={therapist.id}>
           <Link to={`/therapistdetails/${therapist.id}`} className="td_none">jkbk</Link>
         </div>))} */}
 
-
       <div className="home_grids_box">
         <Link className="td_none" to="/therapistdetails">
           <article>
@@ -160,7 +157,6 @@ function Therapists() {
           </article>
         </Link>
       </div>
-
 
     </div>
   );
