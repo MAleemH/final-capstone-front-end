@@ -76,3 +76,28 @@ function Therapists() {
                   <img src={facebookImg} alt="" />
                 </Link>
               </figure>
+
+              <figure className="home_page_social_icons">
+                <Link to="/" className="td_none">
+                  <img src={twitterImg} alt="" />
+                </Link>
+              </figure>
+
+              <figure className="home_page_social_icons">
+                <Link to="/" className="td_none">
+                  <img src={linkedinImg} alt="" />
+                </Link>
+              </figure>
+            </div>
+
+            <div className="home_page_socials">
+              <figure className="home_page_social_icons">
+                <button type="button">
+                  <img src={trashImg} alt="" />
+                </button>
+              </figure>
+            </div>
+
+          </article>
+        </Link>
+      </div>
