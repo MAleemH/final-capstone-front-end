@@ -46,3 +46,8 @@ function Navigation() {
         </nav>
 
         <footer className="home_nav_footer">
+        <figure className="nav_social_icons">
+            <Link to="/" className="td_none">
+            <img src={facebookImg} alt="" />
+            </Link>
+        </figure>
