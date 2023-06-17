@@ -31,10 +31,15 @@ Create a new appointment; form includes
 
 
 
+  // const [cloudinaryImage, setCloudinaryImage] = useState('');
+  // const cloudinaryAPI = 'https://api.cloudinary.com/v1_1/drhbncewu/image/upload';
+  // const postDataAPI = 'http://your-database-api.com/upload';
 
 
-const timestamp = Date.parse(selectedValue);
-console.log(timestamp);
+
+
+const timestamp = '2023-06-16T14:52';
+const formattedTimestamp = timestamp.replace('T', ' ');
 
 delete therapist button and book appointment button in therapist details page
 
@@ -47,6 +52,32 @@ delete therapist button and book appointment button in therapist details page
     // .catch((error) => {
     //   console.log(error);
     // });
+
+
+
+
+
+
+export const fetchUser = createAsyncThunk('user/fetchUser', async () => {
+  try {
+    const { data } = await (axios.get(getUserURL));
+    await removeLocalUser();
+    await setLocalUser(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+});
+
+
+
+
+
+
+
+
+
 
 
 
@@ -211,3 +242,27 @@ By using these utilities, you can perform additional actions, access the current
   //     (therapist) => therapist.specialization.toLowerCase().includes(inputSpecialty.toLowerCase()),
   //   );
   // }
+
+
+
+
+
+
+
+
+
+
+
+  .addCase(fetchUser.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    })
+      .addCase(fetchUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = '';
+        state.user = action.payload.user;
+      })
+      .addCase(fetchUser.rejected, (state) => {
+        state.loading = false;
+        state.error = '';
+      })

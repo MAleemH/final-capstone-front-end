@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+// import { useDispatch } from 'react-redux';
+// import { registerUser } from '../redux/User/userSlice';
 import '../css/RegisterPage.css';
 import backImg from '../img/back.png';
 import eyeImg from '../img/eye.png';
@@ -7,8 +9,54 @@ import fadingBreak from '../img/fading_break.png';
 import logoImg from '../img/logo.png';
 
 function RegisterPage() {
+  // const dispatch = useDispatch();
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [inputPassword1, setInputPassword1] = useState('');
+  const [inputPassword2, setInputPassword2] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const [passwordType1, setPasswordType1] = useState('password');
   const [passwordType2, setPasswordType2] = useState('password');
+
+  const similarPassword = async (inputPass1, inputPass2) => {
+    if (inputPass1 !== inputPass2) {
+      setErrorMessage('Unmatch Pass');
+      return;
+    }
+    setErrorMessage('');
+  };
+
+  const nullUserData = async () => {
+    setUsername('');
+    setEmail('');
+    setInputPassword1('');
+    setInputPassword2('');
+  };
+
+  const handleRegister = async () => {
+    const pass1 = inputPassword1.replace(/\s/g, '').toLowerCase();
+    const pass2 = inputPassword2.replace(/\s/g, '').toLowerCase();
+    console.log(username, email, pass1, pass2);
+    similarPassword(pass1, pass2);
+    const userData = {
+      name: username, password1: pass1, password2: pass2, email,
+    };
+    console.log(userData);
+    // dispatch(registerUser(userData));
+    nullUserData();
+  };
+
+  useEffect(() => {
+    let active = true;
+    (async () => {
+      if (active) {
+        setErrorMessage('');
+      }
+    })();
+    return () => {
+      active = false;
+    };
+  }, []);
 
   return (
     <div className="register_body">
@@ -34,7 +82,14 @@ function RegisterPage() {
             <img src={fadingBreak} alt="" />
             {' '}
           </figure>
-          <p> &nbsp; Register with &nbsp; </p>
+          <p>
+            &nbsp;
+            {' '}
+            {`${errorMessage || 'Register with'}`}
+            {' '}
+            &nbsp;
+            {' '}
+          </p>
           <figure>
             {' '}
             <img className="rotate_breakline" src={fadingBreak} alt="" />
@@ -44,12 +99,12 @@ function RegisterPage() {
 
         <form action="" className="register_form">
           <fieldset className="fieldset_border_none">
-            <input className="input_name" type="text" placeholder="Username" aria-label="Input Username" required />
+            <input className="input_name" type="text" value={username} placeholder="Username" aria-label="Input Username" onChange={(e) => setUsername(e.target.value)} required />
 
-            <input className="input_name" type="email" placeholder="Email" aria-label="Input Email" required />
+            <input className="input_name" type="email" value={email} placeholder="Email" aria-label="Input Email" onChange={(e) => setEmail(e.target.value)} required />
 
             <div className="password_box">
-              <input className="input_password" type={passwordType1} placeholder="Password" aria-label="Input Password" required />
+              <input className="input_password" type={passwordType1} value={inputPassword1} placeholder="Password" aria-label="Input Password" onChange={(e) => setInputPassword1(e.target.value)} required />
               {passwordType1 === 'password'
                 ? (
                   <figure className="eyebox">
@@ -68,7 +123,7 @@ function RegisterPage() {
             </div>
 
             <div className="password_box">
-              <input className="input_password" type={passwordType2} placeholder="Re-enter Password" aria-label="Input Password" required />
+              <input className="input_password" type={passwordType2} value={inputPassword2} placeholder="Re-enter Password" aria-label="Input Password" onChange={(e) => setInputPassword2(e.target.value)} required />
               {passwordType2 === 'password'
                 ? (
                   <figure className="eyebox">
@@ -89,7 +144,7 @@ function RegisterPage() {
           </fieldset>
 
           <fieldset className="fieldset_border_none register_action">
-            <button type="button">Submit</button>
+            <button type="button" onClick={handleRegister}>Submit</button>
           </fieldset>
         </form>
 

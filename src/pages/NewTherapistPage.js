@@ -1,23 +1,24 @@
 /* eslint-disable no-console */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../css/NewTherapistPage.css';
 import { useDispatch } from 'react-redux';
-import specializationArr from '../components/Speciliazation';
+import { postTherapist, uploadTherapist } from '../redux/Therapy/therapySlice';
+import '../css/NewTherapistPage.css';
+import specializationArr from '../components/speciliazation';
 import backImg from '../img/back.png';
 import fadingBreak from '../img/fading_break.png';
 import logoImg from '../img/logo.png';
 import avatarImg from '../img/user.png';
-import { postTherapist, uploadTherapist } from '../redux/Therapy/therapySlice';
 
 function NewTherapistPage() {
   const dispatch = useDispatch();
   const [uploadFile, setUploadFile] = useState('');
-  const [inputName] = useState('');
-  const [inputAddress] = useState('');
-  // const [cloudinaryImage, setCloudinaryImage] = useState('');
-  // const cloudinaryAPI = 'https://api.cloudinary.com/v1_1/drhbncewu/image/upload';
-  // const postDataAPI = 'http://your-database-api.com/upload';
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [address, setAddress] = useState('');
+  const [phone, setPhone] = useState(0);
+  const [specialty, setSpecialty] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleUpload = async (e) => {
     e.preventDefault();
@@ -28,18 +29,42 @@ function NewTherapistPage() {
     return secureUrl;
   };
 
-  const handleSubmit = async () => {
+  const nullThrapistData = async () => {
+    setUsername('');
+    setEmail('');
+    setAddress('');
+    setSpecialty('');
+  };
+
+  const handleNewTherapist = async () => {
     const cloudinaryImageUrl = await handleUpload();
-    const dataToSend = {
+    const therapistData = {
       secureUrl: cloudinaryImageUrl,
-      name: inputName,
-      address: inputAddress,
+      name: username,
+      address,
+      email,
+      specialty,
+      phone,
       // Add other form data fields as needed
     };
-    // Send the data to your database
-    const response = await dispatch(postTherapist(dataToSend));
+    console.log(therapistData);
+    // Send the data to the database
+    const response = await dispatch(postTherapist(therapistData));
     console.log(response);
+    await nullThrapistData();
   };
+
+  useEffect(() => {
+    let active = true;
+    (async () => {
+      if (active) {
+        setErrorMessage('');
+      }
+    })();
+    return () => {
+      active = false;
+    };
+  }, [dispatch]);
 
   return (
     <div className="new_therapist_body">
@@ -65,7 +90,11 @@ function NewTherapistPage() {
             <img src={fadingBreak} alt="" />
             {' '}
           </figure>
-          <p> &nbsp; New Therapist &nbsp; </p>
+          <p>
+            &nbsp;
+            {`${errorMessage || 'New Therapist'}`}
+            &nbsp;
+          </p>
           <figure>
             {' '}
             <img className="rotate_breakline" src={fadingBreak} alt="" />
@@ -77,22 +106,20 @@ function NewTherapistPage() {
           <fieldset className="fieldset_border_none">
             <input className="input_name" type="text" placeholder="Name" aria-label="Input Name" required />
 
-            <input className="input_name" type="text" placeholder="Address (State and City)" aria-label="Input Address" required />
+            <input className="input_name" type="text" placeholder="Address (State and City)" aria-label="Input Address" value={address} onChange={(e) => setAddress(e.target.value)} required />
 
-            <input className="input_name" type="phone" placeholder="Phone" aria-label="Input Phone" required />
+            <input className="input_name" type="phone" placeholder="Phone" aria-label="Input Phone" onChange={(e) => setPhone(e.target.value)} required />
 
-            <input className="input_name" type="email" placeholder="Email" aria-label="Input Email" required />
+            <input className="input_name" type="email" placeholder="Email" aria-label="Input Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
 
-            <input className="input_name" type="datetime-local" placeholder="Time" aria-label="Input Date and Time" required />
-
-            <select aria-label="Input Label" className="input_name" id="specializationId">
+            <select aria-label="Input Label" className="input_name" value={specialty} onChange={(e) => setSpecialty(e.target.value)} id="specializationId">
               {specializationArr.map((specialty) => (
-                <option key={specialty} value={specialty.value} aria-label="Input Specialization">{specialty.name}</option>
+                <option key={specialty.id} value={specialty.value} aria-label="Input Specialization">{specialty.name}</option>
               ))}
             </select>
 
             <div className="input_name image_input_container">
-              <input type="file" aria-label="Add Image" onChange={(event) => { setUploadFile(event.target.files[0]); }} />
+              <input type="file" aria-label="Add Image" onChange={(event) => { setUploadFile(event.target.files[0]); }} required />
               <img src={avatarImg} alt="Choose File" />
               <p>Add Image</p>
             </div>
@@ -100,7 +127,7 @@ function NewTherapistPage() {
           </fieldset>
 
           <fieldset className="fieldset_border_none new_therapist_action">
-            <button type="button" onClick={handleSubmit}>Submit</button>
+            <button type="button" onClick={handleNewTherapist}>Submit</button>
           </fieldset>
         </form>
 
