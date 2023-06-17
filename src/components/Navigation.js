@@ -75,4 +75,6 @@ function Navigation() {
             <img src={snapchatImg} alt="" />
             </Link>
         </figure>
+        </footer>
+        </section>
 
