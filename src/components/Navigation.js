@@ -51,3 +51,9 @@ function Navigation() {
             <img src={facebookImg} alt="" />
             </Link>
         </figure>
+
+        <figure className="nav_social_icons">
+            <Link to="/" className="td_none">
+            <img src={twitterImg} alt="" />
+            </Link>
+        </figure>
