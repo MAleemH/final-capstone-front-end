@@ -116,3 +116,11 @@ function Navigation() {
             {' '}
             <NavLink to="/newtherapist" activeClassName="active" className="td_none">NEW THERAPIST</NavLink>
             </li>
+
+            <li>
+            {' '}
+            <NavLink to="/deletetherapist" className="td_none" activeClassName="active">DELETE THERAPIST</NavLink>
+            </li>
+            <li>
+            <button className="logout_btn" type="button">LOGOUT</button>
+            </li>
