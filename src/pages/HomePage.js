@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTherapists } from '../redux/Therapy/therapySlice';
 import Navigation from '../components/Navigation';
-import specializationArr from '../components/speciliazation';
+import specializationArr from '../components/Speciliazation';
 import '../css/HomePage.css';
 // import therapistImg from '../img/therapist.jpg';
 // import facebookImg from '../img/facebook.png';

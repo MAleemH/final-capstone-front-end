@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { postReserve } from '../redux/Reserve/reserveSlice';
 import '../css/NewAppointment.css';
-import specializationArr from '../components/speciliazation';
+import specializationArr from '../components/Speciliazation';
 import backImg from '../img/back.png';
 import fadingBreak from '../img/fading_break.png';
 import logoImg from '../img/logo.png';

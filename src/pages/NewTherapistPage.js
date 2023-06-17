@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/NewTherapistPage.css';
 import { useDispatch } from 'react-redux';
-import specializationArr from '../components/speciliazation';
+import specializationArr from '../components/Speciliazation';
 import backImg from '../img/back.png';
 import fadingBreak from '../img/fading_break.png';
 import logoImg from '../img/logo.png';
