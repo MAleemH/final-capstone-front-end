@@ -43,7 +43,7 @@ function RegisterPage() {
   const handleRegister = async () => {
     const pass1 = inputPas1.replace(/\s/g, '').toLowerCase();
     const pass2 = inputPas2.replace(/\s/g, '').toLowerCase();
-    console.log(username, email, inputPas1, inputPas2);
+    // console.log(username, email, inputPas1, inputPas2);
     await similarPassword(pass1, pass2);
     if (username === '' || inputPas1 === '' || inputPas2 === '' || email === '' || role === '') {
       return;
@@ -54,7 +54,7 @@ function RegisterPage() {
       },
     };
 
-    console.log(userData);
+    // console.log(userData);
     dispatch(registerUser(userData));
     await nullUserData();
     navigate('/login');

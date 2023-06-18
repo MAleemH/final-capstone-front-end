@@ -8,9 +8,12 @@ import Therapists from '../components/Therapists';
 
 function HomePage() {
   const myTherapists = useSelector((state) => state.therapy.therapists);
+  console.log(myTherapists);
+  console.log(useSelector((state) => state.therapy));
   const dispatch = useDispatch();
   const [specialty, setSpecialty] = useState('');
   console.log(specialty);
+
   useEffect(() => {
     let active = true;
     (async () => {

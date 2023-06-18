@@ -13,6 +13,7 @@ const initialState = {
 export const fetchTherapists = createAsyncThunk('therapy/fetchTherapists', async ({ getState }) => {
   try {
     const userState = await getState().user.user;
+    console.log(userState);
     const config = {
       method: 'get',
       url: `${therapistURL}${userState.user.id}/therapists`,
@@ -21,6 +22,7 @@ export const fetchTherapists = createAsyncThunk('therapy/fetchTherapists', async
         'Content-Type': 'application/json',
       },
     };
+    console.log(config);
     const response = await axios(config);
     console.log(response);
     return response;
@@ -60,8 +62,9 @@ export const postTherapist = createAsyncThunk('therapy/postTherapist', async (th
         Authorization: userState.user.authentication_token,
         'Content-Type': 'application/json',
       },
-      data: { ...therapistData, user_id: userState },
+      data: therapistData,
     };
+    console.log(config);
     const response = await axios(config);
     console.log(response);
     return response;

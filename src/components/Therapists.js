@@ -15,7 +15,8 @@ function Therapists() {
   // const { myTherapists } = props;
   // This component recieves prop from either home or delete and do their bidding
 
-  const handleDeleteTherapist = async (objId) => {
+  const handleDeleteTherapist = async (e, objId) => {
+    e.preventDefault();
     console.log(objId);
     await dispatch(deleteTherapist(objId));
   };
@@ -62,7 +63,7 @@ function Therapists() {
 
             <div className="home_page_socials">
               <figure className="home_page_social_icons">
-                <button type="button" onClick={handleDeleteTherapist(1)}>
+                <button type="button" onClick={(e) => handleDeleteTherapist(e, 1)}>
                   <img src={trashImg} alt="" />
                 </button>
               </figure>
@@ -105,7 +106,7 @@ function Therapists() {
 
             <div className="home_page_socials">
               <figure className="home_page_social_icons">
-                <button type="button" onClick={handleDeleteTherapist(1)}>
+                <button type="button" onClick={(e) => handleDeleteTherapist(e, 1)}>
                   <img src={trashImg} alt="" />
                 </button>
               </figure>
@@ -148,7 +149,7 @@ function Therapists() {
 
             <div className="home_page_socials">
               <figure className="home_page_social_icons">
-                <button type="button" onClick={handleDeleteTherapist(1)}>
+                <button type="button" onClick={(e) => handleDeleteTherapist(e, 1)}>
                   <img src={trashImg} alt="" />
                 </button>
               </figure>

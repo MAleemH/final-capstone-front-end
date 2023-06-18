@@ -22,12 +22,12 @@ export const registerUser = createAsyncThunk('user/registerUser', async (registe
       url: usersURL,
       data: registerData,
     };
-    console.log(config);
+    // console.log(config);
     const response = await axios(config);
-    console.log(response);
+    // console.log(response);
     return response;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return error;
   }
 });
@@ -45,10 +45,10 @@ export const loginUser = createAsyncThunk('user/loginUser', async (loginData) =>
       data: loginData,
     };
     const response = await axios(config);
-    console.log(response);
+    // console.log(response);
     return response;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return error;
   }
 });

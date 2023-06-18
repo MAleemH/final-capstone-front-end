@@ -31,10 +31,12 @@ function NewAppointment() {
   const handleNewAppointment = async () => {
     const timestamp = (new Date(timestampp)).toISOString().substr(0, 16);
     console.log(address, timestamp, therapist);
-    const userData = {
-      address, date: timestamp, therapist,
+    const appointmentData = {
+      appointment: {
+        date: timestamp, therapist_id: therapist.id,
+      },
     };
-    console.log(userData);
+    console.log(appointmentData);
     // dispatch(postReserve(userData))
     await nullReserveData();
     navigate('/appointments');
@@ -77,7 +79,7 @@ function NewAppointment() {
             {' '}
           </figure>
           <p>
-            &nbsp;
+              &nbsp;
             {`${errorMessage || 'Reserve'}`}
               &nbsp;
           </p>

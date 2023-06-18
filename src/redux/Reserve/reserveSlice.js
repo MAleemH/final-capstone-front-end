@@ -59,7 +59,7 @@ export const postReserve = createAsyncThunk('reserve/postReserve', async (reserv
         Authorization: userState.user.authentication_token,
         'Content-Type': 'application/json',
       },
-      data: reserveData,
+      data: { ...reserveData, user_id: userState.user.id },
     };
     const response = await axios(config);
     console.log(response);
