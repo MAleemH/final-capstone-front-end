@@ -11,6 +11,10 @@ function HomePage() {
   const dispatch = useDispatch();
   const [specialty, setSpecialty] = useState('');
 
+  const filteredTherapists = myTherapists.filter(
+    (therapy) => therapy.specialization.toLowerCase().includes(specialty.toLowerCase()),
+  );
+
   useEffect(() => {
     let active = true;
     (async () => {
@@ -48,7 +52,7 @@ function HomePage() {
         </header>
 
         <div>
-          <Therapists myTherapists={myTherapists} />
+          <Therapists myTherapists={filteredTherapists} />
         </div>
 
       </section>

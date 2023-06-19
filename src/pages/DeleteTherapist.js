@@ -10,6 +10,10 @@ function DeleteTherapist() {
   const dispatch = useDispatch();
   const [inputName, setInputname] = useState('');
 
+  const filteredTherapists = myTherapists.filter(
+    (therapy) => therapy.name.toLowerCase().includes(inputName.toLowerCase()),
+  );
+
   useEffect(() => {
     let active = true;
     (async () => {
@@ -42,7 +46,7 @@ function DeleteTherapist() {
         </header>
 
         <div>
-          <Therapists myTherapists={myTherapists} />
+          <Therapists myTherapists={filteredTherapists} />
         </div>
 
       </section>

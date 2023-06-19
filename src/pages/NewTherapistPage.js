@@ -53,11 +53,9 @@ function NewTherapistPage() {
         email,
         specialization: specialty,
         phone,
-        // Add other form data fields as needed
       },
     };
-    // Send the data to the database
-    const response = await dispatch(postTherapist(therapistData));
+    await dispatch(postTherapist(therapistData));
     await nullThrapistData();
     dispatch(fetchTherapists());
     navigate('/homepage');
