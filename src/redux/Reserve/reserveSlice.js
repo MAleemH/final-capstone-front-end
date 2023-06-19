@@ -9,7 +9,7 @@ const initialState = {
   error: '',
 };
 
-export const fetchReserves = createAsyncThunk('reserve/fetchReserve', async ({ getState }) => {
+export const fetchReserves = createAsyncThunk('reserve/fetchReserve', async (_, { getState }) => {
   try {
     const userState = await getState().user.user;
     const config = {

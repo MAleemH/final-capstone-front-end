@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+// import { getLocalUser } from '../../components/localStore';
 
 const therapistURL = 'http://localhost:3000/api/v1/users/';
 const cloudinaryAPI = 'https://api.cloudinary.com/v1_1/drhbncewu/image/upload';
@@ -10,7 +11,7 @@ const initialState = {
   error: '',
 };
 
-export const fetchTherapists = createAsyncThunk('therapy/fetchTherapists', async ({ getState }) => {
+export const fetchTherapists = createAsyncThunk('therapy/fetchTherapists', async (_, { getState }) => {
   try {
     const userState = await getState().user.user;
     console.log(userState);

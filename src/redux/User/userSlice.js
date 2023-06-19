@@ -74,7 +74,7 @@ export const forgotPassword = createAsyncThunk('user/forgotPassword', async (use
   }
 });
 
-export const logoutUser = createAsyncThunk('user/logoutUser', async (userData, { getState }) => {
+export const logoutUser = createAsyncThunk('user/logoutUser', async (_, { getState }) => {
   try {
     const userState = await getState().user.user;
     const config = {
@@ -84,7 +84,6 @@ export const logoutUser = createAsyncThunk('user/logoutUser', async (userData, {
         Authorization: userState.user.authentication_token,
         'Content-Type': 'application/json',
       },
-      data: userData,
     };
     const response = await axios(config);
     console.log(response);
