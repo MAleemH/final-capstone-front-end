@@ -18,8 +18,6 @@ describe('Market redux state tests', () => {
   });
 });
 
-
-
 // export const testFetchCharts = createAsyncThunk('market/fetchMarkets', async () => {
 //   const { data } = await (axios.get('https://api.coinstats.app/public/v1/charts?period=1m&coinId=bitcoin'));
 //   return data;
