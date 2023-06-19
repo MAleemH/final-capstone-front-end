@@ -13,7 +13,7 @@ function Therapists() {
 
   // const handleDeleteTherapist = (objId) => {
   //   return objId
-  //   // dispatch(deleteTherapist(objId));
+  //  // dispatch(deleteTherapist(objId));
   // };
 
   return (
