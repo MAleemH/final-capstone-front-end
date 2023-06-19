@@ -36,54 +36,24 @@ function AppointmentPage() {
         </header>
 
         <div className="home_grids">
-          {/* {myReserves.map((myReserve) => ())} */}
-          <div className="home_grids_box">
-            <article>
-              <figure className="therapy_figure">
-                <img src={therapistImg} alt="" />
-              </figure>
+          {myReserves.map((myReserve) => (
+            <div className="home_grids_box" key={myReserve.id}>
+              <article>
+                {/* Therapist to see */}
+                <figure className="therapy_figure">
+                  <img src={therapistImg} alt="" />
+                </figure>
 
-              <h4>MARCUS DAVID</h4>
+                <h4>{myReserve.status}</h4>
 
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, id.</p>
+                <p>{myReserve.date?.replace('T', ' ')}</p>
 
-              <div className="appointment_socials">
-                <p>Date</p>
-              </div>
-            </article>
-          </div>
-
-          <div className="home_grids_box">
-            <article>
-              <figure className="therapy_figure">
-                <img src={therapistImg} alt="" />
-              </figure>
-
-              <h4>MARCUS DAVID</h4>
-
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, id.</p>
-
-              <div className="appointment_socials">
-                <p>Date</p>
-              </div>
-            </article>
-          </div>
-
-          <div className="home_grids_box">
-            <article>
-              <figure className="therapy_figure">
-                <img src={therapistImg} alt="" />
-              </figure>
-
-              <h4>MARCUS DAVID</h4>
-
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, id.</p>
-
-              <div className="appointment_socials">
-                <p>Date</p>
-              </div>
-            </article>
-          </div>
+                <div className="appointment_socials">
+                  <p>{myReserve.therapist_id}</p>
+                </div>
+              </article>
+            </div>
+          ))}
 
         </div>
 

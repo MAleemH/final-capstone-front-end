@@ -39,7 +39,6 @@ function ForgotPasswordPage() {
   const handleForgotPass = async () => {
     const pass1 = inputPas1.replace(/\s/g, '').toLowerCase();
     const pass2 = inputPas2.replace(/\s/g, '').toLowerCase();
-    console.log(email, inputPas1, inputPas2);
     await similarPassword(pass1, pass2);
     const userData = {
       user: {
@@ -47,8 +46,7 @@ function ForgotPasswordPage() {
       },
     };
 
-    console.log(userData);
-    await dispatch(forgotPassword(userData));
+    dispatch(forgotPassword(userData));
     await nullUserData();
     navigate('/homepage');
   };

@@ -266,3 +266,34 @@ By using these utilities, you can perform additional actions, access the current
         state.loading = false;
         state.error = '';
       })
+
+
+
+
+
+
+
+
+
+
+
+    // const pass = inputPassword.replace(/\s/g, '').toLowerCase();
+    // console.log(email, inputPassword);
+
+
+
+
+
+
+        useEffect(() => {
+    let active = true;
+    (async () => {
+      if (active && myTherapists.length === 0) {
+
+        dispatch(fetchTherapists());
+      }
+    })();
+    return () => {
+      active = false;
+    };
+  }, [dispatch, myTherapists]);

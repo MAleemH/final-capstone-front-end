@@ -7,7 +7,7 @@ const getLocalUser = async () => JSON.parse(localStorage.getItem('therapy'));
 
 const setLocalUser = async (user) => localStorage.setItem('therapy', JSON.stringify(user));
 
-const removeLocalUser = async () => localStorage.removeItem('therapy');
+const removeLocalUser = () => localStorage.removeItem('therapy');
 
 const initialState = {
   loading: false,
@@ -22,12 +22,9 @@ export const registerUser = createAsyncThunk('user/registerUser', async (registe
       url: usersURL,
       data: registerData,
     };
-    // console.log(config);
     const response = await axios(config);
-    // console.log(response);
     return response;
   } catch (error) {
-    // console.log(error);
     return error;
   }
 });
@@ -45,31 +42,25 @@ export const loginUser = createAsyncThunk('user/loginUser', async (loginData) =>
       data: loginData,
     };
     const response = await axios(config);
-    // console.log(response);
     return response;
   } catch (error) {
-    // console.log(error);
     return error;
   }
 });
 
-export const forgotPassword = createAsyncThunk('user/forgotPassword', async (userData, { getState }) => {
+export const forgotPassword = createAsyncThunk('user/forgotPassword', async (userData) => {
   try {
-    const userState = await getState().user.user;
     const config = {
       method: 'put',
       url: `${usersURL}password`,
       headers: {
-        Authorization: userState.user.authentication_token,
         'Content-Type': 'application/json',
       },
       data: userData,
     };
     const response = await axios(config);
-    console.log(response);
     return response;
   } catch (error) {
-    console.log(error);
     return error;
   }
 });
@@ -86,10 +77,8 @@ export const logoutUser = createAsyncThunk('user/logoutUser', async (_, { getSta
       },
     };
     const response = await axios(config);
-    console.log(response);
     return response;
   } catch (error) {
-    console.log(error);
     return error;
   }
 });

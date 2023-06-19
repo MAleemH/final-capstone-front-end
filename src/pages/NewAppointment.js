@@ -1,23 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
-// import { postReserve } from '../redux/Reserve/reserveSlice';
-import '../css/NewAppointment.css';
 import { useDispatch, useSelector } from 'react-redux';
+import { fetchReserves, postReserve } from '../redux/Reserve/reserveSlice';
+import { fetchTherapists } from '../redux/Therapy/therapySlice';
+import '../css/NewAppointment.css';
 import specializationArr from '../components/specialization';
 import backImg from '../img/back.png';
 import fadingBreak from '../img/fading_break.png';
 import logoImg from '../img/logo.png';
-import { fetchTherapists } from '../redux/Therapy/therapySlice';
 
 function NewAppointment() {
   const dispatch = useDispatch();
   const myTherapists = useSelector((state) => state.therapy.therapists);
-  console.log(myTherapists);
   const [address, setAddress] = useState('');
   const [timestampp, setTimestampp] = useState(0);
   const [specialty, setSpecialty] = useState('');
-  const [therapist, setTherapist] = useState('');
+  const [therapistIDssss, setTherapistIDssss] = useState(0);
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
@@ -28,22 +26,6 @@ function NewAppointment() {
   const nullReserveData = async () => {
     setAddress('');
     setTimestampp('');
-    setSpecialty('');
-    setTherapist('');
-  };
-
-  const handleNewAppointment = async () => {
-    const timestamp = (new Date(timestampp)).toISOString().substr(0, 16);
-    console.log(address, timestamp, therapist);
-    const appointmentData = {
-      appointment: {
-        date: timestamp, therapist_id: therapist.id,
-      },
-    };
-    console.log(appointmentData);
-    // dispatch(postReserve(userData))
-    await nullReserveData();
-    navigate('/appointments');
   };
 
   useEffect(() => {
@@ -59,12 +41,27 @@ function NewAppointment() {
     };
   }, [dispatch, myTherapists]);
 
-  const filteredTherapists = myTherapists?.filter(
+  const filteredTherapists = myTherapists.filter(
     (therapist) => therapist.specialization === specialty,
   );
-  console.log(filteredTherapists);
 
-  console.log(specialty);
+  const handleNewAppointment = async (e) => {
+    e.preventDefault();
+    const timestamp = (new Date(timestampp)).toISOString().substr(0, 16);
+    const appointmentData = {
+      appointment: {
+        date: timestamp, therapist_id: therapistIDssss,
+      },
+    };
+    dispatch(postReserve(appointmentData));
+    await nullReserveData();
+    dispatch(fetchReserves());
+    navigate('/appointments');
+  };
+
+  const handleTherapistChange = (e) => {
+    setTherapistIDssss(e.target.value);
+  };
 
   return (
     <div className="new_appointment_body">
@@ -115,16 +112,19 @@ function NewAppointment() {
               ))}
             </select>
 
-            <select aria-label="Input Label" className="input_name" id="therapistId" value={therapist.name} onChange={(e) => setTherapist(e.target.value)}>
-              {filteredTherapists.map((therapist) => (
-                <option value={therapist.id} aria-label="Input Therapist" key={therapist.id}>{therapist.name}</option>
+            <select id="" value={therapistIDssss} onChange={handleTherapistChange} disabled={!specialty} aria-label="Input Label" className="input_name">
+              <option value="">Select a therapist</option>
+              {filteredTherapists.map((therapy) => (
+                <option key={therapy.id} value={therapy.id}>
+                  {therapy.name}
+                </option>
               ))}
             </select>
 
           </fieldset>
 
           <fieldset className="fieldset_border_none new_appointment_action">
-            <button type="button" onClick={handleNewAppointment}> Book</button>
+            <button type="button" onClick={(e) => handleNewAppointment(e)}> Book</button>
           </fieldset>
         </form>
 

@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-// import { getLocalUser } from '../../components/localStore';
 
 const therapistURL = 'http://localhost:3000/api/v1/users/';
 const cloudinaryAPI = 'https://api.cloudinary.com/v1_1/drhbncewu/image/upload';
@@ -14,7 +13,6 @@ const initialState = {
 export const fetchTherapists = createAsyncThunk('therapy/fetchTherapists', async (_, { getState }) => {
   try {
     const userState = await getState().user.user;
-    console.log(userState);
     const config = {
       method: 'get',
       url: `${therapistURL}${userState.user.id}/therapists`,
@@ -24,10 +22,8 @@ export const fetchTherapists = createAsyncThunk('therapy/fetchTherapists', async
       },
     };
     const response = await axios(config);
-    console.log(config, userState, response.data);
     return response;
   } catch (error) {
-    console.log(error);
     return error;
   }
 });
@@ -44,10 +40,8 @@ export const fetchSingleTherapist = createAsyncThunk('therapy/fetchSingleTherapi
       },
     };
     const response = await axios(config);
-    console.log(response.data);
     return response;
   } catch (error) {
-    console.log(error);
     return error;
   }
 });
@@ -64,12 +58,9 @@ export const postTherapist = createAsyncThunk('therapy/postTherapist', async (th
       },
       data: therapistData,
     };
-    console.log(config);
     const response = await axios(config);
-    console.log(response);
     return response;
   } catch (error) {
-    console.log(error);
     return error;
   }
 });
@@ -86,10 +77,8 @@ export const deleteTherapist = createAsyncThunk('therapy/deleteTherapist', async
       },
     };
     const response = await axios(config);
-    // console.log(response.data);
     return response;
   } catch (error) {
-    console.log(error);
     return error;
   }
 });
@@ -97,10 +86,8 @@ export const deleteTherapist = createAsyncThunk('therapy/deleteTherapist', async
 export const uploadTherapist = createAsyncThunk('therapy/uploadTherapist', async (formData) => {
   try {
     const response = await axios.post(cloudinaryAPI, formData, { params: { folder: 'therapy' } });
-    // console.log(response.data.secure_url);
     return response.data.secure_url;
   } catch (error) {
-    console.log(error);
     return error;
   }
 });

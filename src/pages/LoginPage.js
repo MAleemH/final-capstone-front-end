@@ -26,17 +26,16 @@ function LoginPage() {
   };
 
   const handleLogin = async () => {
-    // const pass = inputPassword.replace(/\s/g, '').toLowerCase();
-    // console.log(email, inputPassword);
     const userData = {
       user: {
         email, password: inputPassword,
       },
     };
-    // console.log(userData);
     dispatch(loginUser(userData));
     await nullUserData();
-    navigate('/homepage');
+    setTimeout(() => {
+      navigate('/homepage');
+    }, 4000);
   };
 
   useEffect(() => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { postTherapist, uploadTherapist } from '../redux/Therapy/therapySlice';
+import { fetchTherapists, postTherapist, uploadTherapist } from '../redux/Therapy/therapySlice';
 import '../css/NewTherapistPage.css';
 import specializationArr from '../components/specialization';
 import backImg from '../img/back.png';
@@ -30,7 +30,6 @@ function NewTherapistPage() {
     formData.append('file', uploadFile);
     formData.append('upload_preset', 'f00ugkxm');
     const secureUrl = (await dispatch(uploadTherapist(formData))).payload;
-    // console.log(secureUrl);
     return secureUrl;
   };
 
@@ -42,9 +41,7 @@ function NewTherapistPage() {
   };
 
   const handleNewTherapist = async (e) => {
-    console.log(e);
     const cloudinaryImageUrl = await handleUpload(e);
-    // console.log(cloudinaryImageUrl);
     if (!cloudinaryImageUrl) {
       return;
     }
@@ -59,11 +56,10 @@ function NewTherapistPage() {
         // Add other form data fields as needed
       },
     };
-    console.log(therapistData);
     // Send the data to the database
     const response = await dispatch(postTherapist(therapistData));
-    console.log(response);
     await nullThrapistData();
+    dispatch(fetchTherapists());
     navigate('/homepage');
   };
 

@@ -8,8 +8,11 @@ import twitterImg from '../img/twitter.png';
 import linkedinImg from '../img/linkedin.png';
 import trashImg from '../img/trash.png';
 import { deleteTherapist } from '../redux/Therapy/therapySlice';
+import { getLocalUser } from './localStore';
 
 function Therapists(props) {
+  const myUse = getLocalUser() || [];
+  const myUser = myUse?.user;
   const { myTherapists } = props;
   const dispatch = useDispatch();
   // const { myTherapists } = props;
@@ -17,8 +20,7 @@ function Therapists(props) {
 
   const handleDeleteTherapist = async (e, objId) => {
     e.preventDefault();
-    console.log(objId);
-    await dispatch(deleteTherapist(objId));
+    dispatch(deleteTherapist(objId));
   };
 
   return (
@@ -57,13 +59,15 @@ function Therapists(props) {
                 </figure>
               </div>
 
-              <div className="home_page_socials">
-                <figure className="home_page_social_icons">
-                  <button type="button" onClick={(e) => handleDeleteTherapist(e, therapist.id)}>
-                    <img src={trashImg} alt="" />
-                  </button>
-                </figure>
-              </div>
+              {myUser?.role === 'admin' && (
+                <div className="home_page_socials">
+                  <figure className="home_page_social_icons">
+                    <button type="button" onClick={(e) => handleDeleteTherapist(e, therapist.id)}>
+                      <img src={trashImg} alt="" />
+                    </button>
+                  </figure>
+                </div>
+              )}
 
             </article>
           </Link>

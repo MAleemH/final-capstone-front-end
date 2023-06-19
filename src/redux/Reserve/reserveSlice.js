@@ -21,10 +21,8 @@ export const fetchReserves = createAsyncThunk('reserve/fetchReserve', async (_, 
       },
     };
     const response = await axios(config);
-    console.log(response.data);
     return response;
   } catch (error) {
-    console.log(error);
     return error;
   }
 });
@@ -41,10 +39,8 @@ export const fetchSingleReserve = createAsyncThunk('reserve/fetchSingleReserve',
       },
     };
     const response = await axios(config);
-    console.log(response);
     return response;
   } catch (error) {
-    console.log(error);
     return error;
   }
 });
@@ -54,18 +50,23 @@ export const postReserve = createAsyncThunk('reserve/postReserve', async (reserv
     const userState = await getState().user.user;
     const config = {
       method: 'post',
-      url: `${reserveURL}${userState.user.id}/reserves`,
+      url: `${reserveURL}${userState.user.id}/appointments`,
       headers: {
         Authorization: userState.user.authentication_token,
         'Content-Type': 'application/json',
       },
-      data: { ...reserveData, user_id: userState.user.id },
+      // data: { ...reserveData, user_id: userState.user.id },
+      data: {
+        ...reserveData,
+        appointment: {
+          ...reserveData.appointment,
+          user_id: userState.user.id,
+        },
+      },
     };
     const response = await axios(config);
-    console.log(response);
     return response;
   } catch (error) {
-    console.log(error);
     return error;
   }
 });
@@ -75,17 +76,15 @@ export const deleteReserve = createAsyncThunk('reserve/deleteReserve', async (de
     const userState = await getState().user.user;
     const config = {
       method: 'delete',
-      url: `${reserveURL}${userState.user.id}/reserves/${deleteID}`,
+      url: `${reserveURL}${userState.user.id}/appointments/${deleteID}`,
       headers: {
         Authorization: userState.user.authentication_token,
         'Content-Type': 'application/json',
       },
     };
     const response = await axios(config);
-    console.log(response);
     return response;
   } catch (error) {
-    console.log(error);
     return error;
   }
 });
