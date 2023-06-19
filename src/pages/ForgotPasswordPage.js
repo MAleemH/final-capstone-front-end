@@ -48,7 +48,9 @@ function ForgotPasswordPage() {
 
     dispatch(forgotPassword(userData));
     await nullUserData();
-    navigate('/homepage');
+    setTimeout(() => {
+      navigate('/homepage');
+    }, 4000);
   };
 
   useEffect(() => {
