@@ -7,6 +7,7 @@ const cloudinaryAPI = 'https://api.cloudinary.com/v1_1/drhbncewu/image/upload';
 const initialState = {
   loading: false,
   therapists: [],
+  singleTherapist: null,
   error: '',
 };
 
@@ -38,6 +39,7 @@ export const fetchSingleTherapist = createAsyncThunk('therapy/fetchSingleTherapi
         Authorization: userState.user.authentication_token,
         'Content-Type': 'application/json',
       },
+      data: therapistID,
     };
     const response = await axios(config);
     return response;
@@ -115,8 +117,9 @@ const therapySlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchSingleTherapist.fulfilled, (state) => {
+      .addCase(fetchSingleTherapist.fulfilled, (state, action) => {
         state.loading = false;
+        state.singleTherapist = action.payload.data;
         state.error = '';
       })
       .addCase(fetchSingleTherapist.rejected, (state) => {

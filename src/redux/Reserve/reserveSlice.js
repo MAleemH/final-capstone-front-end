@@ -6,6 +6,7 @@ const reserveURL = 'http://localhost:3000/api/v1/users/';
 const initialState = {
   loading: false,
   reserves: [],
+  singleReserve: null,
   error: '',
 };
 
@@ -112,8 +113,9 @@ const reserveSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchSingleReserve.fulfilled, (state) => {
+      .addCase(fetchSingleReserve.fulfilled, (state, action) => {
         state.loading = false;
+        state.singleReserve = action.payload.data;
         state.error = '';
       })
       .addCase(fetchSingleReserve.rejected, (state) => {
