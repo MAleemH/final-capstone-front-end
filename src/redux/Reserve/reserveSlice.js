@@ -21,7 +21,7 @@ export const fetchReserves = createAsyncThunk('reserve/fetchReserve', async (_, 
       },
     };
     const response = await axios(config);
-    console.log(response);
+    console.log(response.data);
     return response;
   } catch (error) {
     console.log(error);
@@ -103,7 +103,7 @@ const reserveSlice = createSlice({
       .addCase(fetchReserves.fulfilled, (state, action) => {
         state.loading = false;
         state.error = '';
-        state.reserves = action.payload.reserves;
+        state.reserves = action.payload.data;
       })
       .addCase(fetchReserves.rejected, (state) => {
         state.loading = false;

@@ -13,7 +13,7 @@ function DeleteTherapist() {
   useEffect(() => {
     let active = true;
     (async () => {
-      if (active && myTherapists?.length === 0) {
+      if (active && myTherapists.length === 0) {
         dispatch(fetchTherapists());
       }
     })();
@@ -42,7 +42,7 @@ function DeleteTherapist() {
         </header>
 
         <div>
-          <Therapists />
+          <Therapists myTherapists={myTherapists} />
         </div>
 
       </section>

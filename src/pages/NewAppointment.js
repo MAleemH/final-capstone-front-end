@@ -3,17 +3,21 @@ import { Link, useNavigate } from 'react-router-dom';
 // import { useDispatch } from 'react-redux';
 // import { postReserve } from '../redux/Reserve/reserveSlice';
 import '../css/NewAppointment.css';
+import { useDispatch, useSelector } from 'react-redux';
 import specializationArr from '../components/specialization';
 import backImg from '../img/back.png';
 import fadingBreak from '../img/fading_break.png';
 import logoImg from '../img/logo.png';
+import { fetchTherapists } from '../redux/Therapy/therapySlice';
 
 function NewAppointment() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const myTherapists = useSelector((state) => state.therapy.therapists);
+  console.log(myTherapists);
   const [address, setAddress] = useState('');
   const [timestampp, setTimestampp] = useState(0);
   const [specialty, setSpecialty] = useState('');
-  const [therapist, setTherapist] = useState({});
+  const [therapist, setTherapist] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
@@ -25,7 +29,7 @@ function NewAppointment() {
     setAddress('');
     setTimestampp('');
     setSpecialty('');
-    setTherapist({});
+    setTherapist('');
   };
 
   const handleNewAppointment = async () => {
@@ -45,14 +49,22 @@ function NewAppointment() {
   useEffect(() => {
     let active = true;
     (async () => {
-      if (active) {
+      if (active && myTherapists.length === 0) {
         setErrorMessage('');
+        dispatch(fetchTherapists());
       }
     })();
     return () => {
       active = false;
     };
-  }, []);
+  }, [dispatch, myTherapists]);
+
+  const filteredTherapists = myTherapists?.filter(
+    (therapist) => therapist.specialization === specialty,
+  );
+  console.log(filteredTherapists);
+
+  console.log(specialty);
 
   return (
     <div className="new_appointment_body">
@@ -79,9 +91,9 @@ function NewAppointment() {
             {' '}
           </figure>
           <p>
-              &nbsp;
+            &nbsp;
             {`${errorMessage || 'Reserve'}`}
-              &nbsp;
+            &nbsp;
           </p>
           <figure>
             {' '}
@@ -104,9 +116,9 @@ function NewAppointment() {
             </select>
 
             <select aria-label="Input Label" className="input_name" id="therapistId" value={therapist.name} onChange={(e) => setTherapist(e.target.value)}>
-              {/* Filter based on specialty choosen to display doctors in the specialty */}
-              <option value="" aria-label="Input Therapist">Therapist Name</option>
-              {/* ))} */}
+              {filteredTherapists.map((therapist) => (
+                <option value={therapist.id} aria-label="Input Therapist" key={therapist.id}>{therapist.name}</option>
+              ))}
             </select>
 
           </fieldset>

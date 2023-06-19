@@ -8,12 +8,11 @@ import Therapists from '../components/Therapists';
 
 function HomePage() {
   const myTherapists = useSelector((state) => state.therapy.therapists);
-  console.log(useSelector((state) => state.therapy));
   console.log(myTherapists);
-  console.log(useSelector((state) => state.therapy));
   const dispatch = useDispatch();
   const [specialty, setSpecialty] = useState('');
-  console.log(specialty);
+  console.log(myTherapists, specialty);
+  console.log(myTherapists);
 
   useEffect(() => {
     let active = true;
@@ -52,7 +51,7 @@ function HomePage() {
         </header>
 
         <div>
-          <Therapists />
+          <Therapists myTherapists={myTherapists} />
         </div>
 
       </section>

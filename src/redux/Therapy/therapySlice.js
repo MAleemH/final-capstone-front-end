@@ -23,9 +23,8 @@ export const fetchTherapists = createAsyncThunk('therapy/fetchTherapists', async
         'Content-Type': 'application/json',
       },
     };
-    console.log(config);
     const response = await axios(config);
-    console.log(response);
+    console.log(config, userState, response.data);
     return response;
   } catch (error) {
     console.log(error);
@@ -45,7 +44,7 @@ export const fetchSingleTherapist = createAsyncThunk('therapy/fetchSingleTherapi
       },
     };
     const response = await axios(config);
-    console.log(response);
+    console.log(response.data);
     return response;
   } catch (error) {
     console.log(error);
@@ -119,7 +118,7 @@ const therapySlice = createSlice({
       .addCase(fetchTherapists.fulfilled, (state, action) => {
         state.loading = false;
         state.error = '';
-        state.therapists = action.payload.therapists;
+        state.therapists = action.payload.data;
       })
       .addCase(fetchTherapists.rejected, (state) => {
         state.loading = false;
