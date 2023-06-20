@@ -44,7 +44,7 @@ function HomePage() {
               <select aria-label="Input Label" className="input_name" onChange={(e) => setSpecialty(e.target.value)} id="specializationId">
 
                 {specializationArr.map((specialty) => (
-                  <option key={specialty} value={specialty.value} aria-label="Input Specialization">{specialty.name}</option>
+                  <option key={specialty.id} value={specialty.value} aria-label="Input Specialization">{specialty.name}</option>
                 ))}
               </select>
             </fieldset>
