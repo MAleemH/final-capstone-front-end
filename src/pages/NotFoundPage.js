@@ -1,11 +1,9 @@
 import React from 'react';
 
-function NotFoundPage() {
-  return (
-    <div>
-      <h1>404 Error: Page Not Found</h1>
-    </div>
-  );
-}
+const NotFoundPage = () => (
+  <div>
+    <h1>404 Error: Page Not Found</h1>
+  </div>
+);
 
 export default NotFoundPage;

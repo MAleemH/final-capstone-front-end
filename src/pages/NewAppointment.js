@@ -10,7 +10,7 @@ import backImg from '../img/back.png';
 import fadingBreak from '../img/fading_break.png';
 import logoImg from '../img/logo.png';
 
-function NewAppointment() {
+const NewAppointment = () => {
   const dispatch = useDispatch();
   const myTherapists = useSelector((state) => state.therapy.therapists);
   const [address, setAddress] = useState('');
@@ -142,6 +142,6 @@ function NewAppointment() {
 
     </div>
   );
-}
+};
 
 export default NewAppointment;

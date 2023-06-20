@@ -9,7 +9,7 @@ import eyeImg from '../img/eye.png';
 import fadingBreak from '../img/fading_break.png';
 import logoImg from '../img/logo.png';
 
-function RegisterPage() {
+const RegisterPage = () => {
   const dispatch = useDispatch();
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -187,6 +187,6 @@ function RegisterPage() {
 
     </div>
   );
-}
+};
 
 export default RegisterPage;

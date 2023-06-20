@@ -8,7 +8,7 @@ import eyeImg from '../img/eye.png';
 import fadingBreak from '../img/fading_break.png';
 import logoImg from '../img/logo.png';
 
-function ForgotPasswordPage() {
+const ForgotPasswordPage = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [inputPas1, setinputPas1] = useState('');
@@ -179,6 +179,6 @@ function ForgotPasswordPage() {
 
     </div>
   );
-}
+};
 
 export default ForgotPasswordPage;

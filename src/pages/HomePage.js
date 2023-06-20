@@ -6,7 +6,7 @@ import specializationArr from '../components/specialization';
 import '../css/HomePage.css';
 import Therapists from '../components/Therapists';
 
-function HomePage() {
+const HomePage = () => {
   const myTherapists = useSelector((state) => state.therapy.therapists);
   const dispatch = useDispatch();
   const [specialty, setSpecialty] = useState('');
@@ -59,6 +59,6 @@ function HomePage() {
 
     </main>
   );
-}
+};
 
 export default HomePage;

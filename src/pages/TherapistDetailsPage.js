@@ -10,7 +10,7 @@ import editImg from '../img/edit.png';
 import trashImg from '../img/trash.png';
 import { getLocalUser } from '../components/localStore';
 
-function TherapistDetailsPage() {
+const TherapistDetailsPage = () => {
   const myUse = getLocalUser() || [];
   const myUser = myUse?.user;
   const dispatch = useDispatch();
@@ -111,6 +111,6 @@ function TherapistDetailsPage() {
 
     </main>
   );
-}
+};
 
 export default TherapistDetailsPage;

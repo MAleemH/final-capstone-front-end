@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../css/SplashPage.css';
 import SplashImage from '../img/land_image.jpg';
 
-function SplashPage() {
+const SplashPage = () => {
   const SplashImageStyle = {
     backgroundImage: `url(${SplashImage})`,
     backgroundSize: 'contain',
@@ -35,6 +35,6 @@ function SplashPage() {
       </footer>
     </div>
   );
-}
+};
 
 export default SplashPage;

@@ -14,7 +14,7 @@ import menuImg from '../img/menu.png';
 import cancelImg from '../img/cancel.png';
 import { getLocalUser } from './localStore';
 
-function Navigation() {
+const Navigation = () => {
   const [isToggled, setIsToggled] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -162,6 +162,6 @@ function Navigation() {
 
     </main>
   );
-}
+};
 
 export default Navigation;

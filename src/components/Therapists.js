@@ -13,7 +13,7 @@ import linkedinImg from '../img/linkedin.png';
 import trashImg from '../img/trash.png';
 import { getLocalUser } from './localStore';
 
-function Therapists(props) {
+const Therapists = (props) => {
   const myUse = getLocalUser() || [];
   const myUser = myUse?.user;
   const { myTherapists } = props;
@@ -79,7 +79,7 @@ function Therapists(props) {
 
     </div>
   );
-}
+};
 
 Therapists.propTypes = {
   myTherapists: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.object)).isRequired,

@@ -4,7 +4,7 @@ import { fetchReserves } from '../redux/Reserve/reserveSlice';
 import Navigation from '../components/Navigation';
 import '../css/AppointmentPage.css';
 
-function AppointmentPage() {
+const AppointmentPage = () => {
   const myReserves = useSelector((state) => state.reserve.reserves);
   const dispatch = useDispatch();
 
@@ -60,6 +60,6 @@ function AppointmentPage() {
 
     </main>
   );
-}
+};
 
 export default AppointmentPage;

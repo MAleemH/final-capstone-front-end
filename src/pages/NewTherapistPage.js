@@ -10,7 +10,7 @@ import fadingBreak from '../img/fading_break.png';
 import logoImg from '../img/logo.png';
 import avatarImg from '../img/user.png';
 
-function NewTherapistPage() {
+const NewTherapistPage = () => {
   const dispatch = useDispatch();
   const [uploadFile, setUploadFile] = useState('');
   const [username, setUsername] = useState('');
@@ -152,6 +152,6 @@ function NewTherapistPage() {
 
     </div>
   );
-}
+};
 
 export default NewTherapistPage;

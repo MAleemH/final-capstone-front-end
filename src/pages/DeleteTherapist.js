@@ -5,7 +5,7 @@ import Navigation from '../components/Navigation';
 import '../css/DeleteTherapist.css';
 import Therapists from '../components/Therapists';
 
-function DeleteTherapist() {
+const DeleteTherapist = () => {
   const myTherapists = useSelector((state) => state.therapy.therapists);
   const dispatch = useDispatch();
   const [inputName, setInputname] = useState('');
@@ -53,6 +53,6 @@ function DeleteTherapist() {
 
     </main>
   );
-}
+};
 
 export default DeleteTherapist;

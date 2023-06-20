@@ -8,7 +8,7 @@ import eyeImg from '../img/eye.png';
 import fadingBreak from '../img/fading_break.png';
 import logoImg from '../img/logo.png';
 
-function LoginPage() {
+const LoginPage = () => {
   const dispatch = useDispatch();
   const [passwordType, setPasswordType] = useState('password');
   const [email, setEmail] = useState('');
@@ -148,6 +148,6 @@ function LoginPage() {
 
     </div>
   );
-}
+};
 
 export default LoginPage;
