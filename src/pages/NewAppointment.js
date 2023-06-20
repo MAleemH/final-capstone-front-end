@@ -1,10 +1,11 @@
+/* eslint-disable no-console */
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchReserves, postReserve } from '../redux/Reserve/reserveSlice';
 import { fetchTherapists } from '../redux/Therapy/therapySlice';
 import '../css/NewAppointment.css';
-import specializationArr from '../components/specialization';
+import specializationArr from '../components/speciliazation';
 import backImg from '../img/back.png';
 import fadingBreak from '../img/fading_break.png';
 import logoImg from '../img/logo.png';
