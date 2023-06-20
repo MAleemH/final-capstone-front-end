@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-// import axios from 'axios';
-const axios = require('axios');
+import axios from 'axios';
 
 const usersURL = 'http://localhost:3000/api/v1/users/';
 

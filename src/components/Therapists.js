@@ -7,7 +7,7 @@ import facebookImg from '../img/facebook.png';
 import twitterImg from '../img/twitter.png';
 import linkedinImg from '../img/linkedin.png';
 import trashImg from '../img/trash.png';
-import { deleteTherapist } from '../redux/Therapy/therapySlice';
+import { deleteTherapist, fetchTherapists } from '../redux/Therapy/therapySlice';
 import { getLocalUser } from './localStore';
 
 function Therapists(props) {
@@ -20,7 +20,8 @@ function Therapists(props) {
 
   const handleDeleteTherapist = async (e, objId) => {
     e.preventDefault();
-    dispatch(deleteTherapist(objId));
+    await dispatch(deleteTherapist(objId));
+    dispatch(fetchTherapists());
   };
 
   return (

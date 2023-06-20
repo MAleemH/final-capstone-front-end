@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteTherapist, fetchSingleTherapist } from '../redux/Therapy/therapySlice';
+import { deleteTherapist, fetchSingleTherapist, fetchTherapists } from '../redux/Therapy/therapySlice';
 import Navigation from '../components/Navigation';
 import '../css/TherapistDetails.css';
 import editImg from '../img/edit.png';
@@ -18,7 +18,8 @@ function TherapistDetailsPage() {
 
   const handleDeleteTherapist = async (e, objId) => {
     e.preventDefault();
-    dispatch(deleteTherapist(objId));
+    await dispatch(deleteTherapist(objId));
+    dispatch(fetchTherapists());
     setTimeout(() => {
       navigate('/homepage');
     }, 2000);
@@ -29,7 +30,6 @@ function TherapistDetailsPage() {
     (async () => {
       if (active && !mysingleTherapist) {
         dispatch(fetchSingleTherapist(id));
-        console.log(mysingleTherapist);
       }
     })();
     return () => {

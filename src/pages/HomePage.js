@@ -11,7 +11,7 @@ function HomePage() {
   const dispatch = useDispatch();
   const [specialty, setSpecialty] = useState('');
 
-  const filteredTherapists = myTherapists.filter(
+  const filteredTherapists = myTherapists?.filter(
     (therapy) => therapy.specialization.toLowerCase().includes(specialty.toLowerCase()),
   );
 

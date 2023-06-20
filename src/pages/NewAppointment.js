@@ -41,7 +41,7 @@ function NewAppointment() {
     };
   }, [dispatch, myTherapists]);
 
-  const filteredTherapists = myTherapists.filter(
+  const filteredTherapists = myTherapists?.filter(
     (therapist) => therapist.specialization === specialty,
   );
 
@@ -56,7 +56,9 @@ function NewAppointment() {
     dispatch(postReserve(appointmentData));
     await nullReserveData();
     dispatch(fetchReserves());
-    navigate('/appointments');
+    setTimeout(() => {
+      navigate('/appointments');
+    }, 2000);
   };
 
   const handleTherapistChange = (e) => {
@@ -116,7 +118,7 @@ function NewAppointment() {
               <option value="">Select a therapist</option>
               {filteredTherapists.map((therapy) => (
                 <option key={therapy.id} value={therapy.id}>
-                  {therapy.name}
+                  {therapy.name ? therapy.name : 'No therapist available'}
                 </option>
               ))}
             </select>
