@@ -40,11 +40,10 @@
 > React. 
 
 ### Key Features <a name="key-features"></a>
+- **[Create and delete a therapist based on role...]**
 - **[Display all therapists...]**
 - **[Allow users to book an appointment with the therapists...]**
 - **[Display appointment details...]**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -56,7 +55,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://) 
+- [Live Demo Link](https://reliefapp.onrender.com/) 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
