@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTherapists } from '../redux/Therapy/therapySlice';
 import Navigation from '../components/Navigation';
-import specializationArr from '../components/speciliazation';
+import specializationArr from '../components/specialization';
 import '../css/HomePage.css';
 import Therapists from '../components/Therapists';
 
