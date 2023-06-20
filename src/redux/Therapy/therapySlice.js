@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+
+const axios = require('axios');
+// import axios from 'axios';
 
 const therapistURL = 'http://localhost:3000/api/v1/users/';
 const cloudinaryAPI = 'https://api.cloudinary.com/v1_1/drhbncewu/image/upload';

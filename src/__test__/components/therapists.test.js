@@ -5,12 +5,12 @@ import renderer from 'react-test-renderer';
 import store from '../../redux/store';
 import Therapists from '../../components/Therapists';
 
-it('Chart component renders correctly', () => {
-  const myTherapists = store.getState().therapist.therapists;
+it('Therapist component renders correctly', () => {
+  const myUser = store.getState().user.user;
   const tree = renderer.create(
     <Provider store={store}>
       <MemoryRouter>
-        <Therapists myTherapists={myTherapists} />
+        <Therapists myUser={myUser} />
       </MemoryRouter>
     </Provider>,
   ).toJSON();
