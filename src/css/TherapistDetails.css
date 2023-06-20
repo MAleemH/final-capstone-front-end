@@ -22,6 +22,8 @@
 
 .therapy_details_content .therapy_details_figure_box img {
   width: 500px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .therapy_details_main {
@@ -47,18 +49,8 @@
 }
 
 .therapy_details_content article {
-  display: flex;
-  justify-content: space-between;
-}
-
-.therapy_details_figure_box {
-  width: 50%;
-  margin: auto;
-}
-
-.therapist_info_box {
-  width: 50%;
-  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .therapist_info_box ul {
@@ -102,19 +94,13 @@
 
 @media only screen and (max-width: 1024px) {
   .therapy_details_content article {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
   }
 
   .therapy_details_figure_box {
-    width: 100%;
-    margin: auto;
     text-align: center;
-  }
-
-  .therapist_info_box {
-    width: 100%;
-    margin: auto;
   }
 
   .therapist_info_contact_name {
@@ -143,7 +129,7 @@
   .therapy_details_nav {
     width: 30%;
     margin: auto;
-    min-height: 100vh;
+    height: 100vh;
     z-index: 5;
     position: absolute;
     position: fixed;
@@ -165,9 +151,9 @@
 
 @media only screen and (max-width: 425px) {
   .therapy_details_nav {
-    width: 55%;
+    width: 50%;
     margin: auto;
-    min-height: 100vh;
+    height: 100vh;
     z-index: 5;
     position: absolute;
     position: fixed;
@@ -186,10 +172,6 @@
     display: flex;
     text-align: center;
     justify-content: center;
-
-    /* flex-direction: column; */
-
-    /* justify-content: space-between; */
   }
 }
 
@@ -209,11 +191,5 @@
   .therapist_info_box ul {
     display: flex;
     text-align: center;
-
-    /* justify-content: center; */
-
-    /* flex-direction: column; */
-
-    /* justify-content: space-between; */
   }
 }

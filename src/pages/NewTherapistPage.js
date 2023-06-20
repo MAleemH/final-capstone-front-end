@@ -59,7 +59,9 @@ function NewTherapistPage() {
     await dispatch(postTherapist(therapistData));
     await nullThrapistData();
     dispatch(fetchTherapists());
-    navigate('/homepage');
+    setTimeout(() => {
+      navigate('/homepage');
+    }, 2000);
   };
 
   useEffect(() => {

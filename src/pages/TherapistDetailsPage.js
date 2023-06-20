@@ -2,13 +2,16 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteTherapist, fetchSingleTherapist } from '../redux/Therapy/therapySlice';
+import { deleteTherapist, fetchSingleTherapist, fetchTherapists } from '../redux/Therapy/therapySlice';
 import Navigation from '../components/Navigation';
 import '../css/TherapistDetails.css';
 import editImg from '../img/edit.png';
 import trashImg from '../img/trash.png';
+import { getLocalUser } from '../components/localStore';
 
 function TherapistDetailsPage() {
+  const myUse = getLocalUser() || [];
+  const myUser = myUse?.user;
   const dispatch = useDispatch();
   const mysingleTherapist = useSelector((state) => state.therapy.singleTherapist);
   const { id } = useParams();
@@ -16,7 +19,8 @@ function TherapistDetailsPage() {
 
   const handleDeleteTherapist = async (e, objId) => {
     e.preventDefault();
-    dispatch(deleteTherapist(objId));
+    await dispatch(deleteTherapist(objId));
+    dispatch(fetchTherapists());
     setTimeout(() => {
       navigate('/homepage');
     }, 2000);
@@ -27,7 +31,6 @@ function TherapistDetailsPage() {
     (async () => {
       if (active && !mysingleTherapist) {
         dispatch(fetchSingleTherapist(id));
-        console.log(mysingleTherapist);
       }
     })();
     return () => {
@@ -92,7 +95,9 @@ function TherapistDetailsPage() {
               <div className="therapist_info_action">
                 <button aria-label="Book" type="button"><Link className="td_none" to="/book">Reserve</Link></button>
                 <button aria-label="Edit" type="button"><img src={editImg} alt="" /></button>
-                <button aria-label="Trash" type="button" onClick={(e) => handleDeleteTherapist(e, mysingleTherapist.id)}><img src={trashImg} alt="" /></button>
+                {myUser?.role === 'admin' && (
+                  <button aria-label="Trash button" type="button" onClick={(e) => handleDeleteTherapist(e, mysingleTherapist.id)}><img src={trashImg} alt="" /></button>
+                )}
               </div>
 
             </div>
