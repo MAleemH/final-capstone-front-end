@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchReserves } from '../redux/Reserve/reserveSlice';
 import Navigation from '../components/Navigation';
 import '../css/AppointmentPage.css';
-import therapistImg from '../img/therapist.jpg';
 
 function AppointmentPage() {
   const myReserves = useSelector((state) => state.reserve.reserves);
@@ -41,7 +40,7 @@ function AppointmentPage() {
               <article>
                 {/* Therapist to see */}
                 <figure className="therapy_figure">
-                  <img src={therapistImg} alt="" />
+                  <img src={myReserve.therapist.photo} alt="" />
                 </figure>
 
                 <h4>{myReserve.status}</h4>
@@ -49,7 +48,7 @@ function AppointmentPage() {
                 <p>{myReserve.date?.replace('T', ' ')}</p>
 
                 <div className="appointment_socials">
-                  <p>{myReserve.therapist_id}</p>
+                  <p>{myReserve.therapist.id}</p>
                 </div>
               </article>
             </div>

@@ -2,7 +2,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const reserveURL = 'http://localhost:3000/api/v1/users/';
+const reserveURL = 'counseling-app.onrender.com/api/v1/users/';
 
 const initialState = {
   loading: false,
