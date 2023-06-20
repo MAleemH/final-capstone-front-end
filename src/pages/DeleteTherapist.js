@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTherapists } from '../redux/Therapy/therapySlice';
 import Navigation from '../components/Navigation';
@@ -8,11 +8,16 @@ import Therapists from '../components/Therapists';
 function DeleteTherapist() {
   const myTherapists = useSelector((state) => state.therapy.therapists);
   const dispatch = useDispatch();
+  const [inputName, setInputname] = useState('');
+
+  const filteredTherapists = myTherapists.filter(
+    (therapy) => therapy.name.toLowerCase().includes(inputName.toLowerCase()),
+  );
 
   useEffect(() => {
     let active = true;
     (async () => {
-      if (active && myTherapists?.length === 0) {
+      if (active && myTherapists.length === 0) {
         dispatch(fetchTherapists());
       }
     })();
@@ -35,13 +40,13 @@ function DeleteTherapist() {
 
           <div className="search_box">
             <fieldset className="fieldset_border_none">
-              <input className="input_name" aria-label="Input Name" type="text" placeholder="Search by name" />
+              <input className="input_name" type="text" placeholder="Search by name" aria-label="Input Name" value={inputName} onChange={(e) => setInputname(e.target.value)} required />
             </fieldset>
           </div>
         </header>
 
         <div>
-          <Therapists />
+          <Therapists myTherapists={filteredTherapists} />
         </div>
 
       </section>

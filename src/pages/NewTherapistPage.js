@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { postTherapist, uploadTherapist } from '../redux/Therapy/therapySlice';
+import { fetchTherapists, postTherapist, uploadTherapist } from '../redux/Therapy/therapySlice';
 import '../css/NewTherapistPage.css';
 import specializationArr from '../components/speciliazation';
 import backImg from '../img/back.png';
@@ -19,13 +19,18 @@ function NewTherapistPage() {
   const [phone, setPhone] = useState(0);
   const [specialty, setSpecialty] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
 
   const handleUpload = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append('file', uploadFile);
     formData.append('upload_preset', 'f00ugkxm');
-    const secureUrl = await dispatch(uploadTherapist(formData));
+    const secureUrl = (await dispatch(uploadTherapist(formData))).payload;
     return secureUrl;
   };
 
@@ -36,22 +41,25 @@ function NewTherapistPage() {
     setSpecialty('');
   };
 
-  const handleNewTherapist = async () => {
-    const cloudinaryImageUrl = await handleUpload();
+  const handleNewTherapist = async (e) => {
+    const cloudinaryImageUrl = await handleUpload(e);
+    if (!cloudinaryImageUrl) {
+      return;
+    }
     const therapistData = {
-      secureUrl: cloudinaryImageUrl,
-      name: username,
-      address,
-      email,
-      specialty,
-      phone,
-      // Add other form data fields as needed
+      therapist: {
+        photo: cloudinaryImageUrl,
+        name: username,
+        address,
+        email,
+        specialization: specialty,
+        phone,
+      },
     };
-    console.log(therapistData);
-    // Send the data to the database
-    const response = await dispatch(postTherapist(therapistData));
-    console.log(response);
+    await dispatch(postTherapist(therapistData));
     await nullThrapistData();
+    dispatch(fetchTherapists());
+    navigate('/homepage');
   };
 
   useEffect(() => {
@@ -71,9 +79,9 @@ function NewTherapistPage() {
 
       <header className="new_therapist_header">
         <nav>
-          <Link to="/">
+          <button className="back_none" type="button" onClick={goBack}>
             <img src={backImg} alt="" />
-          </Link>
+          </button>
         </nav>
       </header>
 
@@ -104,7 +112,7 @@ function NewTherapistPage() {
 
         <form action="" className="new_therapist_form">
           <fieldset className="fieldset_border_none">
-            <input className="input_name" type="text" placeholder="Name" aria-label="Input Name" required />
+            <input className="input_name" type="text" placeholder="Name" aria-label="Input Name" value={username} onChange={(e) => setUsername(e.target.value)} required />
 
             <input className="input_name" type="text" placeholder="Address (State and City)" aria-label="Input Address" value={address} onChange={(e) => setAddress(e.target.value)} required />
 
@@ -112,7 +120,7 @@ function NewTherapistPage() {
 
             <input className="input_name" type="email" placeholder="Email" aria-label="Input Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
 
-            <select aria-label="Input Label" className="input_name" value={specialty} onChange={(e) => setSpecialty(e.target.value)} id="specializationId">
+            <select aria-label="Input Label" className="input_name" onChange={(e) => setSpecialty(e.target.value)} id="specializationId">
               {specializationArr.map((specialty) => (
                 <option key={specialty.id} value={specialty.value} aria-label="Input Specialization">{specialty.name}</option>
               ))}
@@ -121,7 +129,7 @@ function NewTherapistPage() {
             <div className="input_name image_input_container">
               <input type="file" aria-label="Add Image" onChange={(event) => { setUploadFile(event.target.files[0]); }} required />
               <img src={avatarImg} alt="Choose File" />
-              <p>Add Image</p>
+              <p>{uploadFile ? 'Image Added' : 'Add Image'}</p>
             </div>
 
           </fieldset>

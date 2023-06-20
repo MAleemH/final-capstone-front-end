@@ -1,12 +1,40 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+/* eslint-disable no-console */
+import React, { useEffect } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteTherapist, fetchSingleTherapist } from '../redux/Therapy/therapySlice';
 import Navigation from '../components/Navigation';
 import '../css/TherapistDetails.css';
-import therapistImg from '../img/therapist.jpg';
 import editImg from '../img/edit.png';
 import trashImg from '../img/trash.png';
 
 function TherapistDetailsPage() {
+  const dispatch = useDispatch();
+  const mysingleTherapist = useSelector((state) => state.therapy.singleTherapist);
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const handleDeleteTherapist = async (e, objId) => {
+    e.preventDefault();
+    dispatch(deleteTherapist(objId));
+    setTimeout(() => {
+      navigate('/homepage');
+    }, 2000);
+  };
+
+  useEffect(() => {
+    let active = true;
+    (async () => {
+      if (active && !mysingleTherapist) {
+        dispatch(fetchSingleTherapist(id));
+        console.log(mysingleTherapist);
+      }
+    })();
+    return () => {
+      active = false;
+    };
+  }, [dispatch, mysingleTherapist, id]);
+
   return (
     <main className="therapy_details_main">
 
@@ -15,55 +43,63 @@ function TherapistDetailsPage() {
       </section>
 
       <section className="therapy_details_content">
-        <article>
+        {mysingleTherapist && (
+          <article key={mysingleTherapist.id}>
 
-          <div className="therapy_details_figure_box">
-            <img src={therapistImg} alt="" />
-          </div>
-
-          <div className="therapist_info_box">
-            <div className="therapist_info_contact_name">
-              <h1>MARCUS DAVID</h1>
-              <p>Lorem ipsum dolor sit.</p>
+            <div className="therapy_details_figure_box">
+              <img src={mysingleTherapist.photo} alt="" />
             </div>
 
-            <ul className="list_style_none">
+            <div className="therapist_info_box">
+              <div className="therapist_info_contact_name">
+                <h1>{mysingleTherapist.name}</h1>
+                <p>
+                  Honoured to be your&nbsp;
+                  {mysingleTherapist.specialization}
+                  {' '}
+                  therapist
+                </p>
+              </div>
 
-              <li>
-                <p>RATING</p>
-                <p>4</p>
-              </li>
-              <li>
-                <p>SPECIALTY</p>
-                <p>CARDIOVASCULAR</p>
-              </li>
-              <li>
-                <p>LOCATION</p>
-                <p>LAGOS</p>
-              </li>
-              <li>
-                <p>EMAIL</p>
-                <p>johndoe@yahoo.com</p>
-              </li>
-              <li>
-                <p>AVAILABILITY</p>
-                <p>TRUE</p>
-              </li>
-              <li>
-                <p>PHONE</p>
-                <p>07054245454</p>
-              </li>
-            </ul>
+              <ul className="list_style_none">
 
-            <div className="therapist_info_action">
-              <button aria-label="Book" type="button"><Link className="td_none" to="/book">Reserve</Link></button>
-              <button aria-label="Edit" type="button"><img src={editImg} alt="" /></button>
-              <button aria-label="Trash" type="button"><img src={trashImg} alt="" /></button>
+                <li>
+                  <p>RATING</p>
+                  <p>4</p>
+                </li>
+                <li>
+                  <p>SPECIALTY</p>
+                  <p>{mysingleTherapist.specialization}</p>
+                </li>
+                <li>
+                  <p>LOCATION</p>
+                  <p>{mysingleTherapist.address}</p>
+                </li>
+                <li>
+                  <p>EMAIL</p>
+                  <p>{mysingleTherapist.email}</p>
+                </li>
+                <li>
+                  <p>AVAILABILITY</p>
+                  <p>{`${mysingleTherapist.availability || 'Not Available'}`}</p>
+                </li>
+                <li>
+                  <p>PHONE</p>
+                  <p>{mysingleTherapist.phone}</p>
+                </li>
+              </ul>
+
+              <div className="therapist_info_action">
+                <button aria-label="Book" type="button"><Link className="td_none" to="/book">Reserve</Link></button>
+                <button aria-label="Edit" type="button"><img src={editImg} alt="" /></button>
+                <button aria-label="Trash" type="button" onClick={(e) => handleDeleteTherapist(e, mysingleTherapist.id)}><img src={trashImg} alt="" /></button>
+              </div>
+
             </div>
 
-          </div>
+          </article>
+        )}
 
-        </article>
       </section>
 
     </main>

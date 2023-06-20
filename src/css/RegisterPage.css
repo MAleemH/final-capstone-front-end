@@ -37,6 +37,10 @@
   height: 30px;
 }
 
+.back_none {
+  border: none;
+}
+
 .register_main {
   width: 40%;
   margin: auto;

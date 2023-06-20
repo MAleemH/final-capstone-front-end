@@ -2,75 +2,86 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const getTherapistURL = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=24';
-const postTherapistURL = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=24';
-const deleteTherapistURL = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=24';
+const therapistURL = 'http://localhost:3000/api/v1/users/';
 const cloudinaryAPI = 'https://api.cloudinary.com/v1_1/drhbncewu/image/upload';
 
 const initialState = {
   loading: false,
   therapists: [],
+  singleTherapist: null,
   error: '',
 };
 
-export const fetchTherapists = createAsyncThunk('user/fetchTherapists', async ({ getState }) => {
+export const fetchTherapists = createAsyncThunk('therapy/fetchTherapists', async (_, { getState }) => {
   try {
-    const { token } = getState().user;
+    const userState = await getState().user.user;
     const config = {
       method: 'get',
-      url: getTherapistURL,
+      url: `${therapistURL}${userState.user.id}/therapists`,
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: userState.user.authentication_token,
         'Content-Type': 'application/json',
       },
     };
     const response = await axios(config);
-    console.log(response);
     return response;
   } catch (error) {
-    console.log(error);
+    return error;
+  }
+});
+
+export const fetchSingleTherapist = createAsyncThunk('therapy/fetchSingleTherapist', async (therapistID, { getState }) => {
+  try {
+    const userState = await getState().user.user;
+    const config = {
+      method: 'get',
+      url: `${therapistURL}${userState.user.id}/therapists/${therapistID}`,
+      headers: {
+        Authorization: userState.user.authentication_token,
+        'Content-Type': 'application/json',
+      },
+      data: therapistID,
+    };
+    const response = await axios(config);
+    return response;
+  } catch (error) {
     return error;
   }
 });
 
 export const postTherapist = createAsyncThunk('therapy/postTherapist', async (therapistData, { getState }) => {
   try {
-    const { token } = getState().user;
+    const userState = await getState().user.user;
     const config = {
       method: 'post',
-      url: postTherapistURL,
+      url: `${therapistURL}${userState.user.id}/therapists`,
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: userState.user.authentication_token,
         'Content-Type': 'application/json',
       },
       data: therapistData,
     };
     const response = await axios(config);
-    console.log(response);
     return response;
   } catch (error) {
-    console.log(error);
     return error;
   }
 });
 
 export const deleteTherapist = createAsyncThunk('therapy/deleteTherapist', async (deleteID, { getState }) => {
   try {
-    const { token } = getState().user;
+    const userState = await getState().user.user;
     const config = {
       method: 'delete',
-      url: deleteTherapistURL,
+      url: `${therapistURL}${userState.user.id}/therapists/${deleteID}`,
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: userState.user.authentication_token,
         'Content-Type': 'application/json',
       },
-      data: deleteID,
     };
     const response = await axios(config);
-    // console.log(response.data);
     return response;
   } catch (error) {
-    console.log(error);
     return error;
   }
 });
@@ -78,10 +89,8 @@ export const deleteTherapist = createAsyncThunk('therapy/deleteTherapist', async
 export const uploadTherapist = createAsyncThunk('therapy/uploadTherapist', async (formData) => {
   try {
     const response = await axios.post(cloudinaryAPI, formData, { params: { folder: 'therapy' } });
-    // setCloudinaryImage(response.data.secure_url);
     return response.data.secure_url;
   } catch (error) {
-    console.log(error);
     return error;
   }
 });
@@ -99,9 +108,22 @@ const therapySlice = createSlice({
       .addCase(fetchTherapists.fulfilled, (state, action) => {
         state.loading = false;
         state.error = '';
-        state.therapists = action.payload.therapists;
+        state.therapists = action.payload.data;
       })
       .addCase(fetchTherapists.rejected, (state) => {
+        state.loading = false;
+        state.error = '';
+      })
+      .addCase(fetchSingleTherapist.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchSingleTherapist.fulfilled, (state, action) => {
+        state.loading = false;
+        state.singleTherapist = action.payload.data;
+        state.error = '';
+      })
+      .addCase(fetchSingleTherapist.rejected, (state) => {
         state.loading = false;
         state.error = '';
       })
@@ -128,6 +150,18 @@ const therapySlice = createSlice({
         );
       })
       .addCase(deleteTherapist.rejected, (state) => {
+        state.loading = false;
+        state.error = '';
+      })
+      .addCase(uploadTherapist.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(uploadTherapist.fulfilled, (state) => {
+        state.loading = false;
+        state.error = '';
+      })
+      .addCase(uploadTherapist.rejected, (state) => {
         state.loading = false;
         state.error = '';
       });

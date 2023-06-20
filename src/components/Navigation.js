@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import '../css/Navigation.css';
-import { Link, NavLink } from 'react-router-dom';
-import '../css/LoginPage.css';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logoutUser } from '../redux/User/userSlice';
+// import '../css/LoginPage.css';
 import facebookImg from '../img/facebook.png';
 import twitterImg from '../img/twitter.png';
 import linkedinImg from '../img/linkedin.png';
@@ -10,9 +12,20 @@ import snapchatImg from '../img/snapchat.png';
 import logoImg from '../img/logo.png';
 import menuImg from '../img/menu.png';
 import cancelImg from '../img/cancel.png';
+import { getLocalUser } from './localStore';
 
 function Navigation() {
   const [isToggled, setIsToggled] = useState(true);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const myUse = getLocalUser() || [];
+  const myUser = myUse?.user;
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    dispatch(logoutUser());
+    navigate('/');
+  };
 
   return (
     <main>
@@ -35,20 +48,26 @@ function Navigation() {
             {' '}
             <NavLink to="/appointments" activeClassName="active" className="td_none">APPOINTMENTS</NavLink>
           </li>
+
           <li>
             {' '}
             <NavLink to="/book" activeClassName="active" className="td_none">NEW APPOINTMENT</NavLink>
           </li>
+          {myUser?.role === 'admin' && (
+            <li>
+              {' '}
+              <NavLink to="/newtherapist" activeClassName="active" className="td_none">NEW THERAPIST</NavLink>
+            </li>
+          )}
+          {myUser?.role === 'admin' && (
+            <li>
+              {' '}
+              <NavLink to="/deletetherapist" className="td_none" activeClassName="active">DELETE THERAPIST</NavLink>
+            </li>
+          )}
+
           <li>
-            {' '}
-            <NavLink to="/newtherapist" activeClassName="active" className="td_none">NEW THERAPIST</NavLink>
-          </li>
-          <li>
-            {' '}
-            <NavLink to="/deletetherapist" className="td_none" activeClassName="active">DELETE THERAPIST</NavLink>
-          </li>
-          <li>
-            <button className="logout_btn" type="button">LOGOUT</button>
+            <button className="logout_btn" type="button" onClick={handleLogout}>LOGOUT</button>
           </li>
         </nav>
 
@@ -90,19 +109,19 @@ function Navigation() {
 
       <section className={isToggled ? 'home_nav_section_mobile' : 'active_blur home_nav_section_mobile'}>
         {isToggled && (
-        <header className="home_logo margin_left1">
-          <button onClick={() => setIsToggled(!isToggled)} type="button" aria-label="button">
-            <img src={menuImg} alt="" />
-          </button>
-        </header>
+          <header className="home_logo margin_left1">
+            <button onClick={() => setIsToggled(!isToggled)} type="button" aria-label="button">
+              <img src={menuImg} alt="" />
+            </button>
+          </header>
         )}
 
         {!isToggled && (
-        <header className="home_logo close_btn margin_left2">
-          <button onClick={() => setIsToggled(!isToggled)} type="button" aria-label="button">
-            <img src={cancelImg} alt="" />
-          </button>
-        </header>
+          <header className="home_logo close_btn margin_left2">
+            <button onClick={() => setIsToggled(!isToggled)} type="button" aria-label="button">
+              <img src={cancelImg} alt="" />
+            </button>
+          </header>
         )}
 
         {!isToggled && (
@@ -119,14 +138,20 @@ function Navigation() {
               {' '}
               <NavLink to="/" activeClassName="active" className="td_none">NEW APPOINTMENT</NavLink>
             </li>
-            <li>
-              {' '}
-              <NavLink to="/newtherapist" activeClassName="active" className="td_none">NEW THERAPIST</NavLink>
-            </li>
-            <li>
-              {' '}
-              <NavLink to="/deletetherapist" className="td_none" activeClassName="active">DELETE THERAPIST</NavLink>
-            </li>
+            {myUser?.role === 'admin' && (
+              <li>
+                {' '}
+                <NavLink to="/newtherapist" activeClassName="active" className="td_none">NEW THERAPIST</NavLink>
+              </li>
+            )}
+
+            {myUser?.role === 'admin' && (
+              <li>
+                {' '}
+                <NavLink to="/deletetherapist" className="td_none" activeClassName="active">DELETE THERAPIST</NavLink>
+              </li>
+            )}
+
             <li>
               <button className="logout_btn" type="button">LOGOUT</button>
             </li>

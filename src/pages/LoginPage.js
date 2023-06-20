@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
-// import { loginUser } from '../redux/User/userSlice';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../redux/User/userSlice';
 import '../css/LoginPage.css';
 import backImg from '../img/back.png';
 import eyeImg from '../img/eye.png';
@@ -9,11 +9,16 @@ import fadingBreak from '../img/fading_break.png';
 import logoImg from '../img/logo.png';
 
 function LoginPage() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [passwordType, setPasswordType] = useState('password');
   const [email, setEmail] = useState('');
   const [inputPassword, setInputPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
 
   const nullUserData = async () => {
     setEmail('');
@@ -21,14 +26,16 @@ function LoginPage() {
   };
 
   const handleLogin = async () => {
-    const pass = inputPassword.replace(/\s/g, '').toLowerCase();
-    console.log(email, pass);
     const userData = {
-      email, password1: pass,
+      user: {
+        email, password: inputPassword,
+      },
     };
-    console.log(userData);
-    // dispatch(loginUser(userData));
+    dispatch(loginUser(userData));
     await nullUserData();
+    setTimeout(() => {
+      navigate('/homepage');
+    }, 4000);
   };
 
   useEffect(() => {
@@ -48,9 +55,9 @@ function LoginPage() {
 
       <header className="login_header">
         <nav>
-          <Link to="/">
+          <button className="back_none" type="button" onClick={goBack}>
             <img src={backImg} alt="" />
-          </Link>
+          </button>
         </nav>
       </header>
 

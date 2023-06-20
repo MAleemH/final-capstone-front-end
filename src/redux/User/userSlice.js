@@ -1,16 +1,13 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const registerUserURL = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=24';
-const loginUserURL = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=24';
-const postUserURL = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=24';
-const deleteUserURL = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=24';
+const usersURL = 'http://localhost:3000/api/v1/users/';
 
 const getLocalUser = async () => JSON.parse(localStorage.getItem('therapy'));
 
 const setLocalUser = async (user) => localStorage.setItem('therapy', JSON.stringify(user));
 
-const removeLocalUser = async () => localStorage.removeItem('therapy');
+const removeLocalUser = () => localStorage.removeItem('therapy');
 
 const initialState = {
   loading: false,
@@ -22,82 +19,70 @@ export const registerUser = createAsyncThunk('user/registerUser', async (registe
   try {
     const config = {
       method: 'post',
-      url: registerUserURL,
+      url: usersURL,
       data: registerData,
     };
     const response = await axios(config);
-    console.log(response);
     return response;
   } catch (error) {
-    console.log(error);
     return error;
   }
 });
 
-export const loginUser = createAsyncThunk('user/loginUser', async (loginData, { getState }) => {
+export const loginUser = createAsyncThunk('user/loginUser', async (loginData) => {
   try {
-    const { token } = getState().user;
+    // const token = getState().user.authentication_token;
     const config = {
       method: 'post',
-      url: loginUserURL,
+      url: `${usersURL}sign_in`,
       headers: {
-        Authorization: `Bearer ${token}`,
+        // Authorization: `${token}`,
         'Content-Type': 'application/json',
       },
       data: loginData,
     };
     const response = await axios(config);
-    console.log(response);
     return response;
   } catch (error) {
-    console.log(error);
     return error;
   }
 });
 
-export const deleteUser = createAsyncThunk('therapy/deleteUser', async (deleteID, { getState }) => {
+export const forgotPassword = createAsyncThunk('user/forgotPassword', async (userData) => {
   try {
-    const { token } = getState().user;
+    const config = {
+      method: 'put',
+      url: `${usersURL}password`,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      data: userData,
+    };
+    const response = await axios(config);
+    return response;
+  } catch (error) {
+    return error;
+  }
+});
+
+export const logoutUser = createAsyncThunk('user/logoutUser', async (_, { getState }) => {
+  try {
+    const userState = await getState().user.user;
     const config = {
       method: 'delete',
-      url: deleteUserURL,
+      url: `${usersURL}sign_out`,
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: userState.user.authentication_token,
         'Content-Type': 'application/json',
       },
-      data: deleteID,
     };
     const response = await axios(config);
-    // console.log(response.data);
-    await removeLocalUser();
     return response;
   } catch (error) {
-    console.log(error);
     return error;
   }
 });
 
-export const postUser = createAsyncThunk('user/postUser', async (therapistData, { getState }) => {
-  try {
-    const { token } = getState().user;
-    const config = {
-      method: 'post',
-      url: postUserURL,
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-      data: therapistData,
-    };
-    const response = await axios(config);
-    console.log(response);
-    await setLocalUser(response);
-    return response;
-  } catch (error) {
-    console.log(error);
-    return error;
-  }
-});
 /* eslint-disable no-param-reassign */
 
 const userSlice = createSlice({
@@ -108,11 +93,9 @@ const userSlice = createSlice({
       state.loading = true;
       state.error = null;
     })
-      .addCase(registerUser.fulfilled, (state, action) => {
+      .addCase(registerUser.fulfilled, (state) => {
         state.loading = false;
         removeLocalUser();
-        setLocalUser(action.payload.user);
-        state.user = (action.payload.user);
         state.error = '';
       })
       .addCase(registerUser.rejected, (state) => {
@@ -126,37 +109,39 @@ const userSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action) => {
         state.loading = false;
         removeLocalUser();
-        setLocalUser(action.payload.user);
-        state.user = (action.payload.user);
+        setLocalUser(action.payload.data);
+        state.user = (action.payload.data);
         state.error = '';
       })
       .addCase(loginUser.rejected, (state) => {
         state.loading = false;
         state.error = '';
       })
-      .addCase(postUser.pending, (state) => {
+      .addCase(forgotPassword.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(postUser.fulfilled, (state, action) => {
+      .addCase(forgotPassword.fulfilled, (state, action) => {
         state.loading = false;
-        state.user = (action.payload.user);
+        removeLocalUser();
+        setLocalUser(action.payload.data);
+        state.user = (action.payload.data);
         state.error = '';
       })
-      .addCase(postUser.rejected, (state) => {
+      .addCase(forgotPassword.rejected, (state) => {
         state.loading = false;
         state.error = '';
       })
-      .addCase(deleteUser.pending, (state) => {
+      .addCase(logoutUser.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(deleteUser.fulfilled, (state) => {
+      .addCase(logoutUser.fulfilled, (state) => {
         state.loading = false;
-        state.user = [];
+        removeLocalUser();
         state.error = '';
       })
-      .addCase(deleteUser.rejected, (state) => {
+      .addCase(logoutUser.rejected, (state) => {
         state.loading = false;
         state.error = '';
       });

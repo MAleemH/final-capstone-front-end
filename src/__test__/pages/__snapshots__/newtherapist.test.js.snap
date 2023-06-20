@@ -1,0 +1,225 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewTherapistPage component renders correctly 1`] = `
+<div
+  className="new_therapist_body"
+>
+  <header
+    className="new_therapist_header"
+  >
+    <nav>
+      <button
+        className="back_none"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt=""
+          src="back.png"
+        />
+      </button>
+    </nav>
+  </header>
+  <main
+    className="new_therapist_main"
+  >
+    <figure
+      className="logo_fig"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        <img
+          alt=""
+          src="logo.png"
+        />
+      </a>
+    </figure>
+    <div
+      className="fadebreak_box"
+    >
+      <figure>
+         
+        <img
+          alt=""
+          src="fading_break.png"
+        />
+         
+      </figure>
+      <p>
+         
+        New Therapist
+         
+      </p>
+      <figure>
+         
+        <img
+          alt=""
+          className="rotate_breakline"
+          src="fading_break.png"
+        />
+         
+      </figure>
+    </div>
+    <form
+      action=""
+      className="new_therapist_form"
+    >
+      <fieldset
+        className="fieldset_border_none"
+      >
+        <input
+          aria-label="Input Name"
+          className="input_name"
+          onChange={[Function]}
+          placeholder="Name"
+          required={true}
+          type="text"
+          value=""
+        />
+        <input
+          aria-label="Input Address"
+          className="input_name"
+          onChange={[Function]}
+          placeholder="Address (State and City)"
+          required={true}
+          type="text"
+          value=""
+        />
+        <input
+          aria-label="Input Phone"
+          className="input_name"
+          onChange={[Function]}
+          placeholder="Phone"
+          required={true}
+          type="phone"
+        />
+        <input
+          aria-label="Input Email"
+          className="input_name"
+          onChange={[Function]}
+          placeholder="Email"
+          required={true}
+          type="email"
+          value=""
+        />
+        <select
+          aria-label="Input Label"
+          className="input_name"
+          id="specializationId"
+          onChange={[Function]}
+        >
+          <option
+            aria-label="Input Specialization"
+            value=""
+          >
+            Select Specialization
+          </option>
+          <option
+            aria-label="Input Specialization"
+            value="Cardiovascular"
+          >
+            Cardiovascular
+          </option>
+          <option
+            aria-label="Input Specialization"
+            value="Emotional"
+          >
+            Emotional
+          </option>
+          <option
+            aria-label="Input Specialization"
+            value="Romance"
+          >
+            Romance
+          </option>
+          <option
+            aria-label="Input Specialization"
+            value="Sexual"
+          >
+            Sexual
+          </option>
+          <option
+            aria-label="Input Specialization"
+            value="Academic"
+          >
+            Academic
+          </option>
+          <option
+            aria-label="Input Specialization"
+            value="Career"
+          >
+            Career
+          </option>
+          <option
+            aria-label="Input Specialization"
+            value="Marital"
+          >
+            Marital
+          </option>
+          <option
+            aria-label="Input Specialization"
+            value="Dating"
+          >
+            Dating
+          </option>
+        </select>
+        <div
+          className="input_name image_input_container"
+        >
+          <input
+            aria-label="Add Image"
+            onChange={[Function]}
+            required={true}
+            type="file"
+          />
+          <img
+            alt="Choose File"
+            src="user.png"
+          />
+          <p>
+            Add Image
+          </p>
+        </div>
+      </fieldset>
+      <fieldset
+        className="fieldset_border_none new_therapist_action"
+      >
+        <button
+          onClick={[Function]}
+          type="button"
+        >
+          Submit
+        </button>
+      </fieldset>
+    </form>
+  </main>
+  <footer
+    className="new_therapist_footer"
+  >
+    <ul
+      className="list_style_none"
+    >
+      <li>
+        <a
+          className="td_none"
+          href="/new_therapist"
+          onClick={[Function]}
+        >
+           terms 
+        </a>
+      </li>
+      <li>
+        <a
+          className="td_none"
+          href="/new_therapist"
+          onClick={[Function]}
+        >
+            privacy 
+        </a>
+      </li>
+    </ul>
+  </footer>
+</div>
+`;

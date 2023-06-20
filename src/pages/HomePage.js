@@ -1,25 +1,24 @@
-import React, { useEffect } from 'react';
-// import { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTherapists } from '../redux/Therapy/therapySlice';
 import Navigation from '../components/Navigation';
 import specializationArr from '../components/speciliazation';
 import '../css/HomePage.css';
-// import therapistImg from '../img/therapist.jpg';
-// import facebookImg from '../img/facebook.png';
-// import twitterImg from '../img/twitter.png';
-// import linkedinImg from '../img/linkedin.png';
 import Therapists from '../components/Therapists';
 
 function HomePage() {
   const myTherapists = useSelector((state) => state.therapy.therapists);
   const dispatch = useDispatch();
+  const [specialty, setSpecialty] = useState('');
+
+  const filteredTherapists = myTherapists.filter(
+    (therapy) => therapy.specialization.toLowerCase().includes(specialty.toLowerCase()),
+  );
 
   useEffect(() => {
     let active = true;
     (async () => {
-      if (active && myTherapists?.length === 0) {
+      if (active && myTherapists.length === 0) {
         dispatch(fetchTherapists());
       }
     })();
@@ -42,8 +41,7 @@ function HomePage() {
 
           <div className="search_box">
             <fieldset className="fieldset_border_none">
-              {/* onChange={(e) => setInputSpecialty(e.target.value)} */}
-              <select aria-label="Input Label" className="input_name" id="specializationId">
+              <select aria-label="Input Label" className="input_name" onChange={(e) => setSpecialty(e.target.value)} id="specializationId">
 
                 {specializationArr.map((specialty) => (
                   <option key={specialty} value={specialty.value} aria-label="Input Specialization">{specialty.name}</option>
@@ -54,7 +52,7 @@ function HomePage() {
         </header>
 
         <div>
-          <Therapists />
+          <Therapists myTherapists={filteredTherapists} />
         </div>
 
       </section>

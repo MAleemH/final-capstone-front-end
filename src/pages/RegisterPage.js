@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
-// import { registerUser } from '../redux/User/userSlice';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { registerUser } from '../redux/User/userSlice';
+import roleArr from '../components/roles';
 import '../css/RegisterPage.css';
 import backImg from '../img/back.png';
 import eyeImg from '../img/eye.png';
@@ -9,17 +10,23 @@ import fadingBreak from '../img/fading_break.png';
 import logoImg from '../img/logo.png';
 
 function RegisterPage() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
-  const [inputPassword1, setInputPassword1] = useState('');
-  const [inputPassword2, setInputPassword2] = useState('');
+  const [inputPas1, setinputPas1] = useState('');
+  const [inputPas2, setinputPas2] = useState('');
+  const [role, setRole] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [passwordType1, setPasswordType1] = useState('password');
   const [passwordType2, setPasswordType2] = useState('password');
+  const navigate = useNavigate();
 
-  const similarPassword = async (inputPass1, inputPass2) => {
-    if (inputPass1 !== inputPass2) {
+  const goBack = () => {
+    navigate(-1);
+  };
+
+  const similarPassword = async (inputPas1, inputPas2) => {
+    if (inputPas1 !== inputPas2) {
       setErrorMessage('Unmatch Pass');
       return;
     }
@@ -29,21 +36,26 @@ function RegisterPage() {
   const nullUserData = async () => {
     setUsername('');
     setEmail('');
-    setInputPassword1('');
-    setInputPassword2('');
+    setinputPas1('');
+    setinputPas2('');
   };
 
   const handleRegister = async () => {
-    const pass1 = inputPassword1.replace(/\s/g, '').toLowerCase();
-    const pass2 = inputPassword2.replace(/\s/g, '').toLowerCase();
-    console.log(username, email, pass1, pass2);
-    similarPassword(pass1, pass2);
+    const pass1 = inputPas1.replace(/\s/g, '').toLowerCase();
+    const pass2 = inputPas2.replace(/\s/g, '').toLowerCase();
+    await similarPassword(pass1, pass2);
+    if (username === '' || inputPas1 === '' || inputPas2 === '' || email === '' || role === '') {
+      return;
+    }
     const userData = {
-      name: username, password1: pass1, password2: pass2, email,
+      user: {
+        name: username, password: inputPas1, password_confirmation: inputPas2, email, role,
+      },
     };
-    console.log(userData);
-    // dispatch(registerUser(userData));
-    nullUserData();
+
+    dispatch(registerUser(userData));
+    await nullUserData();
+    navigate('/login');
   };
 
   useEffect(() => {
@@ -63,9 +75,9 @@ function RegisterPage() {
 
       <header className="register_header">
         <nav>
-          <Link to="/">
+          <button className="back_none" type="button" onClick={goBack}>
             <img src={backImg} alt="" />
-          </Link>
+          </button>
         </nav>
       </header>
 
@@ -104,7 +116,7 @@ function RegisterPage() {
             <input className="input_name" type="email" value={email} placeholder="Email" aria-label="Input Email" onChange={(e) => setEmail(e.target.value)} required />
 
             <div className="password_box">
-              <input className="input_password" type={passwordType1} value={inputPassword1} placeholder="Password" aria-label="Input Password" onChange={(e) => setInputPassword1(e.target.value)} required />
+              <input className="input_password" type={passwordType1} value={inputPas1} placeholder="Password" aria-label="Input Password" onChange={(e) => setinputPas1(e.target.value)} required />
               {passwordType1 === 'password'
                 ? (
                   <figure className="eyebox">
@@ -123,7 +135,7 @@ function RegisterPage() {
             </div>
 
             <div className="password_box">
-              <input className="input_password" type={passwordType2} value={inputPassword2} placeholder="Re-enter Password" aria-label="Input Password" onChange={(e) => setInputPassword2(e.target.value)} required />
+              <input className="input_password" type={passwordType2} value={inputPas2} placeholder="Re-enter Password" aria-label="Input Password" onChange={(e) => setinputPas2(e.target.value)} required />
               {passwordType2 === 'password'
                 ? (
                   <figure className="eyebox">
@@ -140,6 +152,12 @@ function RegisterPage() {
                   </figure>
                 )}
             </div>
+
+            <select aria-label="Input Label" className="input_name" onChange={(e) => setRole(e.target.value)} id="specializationId">
+              {roleArr.map((role) => (
+                <option key={role.id} value={role.value} aria-label="Input Specialization">{role.name}</option>
+              ))}
+            </select>
 
           </fieldset>
 
