@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import store from '../../redux/store';
-import specializationArr from '../../components/specialization';
+import specializationArr from '../../components/speciliazation';
 import NewTherapistPage from '../../pages/NewTherapistPage';
 
 it('NewTherapistPage component renders correctly', () => {

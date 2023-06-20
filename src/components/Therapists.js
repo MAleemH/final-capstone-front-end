@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-undef */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -18,7 +20,7 @@ function Therapists(props) {
   // const { myTherapists } = props;
   // This component recieves prop from either home or delete and do their bidding
 
-redux-test
+  redux - test;
   const handleDeleteTherapist = async (e, objId) => {
     e.preventDefault();
     dispatch(deleteTherapist(objId));
@@ -28,7 +30,7 @@ redux-test
   //   return objId
   //  // dispatch(deleteTherapist(objId));
   // };
-dev
+  dev;
 
   return (
 

@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import store from '../../redux/store';
 import NewAppointment from '../../pages/NewAppointment';
-import specializationArr from '../../components/specialization';
+import specializationArr from '../../components/speciliazation';
 
 it('NewAppointment component renders correctly', () => {
   const myTherapists = store.getState().therapy.therapists;
