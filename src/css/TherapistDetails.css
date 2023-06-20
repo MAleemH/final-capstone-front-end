@@ -104,29 +104,22 @@
   .therapy_details_content article {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
-    /* gap: 20px; */
   }
 
-  .therapy_details_figure_box {
+.therapy_details_figure_box {
     width: 100%;
     margin: auto;
     text-align: center;
   }
-  
-  .therapist_info_box {
+
+.therapist_info_box {
     width: 100%;
     margin: auto;
   }
 
-  .therapist_info_contact_name {
+.therapist_info_contact_name {
     text-align: center;
-  }
-
-  /* .therapy_details_content img {
-    width: 500px;
-  } */
-}
+}}
 
 @media only screen and (max-width: 820px) {
   .therapy_details_nav {
@@ -138,11 +131,11 @@
     bottom: 0;
   }
 
-  .therapy_details_content {
+.therapy_details_content {
     padding: 15px 0;
     width: 75%;
     margin: auto;
-  }
+}
 }
 
 @media only screen and (max-width: 768px) {
@@ -156,7 +149,7 @@
     top: 0;
     bottom: 0;
     left: 0;
-  }
+}
 
   .therapy_details_content {
     padding: 15px 0;
