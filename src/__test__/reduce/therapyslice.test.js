@@ -1,19 +1,64 @@
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 import axios from 'axios';
-import store from '../../redux/store';
-import { fetchCoins } from '../../redux/Coin/coinSlice';
+import {
+  fetchTherapists,
+  fetchSingleTherapist,
+  postTherapist,
+  deleteTherapist,
+  uploadTherapist,
+} from '../../redux/Therapy/therapySlice';
 
-describe('Coin redux state tests', () => {
-  it('Should initially set Coin store to an empty Array', () => {
-    const state = store.getState().coin.coins;
-    expect(state).toEqual([]);
+jest.mock('axios');
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
+
+describe('therapySlice async actions', () => {
+  let store;
+
+  beforeEach(() => {
+    store = mockStore({});
   });
 
-  it('fetches coin data from API', async () => {
-    const url = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=24';
-    const axiosSpy = jest.spyOn(axios, 'get');
-    jest.setTimeout(90000);
-    const dispatchSpy = jest.fn();
-    await fetchCoins(url)(dispatchSpy);
-    expect(axiosSpy).toHaveBeenCalledWith(url);
+  afterEach(() => {
+    jest.clearAllMocks();
+    store.clearActions();
+  });
+
+  it('should dispatch the correct actions when fetching therapists is successful', async () => {
+    const fakeUserState = {
+      user: {
+        id: 123,
+        authentication_token: 'fakeToken',
+      },
+    };
+
+    const fakeResponse = {
+      data: [
+        { id: 1, name: 'Therapist 1' },
+        { id: 2, name: 'Therapist 2' },
+      ],
+    };
+
+    axios.mockResolvedValueOnce(fakeResponse);
+
+    await store.dispatch(fetchTherapists());
+
+    const expectedActions = [
+      { type: fetchTherapists.pending.type },
+      { type: fetchTherapists.fulfilled.type, payload: fakeResponse },
+    ];
+    console.log(store.getActions());
+    console.log(expectedActions);
+    expect(store.getActions().length).toBe(expectedActions.length);
+    // expect(axios).toHaveBeenCalledWith({
+    //   method: 'get',
+    //   url: 'http://localhost:3000/api/v1/users/123/therapists',
+    //   headers: {
+    //     Authorization: 'fakeToken',
+    //     'Content-Type': 'application/json',
+    //   },
+    // });
   });
 });
