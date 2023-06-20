@@ -18,10 +18,17 @@ function Therapists(props) {
   // const { myTherapists } = props;
   // This component recieves prop from either home or delete and do their bidding
 
+redux-test
   const handleDeleteTherapist = async (e, objId) => {
     e.preventDefault();
     dispatch(deleteTherapist(objId));
   };
+
+  // const handleDeleteTherapist = (objId) => {
+  //   return objId
+  //  // dispatch(deleteTherapist(objId));
+  // };
+dev
 
   return (
 
