@@ -130,7 +130,7 @@
   .therapy_details_nav {
     width: 30%;
     margin: auto;
-    min-height: 100vh;
+    height: 100vh;
     z-index: 5;
     position: absolute;
     position: fixed;
@@ -154,9 +154,9 @@
 @media only screen and (max-width: 425px) {
 
   .therapy_details_nav {
-    width: 55%;
+    width: 50%;
     margin: auto;
-    min-height: 100vh;
+    height: 100vh;
     z-index: 5;
     position: absolute;
     position: fixed;

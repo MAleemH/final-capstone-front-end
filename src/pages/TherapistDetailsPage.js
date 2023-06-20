@@ -6,8 +6,11 @@ import Navigation from '../components/Navigation';
 import '../css/TherapistDetails.css';
 import editImg from '../img/edit.png';
 import trashImg from '../img/trash.png';
+import { getLocalUser } from '../components/localStore';
 
 function TherapistDetailsPage() {
+  const myUse = getLocalUser() || [];
+  const myUser = myUse?.user;
   const dispatch = useDispatch();
   const mysingleTherapist = useSelector((state) => state.therapy.singleTherapist);
   const { id } = useParams();
@@ -91,7 +94,9 @@ function TherapistDetailsPage() {
               <div className="therapist_info_action">
                 <button aria-label="Book" type="button"><Link className="td_none" to="/book">Reserve</Link></button>
                 <button aria-label="Edit" type="button"><img src={editImg} alt="" /></button>
-                <button aria-label="Trash" type="button" onClick={(e) => handleDeleteTherapist(e, mysingleTherapist.id)}><img src={trashImg} alt="" /></button>
+                {myUser?.role === 'admin' && (
+                  <button aria-label="Trash button" type="button" onClick={(e) => handleDeleteTherapist(e, mysingleTherapist.id)}><img src={trashImg} alt="" /></button>
+                )}
               </div>
 
             </div>
