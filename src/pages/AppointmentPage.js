@@ -40,7 +40,7 @@ function AppointmentPage() {
               <article>
                 {/* Therapist to see */}
                 <figure className="therapy_figure">
-                  <img src={myReserve.therapist.photo} alt="" />
+                  <img src={myReserve?.therapist.photo || ''} alt="" />
                 </figure>
 
                 <h4>{myReserve.status}</h4>
@@ -48,7 +48,7 @@ function AppointmentPage() {
                 <p>{myReserve.date?.replace('T', ' ')}</p>
 
                 <div className="appointment_socials">
-                  <p>{myReserve.therapist.id}</p>
+                  <p>{myReserve?.therapist.specialization}</p>
                 </div>
               </article>
             </div>

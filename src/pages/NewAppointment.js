@@ -56,7 +56,7 @@ function NewAppointment() {
     };
     dispatch(postReserve(appointmentData));
     await nullReserveData();
-    dispatch(fetchReserves());
+    await dispatch(fetchReserves());
     setTimeout(() => {
       navigate('/appointments');
     }, 2000);

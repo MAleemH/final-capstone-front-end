@@ -4,12 +4,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { PropTypes } from 'prop-types';
+import { deleteTherapist, fetchTherapists } from '../redux/Therapy/therapySlice';
+import { fetchReserves } from '../redux/Reserve/reserveSlice';
 import '../css/Therapist.css';
 import facebookImg from '../img/facebook.png';
 import twitterImg from '../img/twitter.png';
 import linkedinImg from '../img/linkedin.png';
 import trashImg from '../img/trash.png';
-import { deleteTherapist, fetchTherapists } from '../redux/Therapy/therapySlice';
 import { getLocalUser } from './localStore';
 
 function Therapists(props) {
@@ -22,6 +23,7 @@ function Therapists(props) {
     e.preventDefault();
     await dispatch(deleteTherapist(objId));
     dispatch(fetchTherapists());
+    await dispatch(fetchReserves());
   };
 
   return (

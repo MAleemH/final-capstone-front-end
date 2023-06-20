@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteTherapist, fetchSingleTherapist, fetchTherapists } from '../redux/Therapy/therapySlice';
+import { fetchReserves } from '../redux/Reserve/reserveSlice';
 import Navigation from '../components/Navigation';
 import '../css/TherapistDetails.css';
 import editImg from '../img/edit.png';
@@ -21,6 +22,7 @@ function TherapistDetailsPage() {
     e.preventDefault();
     await dispatch(deleteTherapist(objId));
     dispatch(fetchTherapists());
+    await dispatch(fetchReserves());
     setTimeout(() => {
       navigate('/homepage');
     }, 2000);
@@ -29,14 +31,14 @@ function TherapistDetailsPage() {
   useEffect(() => {
     let active = true;
     (async () => {
-      if (active && !mysingleTherapist) {
-        dispatch(fetchSingleTherapist(id));
+      if (active) {
+        await dispatch(fetchSingleTherapist(id));
       }
     })();
     return () => {
       active = false;
     };
-  }, [dispatch, mysingleTherapist, id]);
+  }, [dispatch, id]);
 
   return (
     <main className="therapy_details_main">

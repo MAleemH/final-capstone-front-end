@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const usersURL = 'counseling-app.onrender.com/api/v1/users/';
+const usersURL = 'https://counseling-app.onrender.com/api/v1/users/';
 
 const getLocalUser = async () => JSON.parse(localStorage.getItem('therapy'));
 
@@ -23,7 +23,6 @@ export const registerUser = createAsyncThunk('user/registerUser', async (registe
       data: registerData,
     };
     const response = await axios(config);
-    console.log(response);
     return response;
   } catch (error) {
     return error;
@@ -41,7 +40,6 @@ export const loginUser = createAsyncThunk('user/loginUser', async (loginData) =>
       data: loginData,
     };
     const response = await axios(config);
-    console.log(response);
     return response;
   } catch (error) {
     return error;

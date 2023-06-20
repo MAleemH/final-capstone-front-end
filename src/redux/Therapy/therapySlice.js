@@ -2,7 +2,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const therapistURL = 'counseling-app.onrender.com/api/v1/users/';
+const therapistURL = 'https://counseling-app.onrender.com/api/v1/users/';
 const cloudinaryAPI = 'https://api.cloudinary.com/v1_1/drhbncewu/image/upload';
 
 const initialState = {
