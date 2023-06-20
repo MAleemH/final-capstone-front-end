@@ -17,21 +17,12 @@ function Therapists(props) {
   const myUser = myUse?.user;
   const { myTherapists } = props;
   const dispatch = useDispatch();
-  // const { myTherapists } = props;
-  // This component recieves prop from either home or delete and do their bidding
 
-  redux - test;
   const handleDeleteTherapist = async (e, objId) => {
     e.preventDefault();
     await dispatch(deleteTherapist(objId));
     dispatch(fetchTherapists());
   };
-
-  // const handleDeleteTherapist = (objId) => {
-  //   return objId
-  //  // dispatch(deleteTherapist(objId));
-  // };
-  dev;
 
   return (
 

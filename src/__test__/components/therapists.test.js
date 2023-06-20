@@ -6,11 +6,12 @@ import store from '../../redux/store';
 import Therapists from '../../components/Therapists';
 
 it('Therapist component renders correctly', () => {
+  const myTherapists = store.getState().therapy.therapists;
   const myUser = store.getState().user.user;
   const tree = renderer.create(
     <Provider store={store}>
       <MemoryRouter>
-        <Therapists myUser={myUser} />
+        <Therapists myUser={myUser} myTherapists={myTherapists} />
       </MemoryRouter>
     </Provider>,
   ).toJSON();
