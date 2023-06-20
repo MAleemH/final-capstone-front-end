@@ -14,6 +14,12 @@
   text-decoration: none;
 }
 
+.therapist_info_action img {
+  width: 20px;
+  object-fit: cover;
+  object-position: center;
+}
+
 .therapy_details_content .therapy_details_figure_box img {
   width: 500px;
   object-fit: cover;
@@ -86,14 +92,7 @@
   border: none;
 }
 
-.therapist_info_action img {
-  width: 20px;
-  object-fit: cover;
-  object-position: center;
-}
-
 @media only screen and (max-width: 1024px) {
-
   .therapy_details_content article {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -148,11 +147,9 @@
     left: 0;
     right: 0;
   }
-
 }
 
 @media only screen and (max-width: 425px) {
-
   .therapy_details_nav {
     width: 50%;
     margin: auto;
