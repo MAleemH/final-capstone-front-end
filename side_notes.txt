@@ -1,0 +1,299 @@
+6th June 2023
+prop-types    --------------------- Emeka
+npm i axios   --------------------- Emeka
+npm install @reduxjs/toolkit  --------------------- Emeka
+npm install react-redux  --------------------- Emeka
+npm i react-router-dom --------------------- Emeka
+npm install --save-dev react-test-renderer --------------------- Emeka
+npm install react-bootstrap bootstrap --------------------- Emeka
+npm install cloudinary --------------------- Emeka
+Babelrc Linters     --------------------- Emeka
+Eslint Linters       --------------------- Emeka
+Stylelintrc Linters    --------------------- Emeka
+6th June 2023
+
+
+
+
+
+Navigation same as microverse
+Hover efeect should start from the end
+Hover effect on individual card by size with animation
+Hover effect on individual link with animation
+Color of brand name should be same as brand color
+
+Specialization will be a drop down
+image will be a file
+
+Create a new appointment; form includes
+- Appointment date as time stamp,
+- therapists drop down and id
+
+
+
+  // const [cloudinaryImage, setCloudinaryImage] = useState('');
+  // const cloudinaryAPI = 'https://api.cloudinary.com/v1_1/drhbncewu/image/upload';
+  // const postDataAPI = 'http://your-database-api.com/upload';
+
+
+
+
+const timestamp = '2023-06-16T14:52';
+const formattedTimestamp = timestamp.replace('T', ' ');
+
+delete therapist button and book appointment button in therapist details page
+
+
+    // Axios.post( cloudinaryAPI, formData,  { params: { folder: 'your_folder_name' }} )
+    // .then((response) => {
+    //   console.log(response);
+    //   setCloudinaryImage(response.data.secure_url);
+    // })
+    // .catch((error) => {
+    //   console.log(error);
+    // });
+
+
+
+
+
+
+export const fetchUser = createAsyncThunk('user/fetchUser', async () => {
+  try {
+    const { data } = await (axios.get(getUserURL));
+    await removeLocalUser();
+    await setLocalUser(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+    Cloudinary.config do |config|
+  config.cloud_name = 'drhbncewu'
+  config.api_key = '262778235691582'
+  config.api_secret = 'vlLrLaqdd5ggUXJsnawfdOD6CvM'
+  config.secure = true  
+end
+
+Cloud folder name - therapy
+
+
+  const handleUpload = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('file', uploadFile);
+    formData.append('upload_preset', 'f00ugkxm');
+    const secureUrl = await dispatch(uploadTherapist(formData));
+    return secureUrl;
+    // try {
+    //   const response = await axios.post(cloudinaryAPI, formData, { params: { folder: 'therapy' } });
+    //   setCloudinaryImage(response.data.secure_url);
+    //   return response.data.secure_url;
+    // } catch (error) {
+    //   console.log(error);
+    // }
+  };
+
+
+
+
+  const handleSubmit = async () => {
+    cloudinaryImageUrl = await handleUpload();
+    const dataToSend = {
+      secureUrl: cloudinaryImageUrl,
+      name: therapistName,
+      address: therapistAddress,
+      // Add other form data fields as needed
+    };
+    const response = await dispatch(postTherapist(dataToSend));
+    console.log(response);
+    // Send the data to your database
+    // await axios.post(postDataAPI, dataToSend);
+    // console.log(cloudinaryImage);
+  };
+
+
+
+
+
+
+
+
+The thunkAPI parameter passed to the async thunk functions provides several useful utilities for handling async operations. Here's an overview of some common methods and properties available on the thunkAPI object:
+
+getState: A function that returns the current state of the Redux store. You can use it to access any data from the store that might be required during the async operation.
+
+dispatch: A function that can be used to dispatch additional actions from within the async thunk. It allows you to trigger other Redux actions before, during, or after the async operation.
+
+extra: An object containing extra options provided when creating the async thunk. You can access custom properties or configuration passed to the thunk using thunkAPI.extra.
+
+fulfillWithValue: A function that can be used within the catch block of the async operation to return a fulfilled action with a specific payload. It is typically used when the async operation encounters an error.
+
+rejectWithValue: A function that can be used within the catch block of the async operation to return a rejected action with a specific payload. It is typically used to handle errors and provide error data to the reducers.
+
+By using these utilities, you can perform additional actions, access the current state, and handle errors within the async thunks to customize the behavior based on your application's needs.
+
+
+
+
+
+
+
+
+
+
+
+// Nav
+// import React, { useState } from 'react';
+// import '../css/Navigation.css';
+// import { Link, NavLink } from 'react-router-dom';
+// import '../css/LoginPage.css';
+// import facebookImg from '../img/facebook.png';
+// import twitterImg from '../img/twitter.png';
+// import linkedinImg from '../img/linkedin.png';
+// import instagramImg from '../img/instagram.png';
+// import snapchatImg from '../img/snapchat.png';
+// import logoImg from '../img/logo.png';
+// import menuImg from '../img/menu.png';
+// import cancelImg from '../img/cancel.png';
+
+// Home
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+// import Navigation from '../components/Navigation';
+// import specializationArr from '../components/specialization';
+// import '../css/HomePage.css';
+// import therapistImg from '../img/therapist.jpg';
+// import facebookImg from '../img/facebook.png';
+// import twitterImg from '../img/twitter.png';
+// import linkedinImg from '../img/linkedin.png';
+
+
+
+
+
+
+
+
+
+
+ // const [inputName, setInputName] = useState('');
+  // const [inputSpecialty, setInputSpecialty] = useState('');
+  // let filteredTherapists = []
+
+  
+  // const user = { role: 'Admin' }
+  // if (user.role === 'Admin') {
+  //   filteredTherapists = myTherapists.filter(
+  //     (therapist) => therapist.name.toLowerCase().includes(inputName.toLowerCase()),
+  //   );
+  // } else {
+  //   filteredTherapists = myTherapists.filter(
+  //     (therapist) => therapist.specialization.toLowerCase().includes(inputSpecialty.toLowerCase()),
+  //   );
+  // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // const myTherapists = useSelector((state) => state.therapy.therapists);
+  // const dispatch = useDispatch();
+
+  // const user = { role: 'Admin' };
+  // if (user.role === 'Admin') {
+  //   filteredTherapists = myTherapists.filter(
+  //     (therapist) => therapist.name.toLowerCase().includes(inputName.toLowerCase()),
+  //   );
+  // } else {
+  //   filteredTherapists = myTherapists.filter(
+  //     (therapist) => therapist.specialization.toLowerCase().includes(inputSpecialty.toLowerCase()),
+  //   );
+  // }
+
+
+
+
+
+
+
+
+
+
+
+  .addCase(fetchUser.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    })
+      .addCase(fetchUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = '';
+        state.user = action.payload.user;
+      })
+      .addCase(fetchUser.rejected, (state) => {
+        state.loading = false;
+        state.error = '';
+      })
+
+
+
+
+
+
+
+
+
+
+
+    // const pass = inputPassword.replace(/\s/g, '').toLowerCase();
+    // console.log(email, inputPassword);
+
+
+
+
+
+
+        useEffect(() => {
+    let active = true;
+    (async () => {
+      if (active && myTherapists.length === 0) {
+
+        dispatch(fetchTherapists());
+      }
+    })();
+    return () => {
+      active = false;
+    };
+  }, [dispatch, myTherapists]);
