@@ -11,7 +11,7 @@ const AppointmentPage = () => {
   useEffect(() => {
     let active = true;
     (async () => {
-      if (active && myReserves.length === 0) {
+      if (active && myReserves) {
         dispatch(fetchReserves());
       }
     })();
