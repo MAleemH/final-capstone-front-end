@@ -18,7 +18,7 @@ const HomePage = () => {
   useEffect(() => {
     let active = true;
     (async () => {
-      if (active && myTherapists.length === 0) {
+      if (active && myTherapists) {
         dispatch(fetchTherapists());
       }
     })();

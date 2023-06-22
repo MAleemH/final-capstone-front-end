@@ -43,6 +43,7 @@ export const fetchSingleTherapist = createAsyncThunk('therapy/fetchSingleTherapi
       data: therapistID,
     };
     const response = await axios(config);
+    console.log(response);
     return response;
   } catch (error) {
     return error;
@@ -171,3 +172,7 @@ const therapySlice = createSlice({
 /* eslint-disable no-param-reassign */
 
 export default therapySlice.reducer;
+
+export const {
+  nullSingleTherapist,
+} = therapySlice.actions;
