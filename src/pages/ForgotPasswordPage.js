@@ -46,14 +46,14 @@ const ForgotPasswordPage = () => {
       },
     };
     const loginResp = await dispatch(forgotPassword(userData));
-    await nullUserData();
     if (loginResp.payload.status >= 200 && loginResp.payload.status < 300) {
       setTimeout(() => {
-        navigate('/homepage');
+        nullUserData();
+        navigate('/login');
       }, 1500);
     } else {
+      nullUserData();
       setErrorMessage('Incorrect Pass');
-      navigate('/forgot');
     }
   };
 

@@ -121,13 +121,8 @@ const userSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(forgotPassword.fulfilled, (state, action) => {
+      .addCase(forgotPassword.fulfilled, (state) => {
         state.loading = false;
-        removeLocalUser();
-        if (action.payload.status >= 200 && action.payload.status < 300) {
-          setLocalUser(action.payload.data);
-          state.user = (action.payload.data);
-        }
         state.error = '';
       })
       .addCase(forgotPassword.rejected, (state) => {
