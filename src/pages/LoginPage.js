@@ -31,11 +31,16 @@ const LoginPage = () => {
         email, password: inputPassword,
       },
     };
-    dispatch(loginUser(userData));
+    const loginResp = await dispatch(loginUser(userData));
     await nullUserData();
-    setTimeout(() => {
-      navigate('/homepage');
-    }, 4000);
+    if (loginResp.payload.status >= 200 && loginResp.payload.status < 300) {
+      setTimeout(() => {
+        navigate('/homepage');
+      }, 1500);
+    } else {
+      setErrorMessage('Incorrect Pass');
+      navigate('/login');
+    }
   };
 
   useEffect(() => {

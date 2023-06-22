@@ -107,8 +107,10 @@ const userSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action) => {
         state.loading = false;
         removeLocalUser();
-        setLocalUser(action.payload.data);
-        state.user = (action.payload.data);
+        if (action.payload.status >= 200 && action.payload.status < 300) {
+          setLocalUser(action.payload.data);
+          state.user = (action.payload.data);
+        }
         state.error = '';
       })
       .addCase(loginUser.rejected, (state) => {
@@ -122,8 +124,10 @@ const userSlice = createSlice({
       .addCase(forgotPassword.fulfilled, (state, action) => {
         state.loading = false;
         removeLocalUser();
-        setLocalUser(action.payload.data);
-        state.user = (action.payload.data);
+        if (action.payload.status >= 200 && action.payload.status < 300) {
+          setLocalUser(action.payload.data);
+          state.user = (action.payload.data);
+        }
         state.error = '';
       })
       .addCase(forgotPassword.rejected, (state) => {
