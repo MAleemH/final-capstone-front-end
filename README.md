@@ -13,6 +13,7 @@
 
 - [📖 About the Project](#about-project)
   - [:camera: project screenshot](#screen-shoot)
+   - [:camera: Kanban board](#screen-shoot)
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
@@ -30,8 +31,21 @@
 - [📝 License](#license) 
 
 # 📖 Final Capstone Front End <a name="about-project"></a>
+ > Implement React front end.
+<br/>
+## 🚀 kanban board <a name="live-demo"></a>
+<div > 
+ 
+  <br/>
+  
+<img src="./src/img/kanban.jpg" alt="coin_image"  >
+  <br/>
+</div> 
+  <br/>
 
-> Implement React front end.
+- [kanban board Link](https://github.com/users/MAleemH/projects/5) 
+
+- We are a team of five members.
 
 ## 🛠 Built With <a name="built-with"> </a>
 
@@ -52,7 +66,7 @@
 
 ## Final Capstone Back End <a name="final-capstone-back-end"></a>
 
-- [ FINAL CAPSTONE BACK END link](https://github.com/MAleemH/final-capstone-back-end/tree/dev) 
+- [ FINAL CAPSTONE BACK END link](https://github.com/MAleemH/final-capstone-back-end/) 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
