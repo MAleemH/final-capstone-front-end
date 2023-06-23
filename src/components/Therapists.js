@@ -35,7 +35,7 @@ const Therapists = (props) => {
           <Link to={`/therapistdetails/${therapist.id}`} className="td_none">
             <article>
               <figure className="therapy_figure">
-                <img src={therapist.photo} alt="" />
+                <img src={therapist?.photo} alt="" />
               </figure>
 
               <h4>{therapist.name}</h4>

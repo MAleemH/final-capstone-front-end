@@ -59,7 +59,7 @@ const TherapistDetailsPage = () => {
             <article key={mysingleTherapist.singleTherapist.id}>
 
               <div className="therapy_details_figure_box">
-                <img src={mysingleTherapist.singleTherapist.photo} alt="" />
+                <img src={mysingleTherapist.singleTherapist?.photo} alt="" />
               </div>
 
               <div className="therapist_info_box">

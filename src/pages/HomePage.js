@@ -37,7 +37,7 @@ const HomePage = () => {
         <header>
           <h1>Starred Therapists</h1>
 
-          <p className="hide1">Please select a therapist</p>
+          <p className="hide1">{myTherapists ? 'Please select a therapist' : ' No Therapist available'}</p>
 
           <div className="search_box">
             <fieldset className="fieldset_border_none">

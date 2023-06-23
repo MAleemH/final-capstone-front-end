@@ -59,7 +59,7 @@ const NewAppointment = () => {
     await dispatch(fetchReserves());
     setTimeout(() => {
       navigate('/appointments');
-    }, 2000);
+    }, 3000);
   };
 
   const handleTherapistChange = (e) => {

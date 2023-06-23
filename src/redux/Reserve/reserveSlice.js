@@ -129,7 +129,7 @@ const reserveSlice = createSlice({
       })
       .addCase(postReserve.fulfilled, (state, action) => {
         state.loading = false;
-        state.reserves.push(action.payload);
+        state.reserves?.push(action.payload);
         state.error = null;
       })
       .addCase(postReserve.rejected, (state) => {

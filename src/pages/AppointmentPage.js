@@ -30,7 +30,7 @@ const AppointmentPage = () => {
         <header>
           <h1>Appointments</h1>
 
-          <p className="hide1">View all appointments</p>
+          <p className="hide1">{myReserves ? ' View all appointments' : ' No Appointment'}</p>
 
         </header>
 
@@ -40,7 +40,7 @@ const AppointmentPage = () => {
               <article>
                 {/* Therapist to see */}
                 <figure className="therapy_figure">
-                  <img src={myReserve?.therapist.photo || ''} alt="" />
+                  <img src={myReserve.therapist?.photo || ''} alt="" />
                 </figure>
 
                 <h4>{myReserve.status}</h4>
