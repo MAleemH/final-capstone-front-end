@@ -171,3 +171,7 @@ const therapySlice = createSlice({
 /* eslint-disable no-param-reassign */
 
 export default therapySlice.reducer;
+
+export const {
+  nullSingleTherapist,
+} = therapySlice.actions;

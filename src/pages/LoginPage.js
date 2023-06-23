@@ -20,7 +20,7 @@ const LoginPage = () => {
     navigate(-1);
   };
 
-  const nullUserData = async () => {
+  const nullUserData = () => {
     setEmail('');
     setInputPassword('');
   };
@@ -31,11 +31,16 @@ const LoginPage = () => {
         email, password: inputPassword,
       },
     };
-    dispatch(loginUser(userData));
-    await nullUserData();
-    setTimeout(() => {
-      navigate('/homepage');
-    }, 4000);
+    const loginResp = await dispatch(loginUser(userData));
+    if (loginResp.payload.status >= 200 && loginResp.payload.status < 300) {
+      setTimeout(() => {
+        navigate('/homepage');
+        nullUserData();
+      }, 1500);
+    } else {
+      nullUserData();
+      setErrorMessage('Incorrect Pass');
+    }
   };
 
   useEffect(() => {
@@ -89,10 +94,10 @@ const LoginPage = () => {
 
         <form action="" className="login_form">
           <fieldset className="fieldset_border_none">
-            <input className="input_name" type="email" placeholder="Email" aria-label="Input Email" onChange={(e) => setEmail(e.target.value)} required />
+            <input className="input_name" type="email" value={email} placeholder="Email" aria-label="Input Email" onChange={(e) => setEmail(e.target.value)} required />
 
             <div className="password_box">
-              <input className="input_password" type={passwordType} placeholder="Password" aria-label="Input Password" onChange={(e) => setInputPassword(e.target.value)} required />
+              <input className="input_password" type={passwordType} value={inputPassword} placeholder="Password" aria-label="Input Password" onChange={(e) => setInputPassword(e.target.value)} required />
               {passwordType === 'password'
                 ? (
                   <figure className="eyebox">

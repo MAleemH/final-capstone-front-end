@@ -45,12 +45,16 @@ const ForgotPasswordPage = () => {
         password: inputPas1, password_confirmation: inputPas2, email,
       },
     };
-
-    dispatch(forgotPassword(userData));
-    await nullUserData();
-    setTimeout(() => {
-      navigate('/homepage');
-    }, 4000);
+    const loginResp = await dispatch(forgotPassword(userData));
+    if (loginResp.payload.status >= 200 && loginResp.payload.status < 300) {
+      setTimeout(() => {
+        nullUserData();
+        navigate('/login');
+      }, 1500);
+    } else {
+      nullUserData();
+      setErrorMessage('Incorrect Pass');
+    }
   };
 
   useEffect(() => {
