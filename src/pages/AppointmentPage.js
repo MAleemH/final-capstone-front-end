@@ -35,7 +35,7 @@ const AppointmentPage = () => {
         </header>
 
         <div className="home_grids">
-          {myReserves.map((myReserve) => (
+          {myReserves?.map((myReserve) => (
             <div className="home_grids_box" key={myReserve.id}>
               <article>
                 {/* Therapist to see */}
