@@ -43,7 +43,6 @@ export const fetchSingleTherapist = createAsyncThunk('therapy/fetchSingleTherapi
       data: therapistID,
     };
     const response = await axios(config);
-    console.log(response);
     return response;
   } catch (error) {
     return error;
